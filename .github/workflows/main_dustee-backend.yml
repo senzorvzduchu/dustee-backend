@@ -23,8 +23,8 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          npm install
-          npm start
+          sudo npm install
+          sudo npm start
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
