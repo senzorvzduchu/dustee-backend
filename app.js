@@ -20,7 +20,7 @@ app.get('/getSensorStatePm10', Routes.getSensorStatePm10);
 // endpoint for getting cordinates of all sensor's
 app.get('/getAllLocations', Routes.getAllLocations);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 80;
 app.listen(port, () => {
         console.log(`API server listening on port ${port}`);
 });
