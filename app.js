@@ -4,6 +4,8 @@ const Routes = require('./routes/routes');
 
 const app = express();
 
+app.use('media', express.static('public'));
+
 app.get('/', (req, res) => {
         res.send('Hello, World!');
 });

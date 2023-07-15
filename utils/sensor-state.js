@@ -1,72 +1,98 @@
+const path = require('path');
+
 module.exports = {
         // functions for getting sensor state of different measurements
         getTemperatureStat(temperature) {
                 const temp = parseFloat(temperature);
 
                 if (temp < 0) {
-                        return 'very cold';
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-4.svg');
                 } else if (temp >= 0 && temp < 10) {
-                        return 'cold';
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-3.svg');
                 } else if (temp >= 10 && temp < 20) {
-                        return 'warm';
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-2.svg');
                 } else {
-                        return 'very warm';
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-1.svg');
                 }
         },
         // 
-        getPressureStat(pressure) {
-                const temp = parseFloat(pressure);
+        getPressureStat(press) {
+                const pressure = parseFloat(press);
 
-                if (temp < 0) {
-                        return 'low pressure';
-                } else if (temp >= 0 && temp < 10) {
-                        return 'little biger pressure';
-                } else if (temp >= 10 && temp < 20) {
-                        return 'bigger pressure';
+                if (pressure < 0) {
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-4.svg');
+                } else if (pressure >= 0 && pressure < 10) {
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-3.svg');
+                } else if (pressure >= 10 && pressure < 20) {
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-2.svg');
                 } else {
-                        return 'real pressure';
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-1.svg');
                 }
         },
         //
-        getHumidityStat(humidity) {
-                const temp = parseFloat(humidity);
+        getHumidityStat(humid) {
+                const humidity = parseFloat(humid);
 
-                if (temp < 0) {
-                        return 'low';
-                } else if (temp >= 0 && temp < 10) {
-                        return 'bigger';
-                } else if (temp >= 10 && temp < 20) {
-                        return 'much bigger';
+                if (humidity < 0) {
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-4.svg');
+                } else if (humidity >= 0 && humidity < 10) {
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-3.svg');
+                } else if (humidity >= 10 && humidity < 20) {
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-2.svg');
                 } else {
-                        return 'much much bigger';
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-1.svg');
                 }
         },
         //
-        getPm2Stat(pm2) {
-                const temp = parseFloat(pm2);
+        getPm2Stat(pm25) {
+                const pm2 = parseFloat(pm25);
 
-                if (temp < 0) {
-                        return 'low';
-                } else if (temp >= 0 && temp < 10) {
-                        return 'litte bit bigger';
-                } else if (temp >= 10 && temp < 20) {
-                        return 'bigger';
+                if (pm2 >= 0 && pm2 < 12) {
+                        //good
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-1.svg');
+                } else if (pm2 >= 12.1 && pm2 < 35.4) {
+                        //moderate
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-2.svg');
+                } else if (pm2 >= 35.5 && pm2 < 55.4) {
+                        //unhealty for sensitive groups
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-š.svg');
+                } else if (pm2 >= 55.5 && pm2 < 150.4) {
+                        //unhealty
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-4.svg');
+                } else if (pm2 >= 150.5 && pm2 < 250.4) {
+                        //very unhealty
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-5.svg');
+                } else if (pm2 >= 250.5) {
+                        //hazardous
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-6.svg');
                 } else {
-                        return 'big';
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-4.svg');
                 }
         },
         //
-        getPm10Stat(pm10) {
-                const temp = parseFloat(pm10);
+        getPm10Stat(pm100) {
+                const pm10 = parseFloat(pm100);
 
-                if (temp < 0) {
-                        return 'low';
-                } else if (temp >= 0 && temp < 10) {
-                        return 'bigger';
-                } else if (temp >= 10 && temp < 20) {
-                        return 'much bigger';
+                if (pm10 >= 0 && pm10 < 12) {
+                        //good
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-1.svg');
+                } else if (pm10 >= 12.1 && pm10 < 35.4) {
+                        //moderate
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-2.svg');
+                } else if (pm10 >= 35.5 && pm10 < 55.4) {
+                        //unhealty for sensitive groups
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-š.svg');
+                } else if (pm10 >= 55.5 && pm10 < 150.4) {
+                        //unhealty
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-4.svg');
+                } else if (pm10 >= 150.5 && pm10 < 250.4) {
+                        //very unhealty
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-5.svg');
+                } else if (pm10 >= 250.5) {
+                        //hazardous
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-6.svg');
                 } else {
-                        return 'much much bigger';
+                return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-4.svg');
                 }
         }
 
