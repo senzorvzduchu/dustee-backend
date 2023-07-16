@@ -1,8 +1,15 @@
 const express = require('express');
-const geoip = require('geoip-lite');
+//const geoip = require('geoip-lite');
+const mongoose = require('mongoose');
 const Routes = require('./routes/routes');
+const routes = require('./routes/routes');
 
 const app = express();
+
+// connecting to database...
+mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true, useUnifiedTopology: true})
+        .then(() => console.log('Successfully connected to MongoDB.'))
+        .catch(error => console.error('Connection error', error));)
 
 app.use('media', express.static('public'));
 
@@ -18,6 +25,14 @@ app.get('/getSensorStatePressure', Routes.getSensorStatePressure);
 app.get('/getSensorStateHumidity', Routes.getSensorStateHumidity);
 app.get('/getSensorStatePm2', Routes.getSensorStatePm2);
 app.get('/getSensorStatePm10', Routes.getSensorStatePm10);
+
+// endpoint's for job's dealing with database
+app.get('/newUser', Routes.newUser);
+app.get('/findUser', Routes.findUser);
+app.get('/passUpdate', Routes.passUpdate);
+app.get('/deleteUser', Routes.deleteUser);
+app.get('/updateProperties', Routes.updateProperties);
+app.get('/addProperties', Routes.addProperties);
 
 // endpoint for getting cordinates of all sensor's
 app.get('/getAllLocations', Routes.getAllLocations);
