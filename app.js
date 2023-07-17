@@ -7,9 +7,9 @@ const routes = require('./routes/routes');
 const app = express();
 
 // connecting to database...
-mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect('mongodb://dustee-backend-server:LpJ7D5RHnva7far8atBeNklqDhI2GqH869cNRJVKWONI7kzujQJkOmZ4Smi74K2S9WMNcnACfBfQACDbXtr4PA==@dustee-backend-server.mongo.cosmos.azure.com:10255/dustee-backend-database?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@dustee-backend-server@')
         .then(() => console.log('Successfully connected to MongoDB.'))
-        .catch(error => console.error('Connection error', error));)
+        .catch(error => console.error('Connection error', error));
 
 app.use('media', express.static('public'));
 
