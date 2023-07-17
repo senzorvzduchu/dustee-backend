@@ -210,46 +210,70 @@ module.exports = {
         },
 
         //endpoint for saving create and save new user to db
-        async newUser(req, res) {
-                const user = new User(this.name, this.email, this.password);
-                user.save()
-                        .then(() => console.log('User saved'))
-                        .catch(err => console.log(err));
+        newUser: async (req, res) => {
+                const user = new User(req.body.name, req.body.email, req.body.password);
+                try {
+                        await user.save();
+                        res.status(200).send('User saved');
+                } catch (err) {
+                        res.status(500).send(err);
+                }
+        },
+        
+        findUser: async (req, res) => {
+                try {
+                        const user = await User.find(req.body.email);
+                        console.log(user);
+                        res.status(200).send(user);
+                } catch (err) {
+                        res.status(500).send(err);
+                }
+        },
+        
+        passUpdate: async (req, res) => {
+                try {
+                        await User.update(req.body.email, { password: req.body.password });
+                        res.status(200).send('User updated');
+                } catch (err) {
+                        res.status(500).send(err);
+                }
+        },
+        
+        deleteUser: async (req, res) => {
+                try {
+                        await User.delete(req.body.email);
+                        res.status(200).send('User deleted');
+                } catch (err) {
+                        res.status(500).send(err);
+                }
+        },
+        
+        updateProperties: async (req, res) => {
+                try {
+                        await User.updateProperties(req.body.email, req.body.address, req.body.favSensor);
+                        res.status(200).send('User properties updated');
+                } catch (err) {
+                        res.status(500).send(err);
+                }
+        },
+        
+        addProperties: async (req, res) => {
+                const user = new User(req.body.name, req.body.email, req.body.password);
+                try {
+                        await user.addProperties(req.body.address, req.body.favSensor);
+                        res.status(200).send('User and properties saved');
+                } catch (err) {
+                        res.status(500).send(err);
+                }
         },
 
-        //endpoint for finding user's
-        async findUser(req, res) {
-                User.find(this.email)
-                        .then(user => console.log(user))
-                        .catch(err => console.error(err));
+        // endpoint for user verification
+        verifyUser: async (req, res) => {
+                try {
+                        const user = await User.verifyUser(req.body.email, req.body.password);
+                        res.status(200).send(user);
+                } catch (err) {
+                        res.status(500).send(err);
+                }
         },
-
-        //endpoint for password update
-        async passUpdate(req, res) {
-                User.update(this.email, { password: this.password })
-                        .then(() => console.log('User updated'))
-                        .catch(err => console.error(err));
-        },
-
-        //endpoint for deleteting user's
-        async deleteUser(req, res) {
-                User.delete(this.email)
-                        .then(() => console.log('User deleted'))
-                        .catch(err => console.error(err));
-        },
-
-        //updating existing user
-        async updateProperties(req, res) {
-                User.updateProperties(this.email, this.address, this.sensor)
-                        .then(() => console.log('User properties updated'))
-                        .catch(err => console.error(err));
-        },
-
-        //adding properties for existing user
-        async addProperties(req, res) {
-                const user = new User(this.name, this.email, this.password);
-                user.addProperties(this.address, this.sensor)
-                        .then(() => console.log('User and properties saved'))
-                        .catch(err => console.error(err));
-        }
 };
