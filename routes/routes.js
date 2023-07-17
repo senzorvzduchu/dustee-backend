@@ -194,7 +194,7 @@ module.exports = {
         //endpoint for getting cordinates of all sensor's
         async getAllLocations(req, res) {
                 let allSensors = {};
-                fs.createReadStream('../cron-scraper/all-sensors.py.csv')
+                fs.createReadStream('all-sensors.py.csv')
                         .pipe(csv())
                         .on('data', (row) => {
                                 allSensors[row['Sensor ID']] = {
