@@ -10,7 +10,7 @@ const User = require('../db/user')
 module.exports = {
         // endpoint for getting the nearest sensor
         async getNearestSensor(req, res) {
-                const ip = req.ip;
+                const ip = '185.209.221.186';
                 console.log(ip);
       
                 if (!ip) {
