@@ -9,8 +9,7 @@ const SensorState = require('../utils/sensor-state')
 module.exports = {
         // endpoint for getting the nearest sensor
         async getNearestSensor(req, res) {
-                const ip = req.ip;
-                console.log(ip);
+                const ip = (req.headers['x-forwarded-for'] || '').split(',')[0] || req.connection.remoteAddress;
       
                 if (!ip) {
                         return res.status(400).json({ error: 'Missing IP address' });
@@ -32,7 +31,7 @@ module.exports = {
         
         // endpoint for getting sensor state for temperature
         async getSensorStateTemp(req, res, next) {
-                const ip = req.ip;
+                const ip = (req.headers['x-forwarded-for'] || '').split(',')[0] || req.connection.remoteAddress;
                 console.log(ip);
 
                 if (!ip) {
@@ -65,7 +64,7 @@ module.exports = {
 
         //endpoint for getting sensor state for pressure
         async getSensorStatePressure(req, res, next) {
-                const ip = req.ip;
+                const ip = (req.headers['x-forwarded-for'] || '').split(',')[0] || req.connection.remoteAddress;
                 console.log(ip);
 
                 if (!ip) {
@@ -97,7 +96,7 @@ module.exports = {
 
         //endpoint for getting sensor state for humidity
         async getSensorStateHumidity(req, res, next) {
-                const ip = req.ip;
+                const ip = (req.headers['x-forwarded-for'] || '').split(',')[0] || req.connection.remoteAddress;
                 console.log(ip);
 
                 if (!ip) {
@@ -129,7 +128,7 @@ module.exports = {
 
         //endpoint for getting sensor state for pm2.5
         async getSensorStatePm2(req, res, next) {
-                const ip = req.ip;
+                const ip = (req.headers['x-forwarded-for'] || '').split(',')[0] || req.connection.remoteAddress;
                 console.log(ip);
 
                 if (!ip) {
@@ -161,7 +160,7 @@ module.exports = {
 
         //endpoint for getting sensor state for pm10
         async getSensorStatePm10(req, res, next) {
-                const ip = req.ip;
+                const ip = (req.headers['x-forwarded-for'] || '').split(',')[0] || req.connection.remoteAddress;
                 console.log(ip);
 
                 if (!ip) {
