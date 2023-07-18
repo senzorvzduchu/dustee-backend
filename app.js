@@ -1,8 +1,11 @@
 const express = require('express');
 const geoip = require('geoip-lite');
 const Routes = require('./routes/routes');
+const cors = require('cors');
 
 const app = express();
+
+app.use(cors());
 
 app.use('media', express.static('public'));
 
@@ -22,7 +25,7 @@ app.get('/getSensorStatePm10', Routes.getSensorStatePm10);
 // endpoint for getting cordinates of all sensor's
 app.get('/getAllLocations', Routes.getAllLocations);
 
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
         console.log(`API server listening on port ${port}`);
 });
