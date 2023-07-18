@@ -128,7 +128,7 @@ module.exports = {
 
         //endpoint for getting sensor state for pm2.5
         async getSensorStatePm2(req, res, next) {
-                const ip = (req.headers['x-forwarded-for'] || '').split(',')[0] || req.connection.remoteAddress;
+                var clientIP = req.Headers["X-Forwarded-Client-Ip"];
                 console.log(ip);
 
                 if (!ip) {
