@@ -9,7 +9,7 @@ const SensorState = require('../utils/sensor-state')
 module.exports = {
         // endpoint for getting the nearest sensor
         async getNearestSensor(req, res) {
-                var ip = req.headers["x-forwarded-for"];
+                var ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim().split(':')[0];
                 console.log(ip);
 
                 if (!ip) {
@@ -32,7 +32,7 @@ module.exports = {
         
         // endpoint for getting sensor state for temperature
         async getSensorStateTemp(req, res, next) {
-                var ip = req.headers["x-forwarded-for"];
+                var ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim().split(':')[0];
                 console.log(ip);
 
                 if (!ip) {
@@ -65,7 +65,7 @@ module.exports = {
 
         //endpoint for getting sensor state for pressure
         async getSensorStatePressure(req, res, next) {
-                var ip = req.headers["x-forwarded-for"];
+                var ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim().split(':')[0];
                 console.log(ip);
 
                 if (!ip) {
@@ -97,7 +97,7 @@ module.exports = {
 
         //endpoint for getting sensor state for humidity
         async getSensorStateHumidity(req, res, next) {
-                var ip = req.headers["x-forwarded-for"];
+                var ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim().split(':')[0];
                 console.log(ip);
 
                 if (!ip) {
@@ -129,7 +129,7 @@ module.exports = {
 
         //endpoint for getting sensor state for pm2.5
         async getSensorStatePm2(req, res, next) {
-                var ip = req.headers["x-forwarded-for"];
+                var ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim().split(':')[0];
                 console.log(ip);
 
                 if (!ip) {
@@ -161,7 +161,7 @@ module.exports = {
 
         //endpoint for getting sensor state for pm10
         async getSensorStatePm10(req, res, next) {
-                var ip = req.headers["x-forwarded-for"];
+                var ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim().split(':')[0];
                 console.log(ip);
 
                 if (!ip) {
