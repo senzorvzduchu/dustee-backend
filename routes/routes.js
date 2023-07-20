@@ -10,9 +10,9 @@ const User = require('../db/user')
 module.exports = {
         // endpoint for getting the nearest sensor
         async getNearestSensor(req, res) {
-                const ip = '185.209.221.186';
+                var ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim().split(':')[0];
                 console.log(ip);
-      
+
                 if (!ip) {
                         return res.status(400).json({ error: 'Missing IP address' });
                 }
@@ -33,7 +33,7 @@ module.exports = {
         
         // endpoint for getting sensor state for temperature
         async getSensorStateTemp(req, res, next) {
-                const ip = req.ip;
+                var ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim().split(':')[0];
                 console.log(ip);
 
                 if (!ip) {
@@ -66,7 +66,7 @@ module.exports = {
 
         //endpoint for getting sensor state for pressure
         async getSensorStatePressure(req, res, next) {
-                const ip = req.ip;
+                var ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim().split(':')[0];
                 console.log(ip);
 
                 if (!ip) {
@@ -98,7 +98,7 @@ module.exports = {
 
         //endpoint for getting sensor state for humidity
         async getSensorStateHumidity(req, res, next) {
-                const ip = req.ip;
+                var ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim().split(':')[0];
                 console.log(ip);
 
                 if (!ip) {
@@ -130,7 +130,7 @@ module.exports = {
 
         //endpoint for getting sensor state for pm2.5
         async getSensorStatePm2(req, res, next) {
-                const ip = req.ip;
+                var ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim().split(':')[0];
                 console.log(ip);
 
                 if (!ip) {
@@ -162,7 +162,7 @@ module.exports = {
 
         //endpoint for getting sensor state for pm10
         async getSensorStatePm10(req, res, next) {
-                const ip = req.ip;
+                var ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim().split(':')[0];
                 console.log(ip);
 
                 if (!ip) {
@@ -191,7 +191,7 @@ module.exports = {
                         res.status(500).json({ error: 'Failed to fetch parserSensor data' });
                 }
         },
-    
+        
         //endpoint for getting cordinates of all sensor's
         async getAllLocations(req, res) {
                 let allSensors = {};
