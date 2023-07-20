@@ -9,7 +9,7 @@ const SensorState = require('../utils/sensor-state')
 module.exports = {
         // endpoint for getting the nearest sensor
         async getNearestSensor(req, res) {
-                var ip = (req.headers['x-forwarded-for'] || '').split(',')[0];
+                var ip = req.headers["x-forwarded-for"];
                 console.log(ip);
 
                 if (!ip) {
@@ -32,7 +32,7 @@ module.exports = {
         
         // endpoint for getting sensor state for temperature
         async getSensorStateTemp(req, res, next) {
-                var ip = req.Headers["X-Forwarded-Client-Ip"];
+                var ip = req.headers["x-forwarded-for"];
                 console.log(ip);
 
                 if (!ip) {
@@ -65,7 +65,7 @@ module.exports = {
 
         //endpoint for getting sensor state for pressure
         async getSensorStatePressure(req, res, next) {
-                var ip = req.Headers["X-Forwarded-Client-Ip"];
+                var ip = req.headers["x-forwarded-for"];
                 console.log(ip);
 
                 if (!ip) {
@@ -97,7 +97,7 @@ module.exports = {
 
         //endpoint for getting sensor state for humidity
         async getSensorStateHumidity(req, res, next) {
-                var ip = req.Headers["X-Forwarded-Client-Ip"];
+                var ip = req.headers["x-forwarded-for"];
                 console.log(ip);
 
                 if (!ip) {
@@ -129,7 +129,7 @@ module.exports = {
 
         //endpoint for getting sensor state for pm2.5
         async getSensorStatePm2(req, res, next) {
-                var ip = req.Headers["X-Forwarded-Client-Ip"];
+                var ip = req.headers["x-forwarded-for"];
                 console.log(ip);
 
                 if (!ip) {
@@ -161,7 +161,7 @@ module.exports = {
 
         //endpoint for getting sensor state for pm10
         async getSensorStatePm10(req, res, next) {
-                var ip = req.Headers["X-Forwarded-Client-Ip"];
+                var ip = req.headers["x-forwarded-for"];
                 console.log(ip);
 
                 if (!ip) {
@@ -194,7 +194,7 @@ module.exports = {
         //endpoint for getting cordinates of all sensor's
         async getAllLocations(req, res) {
                 let allSensors = {};
-                fs.createReadStream('all-sensors.py.csv')
+                fs.createReadStream('../cron-scraper/all-sensors.py.csv')
                         .pipe(csv())
                         .on('data', (row) => {
                                 allSensors[row['Sensor ID']] = {
