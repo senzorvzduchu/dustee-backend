@@ -9,7 +9,7 @@ const SensorState = require('../utils/sensor-state')
 module.exports = {
         // endpoint for getting the nearest sensor
         async getNearestSensor(req, res) {
-                var ip = req.Headers["X-Forwarded-Client-Ip"];
+                var ip = (req.headers['x-forwarded-for'] || '').split(',')[0];
                 console.log(ip);
 
                 if (!ip) {
