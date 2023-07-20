@@ -5,6 +5,7 @@ const fs = require('fs');
 const SensorService = require('../data-scrapers/sensor-community');
 const JsonParser = require('../data-scrapers/json-parser')
 const SensorState = require('../utils/sensor-state')
+const User = require('../db/user')
 
 module.exports = {
         // endpoint for getting the nearest sensor
@@ -190,7 +191,7 @@ module.exports = {
                         res.status(500).json({ error: 'Failed to fetch parserSensor data' });
                 }
         },
-    
+        
         //endpoint for getting cordinates of all sensor's
         async getAllLocations(req, res) {
                 let allSensors = {};
@@ -206,5 +207,73 @@ module.exports = {
                                 console.log('CSV file successfully processed');
                                 res.json(allSensors);
                         });
+        },
+
+        //endpoint for saving create and save new user to db
+        newUser: async (req, res) => {
+                const user = new User(req.body.name, req.body.email, req.body.password);
+                try {
+                        await user.save();
+                        res.status(200).send('User saved');
+                } catch (err) {
+                        res.status(500).send(err);
+                }
+        },
+        
+        findUser: async (req, res) => {
+                try {
+                        const user = await User.find(req.body.email);
+                        console.log(user);
+                        res.status(200).send(user);
+                } catch (err) {
+                        res.status(500).send(err);
+                }
+        },
+        
+        passUpdate: async (req, res) => {
+                try {
+                        await User.update(req.body.email, { password: req.body.password });
+                        res.status(200).send('User updated');
+                } catch (err) {
+                        res.status(500).send(err);
+                }
+        },
+        
+        deleteUser: async (req, res) => {
+                try {
+                        await User.delete(req.body.email);
+                        res.status(200).send('User deleted');
+                } catch (err) {
+                        res.status(500).send(err);
+                }
+        },
+        
+        updateProperties: async (req, res) => {
+                try {
+                        await User.updateProperties(req.body.email, req.body.address, req.body.favSensor);
+                        res.status(200).send('User properties updated');
+                } catch (err) {
+                        res.status(500).send(err);
+                }
+        },
+        
+        addProperties: async (req, res) => {
+                const user = new User(req.body.name, req.body.email, req.body.password);
+                try {
+                        await user.addProperties(req.body.address, req.body.favSensor);
+                        res.status(200).send('User and properties saved');
+                } catch (err) {
+                        res.status(500).send(err);
+                }
+        },
+
+        // endpoint for user verification
+        verifyUser: async (req, res) => {
+                try {
+                        const user = await User.verifyUser(req.body.email, req.body.password);
+                        res.status(200).send(user);
+                } catch (err) {
+                        res.status(500).send(err);
+                }
         },
 };
