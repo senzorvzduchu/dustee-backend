@@ -1,10 +1,9 @@
 const geoip = require('geoip-lite');
-const csv = require('csv-parser');
-const fs = require('fs');
 //const path = require('path');
 const SensorService = require('../data-scrapers/sensor-community');
 const JsonParser = require('../data-scrapers/json-parser')
 const SensorState = require('../utils/sensor-state')
+const parseCSVToJSON = require('../utils/csv-to-json'); // Import the function from csvParser.js
 const User = require('../db/user')
 
 module.exports = {
@@ -193,21 +192,15 @@ module.exports = {
         },
         
         //endpoint for getting cordinates of all sensor's
-        async getAllLocations(req, res) {
-                let allSensors = {};
-                fs.createReadStream('../cron-scraper/all-sensors.py.csv')
-                        .pipe(csv())
-                        .on('data', (row) => {
-                                allSensors[row['Sensor ID']] = {
-                                        latitude: row['Latitude'],
-                                        longitude: row['Longitude']
-                                };
-                        })
-                        .on('end', () => {
-                                console.log('CSV file successfully processed');
-                                res.json(allSensors);
-                        });
-        },
+        async  getAllLocations(req, res) {
+                try {
+                  const filePath = 'cron-scraper/all-sensors.csv'; // Update the path to your CSV file
+                  const locations = await parseCSVToJSON(filePath);
+                  res.json({ locations });
+                } catch (error) {
+                  res.status(500).json({ error: 'Error while parsing CSV file' });
+                }
+              },
 
         //endpoint for saving create and save new user to db
         newUser: async (req, res) => {

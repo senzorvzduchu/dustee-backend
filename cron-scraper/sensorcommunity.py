@@ -1,6 +1,6 @@
 import requests
 import csv
-
+import os
 
 def get_sensor_data(country_code):
     url = f'https://data.sensor.community/airrohr/v1/filter/country={country_code}'
@@ -79,9 +79,14 @@ def get_sensor_value(sensor, param):
     return f"Sensor ID: {sensor_id}, Invalid parameter"
 
 
-def save_data_as_csv(sensor_data):
-    filename = input("Enter the filename to save the CSV data: ")
-    filename += ".csv"
+def save_data_as_csv(sensor_data, filename):
+    if not filename.endswith(".csv"):
+        filename += ".csv"
+
+    if not os.path.exists(filename):
+        print(f"Error: The file {filename} does not exist.")
+        return
+
     with open(filename, "w", newline="") as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(["Sensor ID", "Latitude", "Longitude"])
@@ -90,7 +95,7 @@ def save_data_as_csv(sensor_data):
             latitude = sensor['location'].get('latitude', 'N/A')
             longitude = sensor['location'].get('longitude', 'N/A')
             writer.writerow([sensor_id, latitude, longitude])
-    print(f"The data has been saved as {filename}")
+    print(f"The data has been updated in {filename}")
 
 
 if __name__ == '__main__':
@@ -100,7 +105,5 @@ if __name__ == '__main__':
     if sensor_data:
         print_sensor_data(sensor_data, "place")
 
-        save_as_csv = input(
-            "Do you want to save the data as a CSV file? (yes/no): ")
-        if save_as_csv.lower() == "yes":
-            save_data_as_csv(sensor_data)
+        existing_filename = "all-sensors.csv"  # Replace with your actual file name
+        save_data_as_csv(sensor_data, existing_filename)
