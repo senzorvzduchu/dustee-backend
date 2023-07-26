@@ -54,9 +54,9 @@ class User {
                 return result;
         }
 
-        static async updateProperties(email, address, favSensor) {
+        static async updateProperties(email, address, favSensor, group) {
                 await client.connect();
-                const result = await client.db("test").collection("users").updateOne({ email }, { $set: { properties: { address, favSensor } } });
+                const result = await client.db("test").collection("users").updateOne({ email }, { $set: { properties: { address, favSensor, group } } });
                 await client.close();
                 return result;
         }

@@ -1,4 +1,5 @@
 const geoip = require('geoip-lite');
+const jwt = require('jsonwebtoken');
 //const path = require('path');
 const SensorService = require('../data-scrapers/sensor-community');
 const JsonParser = require('../data-scrapers/json-parser')
@@ -192,7 +193,7 @@ module.exports = {
         },
         
         //endpoint for getting cordinates of all sensor's
-        async  getAllLocations(req, res) {
+        async getAllLocations(req, res) {
                 try {
                   const filePath = 'cron-scraper/all-sensors.csv'; // Update the path to your CSV file
                   const locations = await parseCSVToJSON(filePath);
@@ -207,7 +208,11 @@ module.exports = {
                 const user = new User(req.body.name, req.body.email, req.body.password);
                 try {
                         await user.save();
-                        res.status(200).send('User saved');
+
+                        // vytvoření JWT po úspěšném uložení uživatele
+                        const token = jwt.sign({ userID: user.id }, 'secretKey', { expiresIn: '1h' });
+                        
+                        res.status(200).json({ message: "User saved", token: token });
                 } catch (err) {
                         res.status(500).send(err);
                 }
@@ -225,8 +230,23 @@ module.exports = {
         
         passUpdate: async (req, res) => {
                 try {
-                        await User.update(req.body.email, { password: req.body.password });
-                        res.status(200).send('User updated');
+                        const token = req.headers.authorization;
+                        if(!token) {
+                                return res.status(403).send('No token provided');
+                        }
+
+                        jwt.verify(token, 'secretKey', async function(err, decoded) {
+                                if (err) {
+                                        return res.status(401).send('Invalid token');
+                                } else {
+                                        try {
+                                                await User.update(req.body.email, { password: req.body.password });
+                                                res.status(200).send('User updated');
+                                        } catch (err) {
+                                                res.status(500).send(err);
+                                        }
+                                }
+                        });
                 } catch (err) {
                         res.status(500).send(err);
                 }
@@ -234,8 +254,23 @@ module.exports = {
         
         deleteUser: async (req, res) => {
                 try {
-                        await User.delete(req.body.email);
-                        res.status(200).send('User deleted');
+                        const token = req.headers.authorization;
+                        if(!token) {
+                                return res.status(403).send('No token provided');
+                        }
+
+                        jwt.verify(token, 'secretKey', async function(err, decoded) {
+                                if (err) {
+                                        return res.status(401).send('Invalid token');
+                                } else {
+                                        try {
+                                                await User.delete(req.body.email);
+                                                res.status(200).send('User deleted');
+                                        } catch (err) {
+                                                res.status(500).send(err);
+                                        }
+                                }
+                        });
                 } catch (err) {
                         res.status(500).send(err);
                 }
@@ -243,8 +278,23 @@ module.exports = {
         
         updateProperties: async (req, res) => {
                 try {
-                        await User.updateProperties(req.body.email, req.body.address, req.body.favSensor);
-                        res.status(200).send('User properties updated');
+                        const token = req.headers.authorization;
+                        if(!token) {
+                                return res.status(403).send('No token provided');
+                        }
+
+                        jwt.verify(token, 'secretKey', async function(err, decoded) {
+                                if (err) {
+                                        return res.status(401).send('Invalid token');
+                                } else {
+                                        try {
+                                                await User.updateProperties(req.body.email, req.body.address, req.body.favSensor, req.body.group);
+                                                res.status(200).send('User properties updated');
+                                        } catch (err) {
+                                                res.status(500).send(err);
+                                        }
+                                }
+                        });
                 } catch (err) {
                         res.status(500).send(err);
                 }
@@ -254,7 +304,11 @@ module.exports = {
                 const user = new User(req.body.name, req.body.email, req.body.password);
                 try {
                         await user.addProperties(req.body.address, req.body.favSensor);
-                        res.status(200).send('User and properties saved');
+
+                        //vytvoření tokenu
+                        const token = jwt.sign({ userID: user.id }, 'secretKey', { expiresIn: '1h' });
+                        
+                        res.status(200).json({ message: 'User and properties saved', token: token });
                 } catch (err) {
                         res.status(500).send(err);
                 }
@@ -264,7 +318,12 @@ module.exports = {
         verifyUser: async (req, res) => {
                 try {
                         const user = await User.verifyUser(req.body.email, req.body.password);
-                        res.status(200).send(user);
+
+                        //vytvoření tokenu
+                        const token = jwt.sign({ userID: user.id }, 'secretKey', { expiresIn: '1h' });
+
+
+                        res.status(200).json({ login: "success", token: token });
                 } catch (err) {
                         res.status(500).send(err);
                 }
