@@ -1,6 +1,6 @@
 # Data scraper
 
-## Stažení dat o všech senzorech v specifikované zemi
+## Stažení dat o všech senzorech ve specifikované zemi
 
 ```
 python sensorcommunity.py

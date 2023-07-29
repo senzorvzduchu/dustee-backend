@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const SensorService = require('../data-scrapers/sensor-community');
 const JsonParser = require('../data-scrapers/json-parser')
 const SensorState = require('../utils/sensor-state')
-const parseCSVToJSON = require('../utils/csv-to-json'); // Import the function from csvParser.js
+const parseCSVToJSON = require('../utils/csv-to-json').default; // Import the function from csvParser.js
 const User = require('../db/user')
 
 module.exports = {
