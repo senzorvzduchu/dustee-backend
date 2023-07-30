@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const SensorService = require('../data-scrapers/sensor-community');
 const JsonParser = require('../data-scrapers/json-parser')
 const SensorState = require('../utils/sensor-state')
-const parseCSVToJSON = require('../utils/csv-to-json').default; // Import the function from csvParser.js
+const parseCSVToJSON = require('../utils/csv-to-json'); // Import the function from csvParser.js
 const User = require('../db/user')
 
 module.exports = {
@@ -195,13 +195,13 @@ module.exports = {
         //endpoint for getting cordinates of all sensor's
         async getAllLocations(req, res) {
                 try {
-                  const filePath = 'cron-scraper/all-sensors.csv'; // Update the path to your CSV file
-                  const locations = await parseCSVToJSON(filePath);
-                  res.json({ locations });
+                        const filePath = 'cron-scraper/all-sensors.csv'; // Update the path to your CSV file
+                        const locations = await parseCSVToJSON(filePath);
+                        res.json({ locations });
                 } catch (error) {
-                  res.status(500).json({ error: 'Error while parsing CSV file' });
+                        res.status(500).json({ error: 'Error while parsing CSV file' });
                 }
-              },
+        },
 
         //endpoint for saving create and save new user to db
         newUser: async (req, res) => {
