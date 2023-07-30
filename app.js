@@ -25,16 +25,20 @@ app.get('/getSensorStatePm2', Routes.getSensorStatePm2);
 app.get('/getSensorStatePm10', Routes.getSensorStatePm10);
 
 // endpoint's for job's dealing with database
-app.post('/newUser', Routes.newUser);
-app.get('/findUser', Routes.findUser);
-app.patch('/passUpdate', Routes.passUpdate);
+app.post('/createNewUser', Routes.newUser);
+app.get('/getUserInformation', Routes.findUser);
+app.patch('/resetUserPassword', Routes.passUpdate);
 app.delete('/deleteUser', Routes.deleteUser);
-app.patch('/updateProperties', Routes.updateProperties);
+app.patch('/updateUserProperties', Routes.updateProperties);
 //app.post('/addProperties', Routes.addProperties);
-app.post('/verifyUser', Routes.verifyUser);
+app.post('/loginUser', Routes.verifyUser);
+app.get('/verifyToken', Routes.verifyToken);
 
 // endpoint for getting cordinates of all sensor's
 app.get('/getAllLocations', Routes.getAllLocations);
+
+// endpoint to search for sensors in the neighborhood
+app.post('/getNeighborhoodSensor', Routes.findSensor)
 
 const port = process.env.PORT || 80;
 app.listen(port, () => {

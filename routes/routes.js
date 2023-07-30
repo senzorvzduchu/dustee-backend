@@ -6,6 +6,7 @@ const JsonParser = require('../data-scrapers/json-parser')
 const SensorState = require('../utils/sensor-state')
 const parseCSVToJSON = require('../utils/csv-to-json'); // Import the function from csvParser.js
 const User = require('../db/user')
+const Geocode = require('../utils/geocode')
 
 module.exports = {
         // endpoint for getting the nearest sensor
@@ -225,7 +226,7 @@ module.exports = {
                         await user.save();
                 
                         // vytvoření JWT po úspěšném uložení uživatele
-                        const token = jwt.sign({ userID: user.id }, 'secretKey', { expiresIn: '1h' });
+                        const token = jwt.sign({ userID: user.id }, 'panacek', { expiresIn: '24h' });
                         
                         res.status(200).json({ message: "User saved", token: token });
                 } catch (err) {
@@ -241,7 +242,7 @@ module.exports = {
                                 return res.status(403).send('No token provided');
                         }
 
-                        jwt.verify(token, 'secretKey', async function(err, decoded) {
+                        jwt.verify(token, 'panacek', async function(err, decoded) {
                                 if (err) {
                                         return res.status(401).send('Invalid token');
                                 } else {
@@ -267,7 +268,7 @@ module.exports = {
                                 return res.status(403).send('No token provided');
                         }
 
-                        jwt.verify(token, 'secretKey', async function(err, decoded) {
+                        jwt.verify(token, 'panacek', async function(err, decoded) {
                                 if (err) {
                                         return res.status(401).send('Invalid token');
                                 } else {
@@ -291,7 +292,7 @@ module.exports = {
                                 return res.status(403).send('No token provided');
                         }
 
-                        jwt.verify(token, 'secretKey', async function(err, decoded) {
+                        jwt.verify(token, 'panacek', async function(err, decoded) {
                                 if (err) {
                                         return res.status(401).send('Invalid token');
                                 } else {
@@ -315,7 +316,7 @@ module.exports = {
                                 return res.status(403).send('No token provided');
                         }
 
-                        jwt.verify(token, 'secretKey', async function(err, decoded) {
+                        jwt.verify(token, 'panacek', async function(err, decoded) {
                                 if (err) {
                                         return res.status(401).send('Invalid token');
                                 } else {
@@ -338,7 +339,7 @@ module.exports = {
                         await user.addProperties(req.body.address, req.body.favSensor, req.body.group);
 
                         //vytvoření tokenu
-                        const token = jwt.sign({ userID: user.id }, 'secretKey', { expiresIn: '1h' });
+                        const token = jwt.sign({ userID: user.id }, 'panacek', { expiresIn: '1h' });
                         
                         res.status(200).json({ message: 'User and properties saved', token: token });
                 } catch (err) {
@@ -352,7 +353,7 @@ module.exports = {
                         const user = await User.verifyUser(req.body.email, req.body.password);
 
                         //vytvoření tokenu
-                        const token = jwt.sign({ userID: user.id }, 'secretKey', { expiresIn: '1h' });
+                        const token = jwt.sign({ userID: user.id }, 'panacek', { expiresIn: '24h' });
 
 
                         res.status(200).json({ login: "success", token: token });
@@ -360,4 +361,42 @@ module.exports = {
                         res.status(500).send(err);
                 }
         },
+
+        //endpoint for token verification
+        verifyToken: async (req, res) => {
+                const token = req.headers.authorization;
+            
+                if (!token) {
+                        return res.status(403).json({ message: 'No token provided.' });
+                }
+            
+                jwt.verify(token, 'panacek', function(err, decoded) {
+                        if (err) {
+                                return res.status(401).json({ message: 'Invalid token or token expired.' });
+                        } 
+                
+                        // Pokud není chyba, token je platný. Ověříme, že uživatel stále existuje.
+                        User.find(decoded.userID).then(user => {
+                                if (!user) {
+                                        return res.status(404).json({ message: 'User not found.' });
+                                }
+                                
+                                return res.status(200).json({ message: 'Token is valid and user exists.' });
+                        }).catch(err => {
+                                return res.status(500).send(err);
+                        });
+                });
+        },
+
+        // endpoint for sensor geocoding
+        findSensor: async(req, res) => {
+                try {
+                        console.log(req.body.address);
+                        const locationInfo = await Geocode.geocode(req.body.address);
+                        console.log(locationInfo)
+                        res.status(200).json(locationInfo);
+                } catch (err) {
+                        res.status(500).send(err);
+                }
+        }
 };
