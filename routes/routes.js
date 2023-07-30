@@ -205,10 +205,25 @@ module.exports = {
 
         //endpoint for saving create and save new user to db
         newUser: async (req, res) => {
-                const user = new User(req.body.name, req.body.email, req.body.password);
+                const { name, email, password, address, favSensor, group } = req.body;
+            
+                // Kontrola povinných parametrů
+                if (!name || !email || !password) {
+                        return res.status(400).send('Name, email and password are required.');
+                }
+            
+                const user = new User(
+                        name, 
+                        email, 
+                        password, 
+                        address || '',
+                        favSensor || '',
+                        group || ''
+                );
+            
                 try {
                         await user.save();
-
+                
                         // vytvoření JWT po úspěšném uložení uživatele
                         const token = jwt.sign({ userID: user.id }, 'secretKey', { expiresIn: '1h' });
                         
@@ -217,12 +232,29 @@ module.exports = {
                         res.status(500).send(err);
                 }
         },
+            
         
         findUser: async (req, res) => {
                 try {
-                        const user = await User.find(req.body.email);
-                        console.log(user);
-                        res.status(200).send(user);
+                        const token = req.headers.authorization;
+                        if(!token) {
+                                return res.status(403).send('No token provided');
+                        }
+
+                        jwt.verify(token, 'secretKey', async function(err, decoded) {
+                                if (err) {
+                                        return res.status(401).send('Invalid token');
+                                } else {
+                                        try {
+                                                const user = await User.find(req.body.email);
+                                                console.log(user);
+                                                res.status(200).send(user);
+                                        } catch (err) {
+                                                res.status(500).send(err);
+                                        }
+                                }
+                        });
+
                 } catch (err) {
                         res.status(500).send(err);
                 }
@@ -300,10 +332,10 @@ module.exports = {
                 }
         },
         
-        addProperties: async (req, res) => {
+        /*addProperties: async (req, res) => {
                 const user = new User(req.body.name, req.body.email, req.body.password);
                 try {
-                        await user.addProperties(req.body.address, req.body.favSensor);
+                        await user.addProperties(req.body.address, req.body.favSensor, req.body.group);
 
                         //vytvoření tokenu
                         const token = jwt.sign({ userID: user.id }, 'secretKey', { expiresIn: '1h' });
@@ -312,7 +344,7 @@ module.exports = {
                 } catch (err) {
                         res.status(500).send(err);
                 }
-        },
+        },*/
 
         // endpoint for user verification
         verifyUser: async (req, res) => {

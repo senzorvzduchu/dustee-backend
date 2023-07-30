@@ -30,7 +30,7 @@ app.get('/findUser', Routes.findUser);
 app.patch('/passUpdate', Routes.passUpdate);
 app.delete('/deleteUser', Routes.deleteUser);
 app.patch('/updateProperties', Routes.updateProperties);
-app.post('/addProperties', Routes.addProperties);
+//app.post('/addProperties', Routes.addProperties);
 app.post('/verifyUser', Routes.verifyUser);
 
 // endpoint for getting cordinates of all sensor's

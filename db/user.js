@@ -6,22 +6,32 @@ const uri = 'mongodb+srv://dustee:ORevzWM5MaIyJOHM@dustee01.g9qq6lx.mongodb.net/
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 class User {
-        constructor(name, email, password) {
+        constructor(name, email, password, address, favSensor, group) {
                 this.name = name;
                 this.email = email;
                 this.password = password;
-        } 
+                this.address = address || null;
+                this.favSensor = favSensor || null;
+                this.group = group || null;
+        }
 
         async save() {
                 const hashedPassword = await bcrypt.hash(this.password, SALT_ROUNDS);
                 this.password = hashedPassword;
-                const user = { name: this.name, email: this.email, password: this.password };
+                const user = {
+                        name: this.name, 
+                        email: this.email, 
+                        password: this.password, 
+                        address: this.address, 
+                        favSensor: this.favSensor, 
+                        group: this.group
+                };
                 
                 await client.connect();
                 const result = await client.db("test").collection("users").insertOne(user);
                 await client.close();
                 return result;
-        }
+            }
 
         async addProperties(address, favSensor) {
                 this.properties = { address, favSensor };
@@ -35,10 +45,11 @@ class User {
 
         static async find(email) {
                 await client.connect();
-                const result = await client.db("test").collection("users").findOne({ email });
+                const result = await client.db("test").collection("users").findOne({ email }, { projection: { password: 0 } });
                 await client.close();
                 return result;
         }
+            
 
         static async update(email, updates) {
                 await client.connect();
