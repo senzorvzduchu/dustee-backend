@@ -1,109 +1,130 @@
 import requests
-import csv
 import os
+import csv
+from geopy.geocoders import Nominatim
 
-def get_sensor_data(country_code):
+def get_sensor_data(country_code, limit=None):
+    print("Fetching sensor data...")
     url = f'https://data.sensor.community/airrohr/v1/filter/country={country_code}'
-    response = requests.get(url)
+    headers = {'User-Agent': 'geoapiExercises'}  # TODO Replace 'geoapiExercises' with our custom user agent
+    response = requests.get(url, headers=headers)
 
     if response.status_code == 200:
         data = response.json()
-        return data
+        print("Sensor data fetched successfully!")
+        return data[:limit] if limit else data
     else:
         print(f"Error: {response.status_code}")
         return None
 
+def get_district_name(latitude, longitude):
+    print("Retrieving district name...")
+    geolocator = Nominatim(user_agent="geoapiExercises")
+    location = geolocator.reverse((latitude, longitude), exactly_one=True)
+    if location:
+        address = location.raw.get('address', {})
+        district = address.get('county') or address.get('city_district') or address.get('suburb')
+        print("District name retrieved!")
+        return district
+    print("No district name found.")
+    return None
 
-def print_sensor_data(data, param):
-    for sensor in data:
-        print(get_sensor_value(sensor, param))
+def process_sensor_data(sensor_data):
+    district_data = {}
 
+    total_sensors = len(sensor_data)
+    for i, sensor in enumerate(sensor_data, 1):
+        latitude = sensor.get('location', {}).get('latitude', None)
+        longitude = sensor.get('location', {}).get('longitude', None)
+        sensor_id = sensor.get('sensor', {}).get('id', None)
 
-def get_sensor_value(sensor, param):
-    sensor_id = sensor['id']
+        # Initialize the variables to None
+        pressure = None
+        temperature = None
+        humidity = None
+        pm25 = None
+        pm10 = None
 
-    if param == 'temperature':
-        if any(sensor['value_type'] == 'temperature' for sensor in sensor['sensordatavalues']):
-            return f"Sensor ID: {sensor_id}, Temperature: {next(sensor['value'] for sensor in sensor['sensordatavalues'] if sensor['value_type'] == 'temperature')}"
-        else:
-            return f"Sensor ID: {sensor_id}, Sensor doesn't have a temperature sensor"
+        # Loop through the 'sensordatavalues' list and extract the values you need
+        for sensordata in sensor.get('sensordatavalues', []):
+            value_type = sensordata.get('value_type')
+            value = sensordata.get('value')
+            if value_type == 'pressure':
+                pressure = float(value) if value is not None else None
+            elif value_type == 'temperature':
+                temperature = float(value) if value is not None else None
+            elif value_type == 'humidity':
+                humidity = float(value) if value is not None else None
+            elif value_type == 'P2':
+                pm25 = float(value) if value is not None else None
+            elif value_type == 'P1':
+                pm10 = float(value) if value is not None else None
 
-    if param == 'pressure':
-        if any(sensor['value_type'] == 'pressure' for sensor in sensor['sensordatavalues']):
-            return f"Sensor ID: {sensor_id}, Pressure: {next(sensor['value'] for sensor in sensor['sensordatavalues'] if sensor['value_type'] == 'pressure')}"
-        else:
-            return f"Sensor ID: {sensor_id}, Sensor doesn't have a pressure sensor"
+        if latitude is not None and longitude is not None and sensor_id is not None:
+            district_name = get_district_name(latitude, longitude)
+            if district_name:
+                if district_name not in district_data:
+                    district_data[district_name] = {
+                        'Temperature': [],
+                        'Pressure': [],
+                        'Humidity': [],
+                        'PM2.5': [],
+                        'PM10': []
+                    }
+                if temperature is not None:
+                    district_data[district_name]['Temperature'].append(temperature)
+                if pressure is not None:
+                    district_data[district_name]['Pressure'].append(pressure)
+                if humidity is not None:
+                    district_data[district_name]['Humidity'].append(humidity)
+                if pm25 is not None:
+                    district_data[district_name]['PM2.5'].append(pm25)
+                if pm10 is not None:
+                    district_data[district_name]['PM10'].append(pm10)
 
-    if param == 'humidity':
-        if any(sensor['value_type'] == 'humidity' for sensor in sensor['sensordatavalues']):
-            return f"Sensor ID: {sensor_id}, Humidity: {next(sensor['value'] for sensor in sensor['sensordatavalues'] if sensor['value_type'] == 'humidity')}"
-        else:
-            return f"Sensor ID: {sensor_id}, Sensor doesn't have a humidity sensor"
+        print(f"Processed sensor {i}/{total_sensors}")
 
-    if param == 'altitude':
-        if 'altitude' in sensor['location']:
-            return f"Sensor ID: {sensor_id}, Altitude: {sensor['location']['altitude']}"
-        else:
-            return f"Sensor ID: {sensor_id}, Sensor doesn't have an altitude value"
+    return district_data
 
-    if param == 'place':
-        if 'latitude' in sensor['location'] and 'longitude' in sensor['location']:
-            return f"Sensor ID: {sensor_id}, Latitude: {sensor['location']['latitude']}, Longitude: {sensor['location']['longitude']}"
-        else:
-            return f"Sensor ID: {sensor_id}, Sensor doesn't have location coordinates"
+def write_to_csv(file_name, headers, rows):
+    # Check if the file exists, and if yes, delete its contents
+    if os.path.exists(file_name):
+        with open(file_name, 'w', newline='') as file:
+            pass
 
-    if param == 'country':
-        if 'country' in sensor['location']:
-            return f"Sensor ID: {sensor_id}, Country: {sensor['location']['country']}"
-        else:
-            return f"Sensor ID: {sensor_id}, Sensor doesn't have a country value"
-
-    if param == 'manufacturer':
-        if 'manufacturer' in sensor['sensor']['sensor_type'] and 'name' in sensor['sensor']['sensor_type']:
-            return f"Sensor ID: {sensor_id}, Manufacturer: {sensor['sensor']['sensor_type']['manufacturer']}, Sensor Type: {sensor['sensor']['sensor_type']['name']}"
-        else:
-            return f"Sensor ID: {sensor_id}, Sensor doesn't have a manufacturer and sensor type"
-
-    if param == 'pm25':
-        if any(sensor['value_type'] == 'P2' for sensor in sensor['sensordatavalues']):
-            return f"Sensor ID: {sensor_id}, PM2.5: {next(sensor['value'] for sensor in sensor['sensordatavalues'] if sensor['value_type'] == 'P2')}"
-        else:
-            return f"Sensor ID: {sensor_id}, Sensor doesn't have a PM2.5 sensor"
-
-    if param == 'pm10':
-        if any(sensor['value_type'] == 'P0' for sensor in sensor['sensordatavalues']):
-            return f"Sensor ID: {sensor_id}, PM10: {next(sensor['value'] for sensor in sensor['sensordatavalues'] if sensor['value_type'] == 'P0')}"
-        else:
-            return f"Sensor ID: {sensor_id}, Sensor doesn't have a PM10 sensor"
-
-    return f"Sensor ID: {sensor_id}, Invalid parameter"
-
-
-def save_data_as_csv(sensor_data, filename):
-    if not filename.endswith(".csv"):
-        filename += ".csv"
-
-    if not os.path.exists(filename):
-        print(f"Error: The file {filename} does not exist.")
-        return
-
-    with open(filename, "w", newline="") as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow(["Sensor ID", "Latitude", "Longitude"])
-        for sensor in sensor_data:
-            sensor_id = sensor['id']
-            latitude = sensor['location'].get('latitude', 'N/A')
-            longitude = sensor['location'].get('longitude', 'N/A')
-            writer.writerow([sensor_id, latitude, longitude])
-    print(f"The data has been updated in {filename}")
-
+    with open(file_name, 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(headers)
+        writer.writerows(rows)
 
 if __name__ == '__main__':
     country_code = 'CZ'  # country code
-    sensor_data = get_sensor_data(country_code)
+    sensor_data = get_sensor_data(country_code, limit=None)
 
     if sensor_data:
-        print_sensor_data(sensor_data, "place")
+        district_data = process_sensor_data(sensor_data)
 
-        existing_filename = "all-sensors.csv"  # Replace with your actual file name
-        save_data_as_csv(sensor_data, existing_filename)
+        # Write all-sensors.csv
+        all_sensors_file = "all-sensors.csv"
+        all_sensors_headers = ['SensorID', 'Latitude', 'Longitude']
+        all_sensors_rows = []
+        for sensor in sensor_data:
+            sensor_id = sensor.get('sensor', {}).get('id', None)
+            latitude = sensor.get('location', {}).get('latitude', None)
+            longitude = sensor.get('location', {}).get('longitude', None)
+            if sensor_id and latitude and longitude:
+                all_sensors_rows.append([sensor_id, latitude, longitude])
+        write_to_csv(all_sensors_file, all_sensors_headers, all_sensors_rows)
+
+        # Write separate CSV files for each district
+        for district, data in district_data.items():
+            file_name = f"{district}.csv"
+            headers = ['Temperature', 'Pressure', 'Humidity', 'PM2.5', 'PM10']
+            rows = [[
+                sum(data['Temperature']) / len(data['Temperature']) if data['Temperature'] else None,
+                sum(data['Pressure']) / len(data['Pressure']) if data['Pressure'] else None,
+                sum(data['Humidity']) / len(data['Humidity']) if data['Humidity'] else None,
+                sum(data['PM2.5']) / len(data['PM2.5']) if data['PM2.5'] else None,
+                sum(data['PM10']) / len(data['PM10']) if data['PM10'] else None,
+            ]]
+            write_to_csv(file_name, headers, rows)
