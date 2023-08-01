@@ -7,6 +7,7 @@ const SensorState = require('../utils/sensor-state')
 const parseCSVToJSON = require('../utils/csv-to-json'); // Import the function from csvParser.js
 const User = require('../db/user')
 const Geocode = require('../utils/geocode')
+const County = require('../utils/county-finder')
 
 module.exports = {
         // endpoint for getting the nearest sensor
@@ -362,6 +363,9 @@ module.exports = {
                 }
         },
 
+        // endpoint pro pro promazání db
+        //deleteDb: asyn
+
         //endpoint for token verification
         verifyToken: async (req, res) => {
                 const token = req.headers.authorization;
@@ -392,7 +396,9 @@ module.exports = {
         findSensor: async(req, res) => {
                 try {
                         console.log(req.body.address);
-                        const locationInfo = await Geocode.geocode(req.body.address);
+                        const geocode = await Geocode.geocode(req.body.address);
+                        console.log(geocode);
+                        const locationInfo = await County.getData(geocode)
                         console.log(locationInfo)
                         res.status(200).json(locationInfo);
                 } catch (err) {

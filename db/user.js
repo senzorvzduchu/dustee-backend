@@ -93,6 +93,17 @@ class User {
                         console.error(err);
                 }
         }
+
+        async deleteDb() {
+                try {
+                          // Smazání všech kolekcí
+                        for (const collectionName in mongoose.connection.collections) {
+                                await mongoose.connection.collections[collectionName].deleteMany({});
+                        }
+                } catch (err) {
+                        console.error(err);
+                }
+        }
 }
 
 module.exports = User;

@@ -26,7 +26,7 @@ app.get('/getSensorStatePm10', Routes.getSensorStatePm10);
 
 // endpoint's for job's dealing with database
 app.post('/createNewUser', Routes.newUser);
-app.get('/getUserInformation', Routes.findUser);
+app.post('/getUserInformation', Routes.findUser);
 app.patch('/resetUserPassword', Routes.passUpdate);
 app.delete('/deleteUser', Routes.deleteUser);
 app.patch('/updateUserProperties', Routes.updateProperties);
