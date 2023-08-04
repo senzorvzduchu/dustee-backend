@@ -8,7 +8,6 @@ def get_sensor_data(country_code, limit=None):
     url = f'https://data.sensor.community/airrohr/v1/filter/country={country_code}'
     headers = {'User-Agent': 'geoapiExercises'}  # TODO Replace 'geoapiExercises' with our custom user agent
     response = requests.get(url, headers=headers)
-
     if response.status_code == 200:
         data = response.json()
         print("Sensor data fetched successfully!")
@@ -31,7 +30,6 @@ def get_district_name(latitude, longitude):
 
 def process_sensor_data(sensor_data):
     district_data = {}
-
     total_sensors = len(sensor_data)
     for i, sensor in enumerate(sensor_data, 1):
         latitude = sensor.get('location', {}).get('latitude', None)
@@ -45,7 +43,6 @@ def process_sensor_data(sensor_data):
         pm25 = None
         pm10 = None
 
-        # Loop through the 'sensordatavalues' list and extract the values you need
         for sensordata in sensor.get('sensordatavalues', []):
             value_type = sensordata.get('value_type')
             value = sensordata.get('value')
@@ -86,21 +83,26 @@ def process_sensor_data(sensor_data):
 
     return district_data
 
-def write_to_csv(file_name, headers, rows):
+def write_to_csv(file_name, folder_path, headers, rows):
+    # Check if the folder exists, if not create it
+    os.makedirs(folder_path, exist_ok=True)
+
+    file_path = os.path.join(folder_path, file_name)
+
     # Check if the file exists, and if yes, delete its contents
-    if os.path.exists(file_name):
-        with open(file_name, 'w', newline='') as file:
+    if os.path.exists(file_path):
+        with open(file_path, 'w', newline='') as file:
             pass
 
-    with open(file_name, 'w', newline='') as file:
+    with open(file_path, 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(headers)
         writer.writerows(rows)
 
 if __name__ == '__main__':
     country_code = 'CZ'  # country code
+    folder_path = 'data/sensor_community' # where to save files
     sensor_data = get_sensor_data(country_code, limit=None)
-
     if sensor_data:
         district_data = process_sensor_data(sensor_data)
 
@@ -114,7 +116,8 @@ if __name__ == '__main__':
             longitude = sensor.get('location', {}).get('longitude', None)
             if sensor_id and latitude and longitude:
                 all_sensors_rows.append([sensor_id, latitude, longitude])
-        write_to_csv(all_sensors_file, all_sensors_headers, all_sensors_rows)
+
+        write_to_csv(all_sensors_file, folder_path, all_sensors_headers, all_sensors_rows)
 
         # Write separate CSV files for each district
         for district, data in district_data.items():
@@ -127,4 +130,5 @@ if __name__ == '__main__':
                 sum(data['PM2.5']) / len(data['PM2.5']) if data['PM2.5'] else None,
                 sum(data['PM10']) / len(data['PM10']) if data['PM10'] else None,
             ]]
-            write_to_csv(file_name, headers, rows)
+
+            write_to_csv(file_name, folder_path, headers, rows)

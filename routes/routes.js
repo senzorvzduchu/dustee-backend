@@ -197,7 +197,7 @@ module.exports = {
         //endpoint for getting cordinates of all sensor's
         async getAllLocations(req, res) {
                 try {
-                        const filePath = 'cron-scraper/all-sensors.csv'; // Update the path to your CSV file
+                        const filePath = 'cron-scraper/data/sensor_community/all-sensors.csv'; // Update the path to your CSV file
                         const locations = await parseCSVToJSON(filePath);
                         res.json({ locations });
                 } catch (error) {
