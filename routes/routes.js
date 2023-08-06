@@ -197,7 +197,7 @@ module.exports = {
         //endpoint for getting cordinates of all sensor's
         async getAllLocations(req, res) {
                 try {
-                        const filePath = 'cron-scraper/all-sensors.csv'; // Update the path to your CSV file
+                        const filePath = 'cron-scraper/data/sensor_community/all-sensors.csv'; // Update the path to your CSV file
                         const locations = await parseCSVToJSON(filePath);
                         res.json({ locations });
                 } catch (error) {
@@ -227,7 +227,7 @@ module.exports = {
                         await user.save();
                 
                         // vytvoření JWT po úspěšném uložení uživatele
-                        const token = jwt.sign({ userID: user.id }, 'panacek', { expiresIn: '24h' });
+                        const token = jwt.sign({ email: user.email }, 'panacek', { expiresIn: '24h' });
                         
                         res.status(200).json({ message: "User saved", token: token });
                 } catch (err) {
@@ -238,17 +238,25 @@ module.exports = {
         
         findUser: async (req, res) => {
                 try {
-                        const token = req.headers.authorization;
-                        if(!token) {
+                        const authHeader = req.headers.authorization;
+
+                        if(!authHeader) {
                                 return res.status(403).send('No token provided');
                         }
+                
+                        const authParts = authHeader.split(' ');
+                        if (authParts.length !== 2 || authParts[0] !== 'Bearer') {
+                                return res.status(401).send('Invalid token format');
+                        }
+                
+                        const token = authParts[1];
 
                         jwt.verify(token, 'panacek', async function(err, decoded) {
                                 if (err) {
                                         return res.status(401).send('Invalid token');
                                 } else {
                                         try {
-                                                const user = await User.find(req.body.email);
+                                                const user = await User.find(decoded.email);
                                                 console.log(user);
                                                 res.status(200).send(user);
                                         } catch (err) {
@@ -264,10 +272,18 @@ module.exports = {
         
         passUpdate: async (req, res) => {
                 try {
-                        const token = req.headers.authorization;
-                        if(!token) {
+                        const authHeader = req.headers.authorization;
+
+                        if(!authHeader) {
                                 return res.status(403).send('No token provided');
                         }
+                
+                        const authParts = authHeader.split(' ');
+                        if (authParts.length !== 2 || authParts[0] !== 'Bearer') {
+                                return res.status(401).send('Invalid token format');
+                        }
+                
+                        const token = authParts[1];
 
                         jwt.verify(token, 'panacek', async function(err, decoded) {
                                 if (err) {
@@ -288,10 +304,18 @@ module.exports = {
         
         deleteUser: async (req, res) => {
                 try {
-                        const token = req.headers.authorization;
-                        if(!token) {
+                        const authHeader = req.headers.authorization;
+
+                        if(!authHeader) {
                                 return res.status(403).send('No token provided');
                         }
+                
+                        const authParts = authHeader.split(' ');
+                        if (authParts.length !== 2 || authParts[0] !== 'Bearer') {
+                                return res.status(401).send('Invalid token format');
+                        }
+                
+                        const token = authParts[1];
 
                         jwt.verify(token, 'panacek', async function(err, decoded) {
                                 if (err) {
@@ -312,10 +336,18 @@ module.exports = {
         
         updateProperties: async (req, res) => {
                 try {
-                        const token = req.headers.authorization;
-                        if(!token) {
+                        const authHeader = req.headers.authorization;
+
+                        if(!authHeader) {
                                 return res.status(403).send('No token provided');
                         }
+                
+                        const authParts = authHeader.split(' ');
+                        if (authParts.length !== 2 || authParts[0] !== 'Bearer') {
+                                return res.status(401).send('Invalid token format');
+                        }
+                
+                        const token = authParts[1];
 
                         jwt.verify(token, 'panacek', async function(err, decoded) {
                                 if (err) {
@@ -354,7 +386,7 @@ module.exports = {
                         const user = await User.verifyUser(req.body.email, req.body.password);
 
                         //vytvoření tokenu
-                        const token = jwt.sign({ userID: user.id }, 'panacek', { expiresIn: '24h' });
+                        const token = jwt.sign({ email: user.email }, 'panacek', { expiresIn: '24h' });
 
 
                         res.status(200).json({ login: "success", token: token });
@@ -368,11 +400,19 @@ module.exports = {
 
         //endpoint for token verification
         verifyToken: async (req, res) => {
-                const token = req.headers.authorization;
-            
-                if (!token) {
-                        return res.status(403).json({ message: 'No token provided.' });
+                const authHeader = req.headers.authorization;
+
+                if(!authHeader) {
+                        return res.status(403).send('No token provided');
                 }
+        
+                const authParts = authHeader.split(' ');
+                if (authParts.length !== 2 || authParts[0] !== 'Bearer') {
+                        return res.status(401).send('Invalid token format');
+                }
+        
+                const token = authParts[1];
+
             
                 jwt.verify(token, 'panacek', function(err, decoded) {
                         if (err) {
