@@ -22,7 +22,7 @@ def get_district_name(latitude, longitude):
     location = geolocator.reverse((latitude, longitude), exactly_one=True)
     if location:
         address = location.raw.get('address', {})
-        district = address.get('county') or address.get('city_district') or address.get('suburb')
+        district =address.get('city_district') or address.get('suburb')
         print("District name retrieved!")
         return district
     print("No district name found.")
