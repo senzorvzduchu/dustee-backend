@@ -5,7 +5,7 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors({
-        origin: ['https://dustee-frontned.vercel.app/', 'http://localhost:5173/'],
+        origin: ['https://dustee-frontned.vercel.app', 'http://localhost:5173'],
         credentials: true,
 }));
 
