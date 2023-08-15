@@ -434,15 +434,24 @@ module.exports = {
 
         // endpoint for sensor geocoding
         findSensor: async(req, res) => {
+                console.log(req.body.address);
+                const geocode = await Geocode.geocode(req.body.address);
+                //console.log(geocode);
+    
+                // Zde provedeme zpracování pomocí County.getData
+                const locationInfo = County.getData({
+                        county: geocode.county,          // Zde použijeme název z geokódu
+                        state: geocode.state    // Zde použijeme stát z geokódu
+                });
+    
+                console.log(locationInfo);
+                res.status(200).json(locationInfo);
+                /*
                 try {
-                        console.log(req.body.address);
-                        const geocode = await Geocode.geocode(req.body.address);
-                        console.log(geocode);
-                        const locationInfo = await County.getData(geocode)
-                        console.log(locationInfo)
-                        res.status(200).json(locationInfo);
+
                 } catch (err) {
                         res.status(500).send(err);
                 }
+                */
         }
 };

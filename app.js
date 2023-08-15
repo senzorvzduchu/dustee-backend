@@ -4,7 +4,10 @@ const Routes = require('./routes/routes');
 const cors = require('cors');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+        origin: 'https://dustee-frontned.vercel.app/',
+        credentials: true,
+}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
