@@ -38,7 +38,7 @@ app.get("/verifyToken", Routes.verifyToken);
 app.get("/getAllLocations", Routes.getAllLocations);
 
 // endpoint for getting list of sensors and their data based on search query
-app.get("/searchLocation", Routes.searchForSensors);
+app.post("/searchLocation", Routes.searchForSensors);
 
 // endpoint to search for sensors in the neighborhood
 app.post("/getNeighborhoodSensor", Routes.findSensor);
