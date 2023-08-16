@@ -66,7 +66,7 @@ const openWeatherApiKey = "ce48301aaf1d16612230648eeff30329";
 async function fetchTemperatureData(location) {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
     location
-  )}&appid=${openWeatherApiKey}`;
+  )}&appid=${openWeatherApiKey}&units=metric`;
 
   try {
     const response = await axios.get(url);
@@ -79,7 +79,7 @@ async function fetchTemperatureData(location) {
 
 // Function to fetch air quality data from OpenWeatherMap API
 async function fetchAirQualityData(latitude, longitude) {
-  const url = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=${openWeatherApiKey}`;
+  const url = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=${openWeatherApiKey}&units=metric`;
 
   try {
     const response = await axios.get(url);
@@ -128,7 +128,11 @@ function extractDataFromFile(filePath) {
           const [temperature, pressure, humidity, pm25, pm10] = parts;
           extractedData.Temperature =
             temperature.trim() || extractedData.Temperature;
-          extractedData.Pressure = pressure.trim() || extractedData.Pressure;
+
+          // Divide pressure by 100 before storing it
+          extractedData.Pressure =
+            (parseFloat(pressure) / 100).toString() || extractedData.Pressure;
+
           extractedData.Humidity = humidity.trim() || extractedData.Humidity;
           extractedData.PM2_5 = pm25.trim() || extractedData.PM2_5;
           extractedData.PM10 = pm10.trim() || extractedData.PM10;
@@ -143,10 +147,7 @@ function extractDataFromFile(filePath) {
   }
 }
 async function fetchDataForSearchQuery(searchQuery) {
-  const folderPaths = [
-    "../cron-scraper/data/sensor_community",
-    "../cron-scraper/data/CHMU/Česká republika",
-  ];
+  const folderPaths = ["sensor_community", "CHMU/Česká republika"];
   const fileExtension = ".csv";
   const numResults = 15;
   const excludedStrings = ["all-sensors", "all_stations"];
@@ -192,13 +193,18 @@ async function fetchDataForSearchQuery(searchQuery) {
         const extractedData = extractDataFromFile(filePath);
 
         const openWeatherData = await fetchTemperatureData(locationAddress);
+
         if (openWeatherData) {
-          extractedData.Temperature =
-            openWeatherData.temp || extractedData.Temperature;
-          extractedData.Pressure =
-            openWeatherData.pressure || extractedData.Pressure;
-          extractedData.Humidity =
-            openWeatherData.humidity || extractedData.Humidity;
+          // Only update if extracted data is not available
+          if (extractedData.Temperature === "none") {
+            extractedData.Temperature = openWeatherData.temp;
+          }
+          if (extractedData.Pressure === "none") {
+            extractedData.Pressure = openWeatherData.pressure;
+          }
+          if (extractedData.Humidity === "none") {
+            extractedData.Humidity = openWeatherData.humidity;
+          }
         }
 
         function updateValue(value, averageValue) {
