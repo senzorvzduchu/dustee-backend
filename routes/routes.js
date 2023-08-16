@@ -446,14 +446,10 @@ module.exports = {
         // endpoint for sensor geocoding
         findSensor: async (req, res) => {
                 try {
-                        console.log(req.body.address);
-                        const geocode = await Geocode.geocode(req.body.address);
-                        console.log(geocode);
-                        const locationInfo = await County.getData(geocode)
-                        console.log(locationInfo)
-                        res.status(200).json(locationInfo);
+
                 } catch (err) {
                         res.status(500).send(err);
                 }
+                */
         }
 };
