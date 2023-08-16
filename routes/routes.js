@@ -8,6 +8,7 @@ const parseCSVToJSON = require('../utils/csv-to-json'); // Import the function f
 const User = require('../db/user')
 const Geocode = require('../utils/geocode')
 const County = require('../utils/county-finder')
+const fetchDataForSearchQuery = require("../utils/search-location");
 
 module.exports = {
         // endpoint for getting the nearest sensor
@@ -18,13 +19,13 @@ module.exports = {
                 if (!ip) {
                         return res.status(400).json({ error: 'Missing IP address' });
                 }
-        
+
                 const geo = geoip.lookup(ip);
-        
+
                 if (!geo) {
                         return res.status(400).json({ error: 'Unable to locate IP address' });
                 }
-        
+
                 const data = await SensorService.getSensorData(geo.ll[0], geo.ll[1], 1);
                 if (data) {
                         res.json(data);
@@ -32,7 +33,7 @@ module.exports = {
                         res.status(500).json({ error: 'Failed to fetch sensor data' });
                 }
         },
-        
+
         // endpoint for getting sensor state for temperature
         async getSensorStateTemp(req, res, next) {
                 var ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim().split(':')[0];
@@ -41,13 +42,13 @@ module.exports = {
                 if (!ip) {
                         return res.status(400).json({ error: 'Missing IP address' });
                 }
-        
+
                 const geo = geoip.lookup(ip);
-        
+
                 if (!geo) {
                         return res.status(400).json({ error: 'Unable to locate IP address' });
                 }
-        
+
                 const data = await SensorService.getSensorData(geo.ll[0], geo.ll[1], 1);
                 //console.log(data);
                 const parserData = JsonParser.getSensorValue(data, 'temperature');
@@ -74,13 +75,13 @@ module.exports = {
                 if (!ip) {
                         return res.status(400).json({ error: 'Missing IP address' });
                 }
-        
+
                 const geo = geoip.lookup(ip);
-        
+
                 if (!geo) {
                         return res.status(400).json({ error: 'Unable to locate IP address' });
                 }
-        
+
                 const data = await SensorService.getSensorData(geo.ll[0], geo.ll[1], 1);
                 const parserData = JsonParser.getSensorValue(data, 'pressure');
                 if (parserData) {
@@ -106,13 +107,13 @@ module.exports = {
                 if (!ip) {
                         return res.status(400).json({ error: 'Missing IP address' });
                 }
-        
+
                 const geo = geoip.lookup(ip);
-        
+
                 if (!geo) {
                         return res.status(400).json({ error: 'Unable to locate IP address' });
                 }
-        
+
                 const data = await SensorService.getSensorData(geo.ll[0], geo.ll[1], 1);
                 const parserData = JsonParser.getSensorValue(data, 'humidity');
                 if (parserData) {
@@ -138,13 +139,13 @@ module.exports = {
                 if (!ip) {
                         return res.status(400).json({ error: 'Missing IP address' });
                 }
-        
+
                 const geo = geoip.lookup(ip);
-        
+
                 if (!geo) {
                         return res.status(400).json({ error: 'Unable to locate IP address' });
                 }
-        
+
                 const data = await SensorService.getSensorData(geo.ll[0], geo.ll[1], 1);
                 const parserData = JsonParser.getSensorValue(data, 'pm25');
                 if (parserData) {
@@ -170,13 +171,13 @@ module.exports = {
                 if (!ip) {
                         return res.status(400).json({ error: 'Missing IP address' });
                 }
-        
+
                 const geo = geoip.lookup(ip);
-        
+
                 if (!geo) {
                         return res.status(400).json({ error: 'Unable to locate IP address' });
                 }
-        
+
                 const data = await SensorService.getSensorData(geo.ll[0], geo.ll[1], 1);
                 const parserData = JsonParser.getSensorValue(data, 'pm10');
                 if (parserData) {
@@ -193,7 +194,7 @@ module.exports = {
                         res.status(500).json({ error: 'Failed to fetch parserSensor data' });
                 }
         },
-        
+
         //endpoint for getting cordinates of all sensor's
         async getAllLocations(req, res) {
                 try {
@@ -205,53 +206,63 @@ module.exports = {
                 }
         },
 
+        async searchForSensors(req, res) {
+                try {
+                        const searchQuery = req.params.searchQuery;
+                        const finalData = await fetchDataForSearchQuery(searchQuery);
+                        res.json(finalData);
+                } catch (error) {
+                        res.status(500).json({ error: "An error occurred" });
+                }
+        },
+
         //endpoint for saving create and save new user to db
         newUser: async (req, res) => {
                 const { name, email, password, address, favSensor, group } = req.body;
-            
+
                 // Kontrola povinných parametrů
                 if (!name || !email || !password) {
                         return res.status(400).send('Name, email and password are required.');
                 }
-            
+
                 const user = new User(
-                        name, 
-                        email, 
-                        password, 
+                        name,
+                        email,
+                        password,
                         address || '',
                         favSensor || '',
                         group || ''
                 );
-            
+
                 try {
                         await user.save();
-                
+
                         // vytvoření JWT po úspěšném uložení uživatele
                         const token = jwt.sign({ email: user.email }, 'panacek', { expiresIn: '24h' });
-                        
+
                         res.status(200).json({ message: "User saved", token: token });
                 } catch (err) {
                         res.status(500).send(err);
                 }
         },
-            
-        
+
+
         findUser: async (req, res) => {
                 try {
                         const authHeader = req.headers.authorization;
 
-                        if(!authHeader) {
+                        if (!authHeader) {
                                 return res.status(403).send('No token provided');
                         }
-                
+
                         const authParts = authHeader.split(' ');
                         if (authParts.length !== 2 || authParts[0] !== 'Bearer') {
                                 return res.status(401).send('Invalid token format');
                         }
-                
+
                         const token = authParts[1];
 
-                        jwt.verify(token, 'panacek', async function(err, decoded) {
+                        jwt.verify(token, 'panacek', async function (err, decoded) {
                                 if (err) {
                                         return res.status(401).send('Invalid token');
                                 } else {
@@ -269,23 +280,23 @@ module.exports = {
                         res.status(500).send(err);
                 }
         },
-        
+
         passUpdate: async (req, res) => {
                 try {
                         const authHeader = req.headers.authorization;
 
-                        if(!authHeader) {
+                        if (!authHeader) {
                                 return res.status(403).send('No token provided');
                         }
-                
+
                         const authParts = authHeader.split(' ');
                         if (authParts.length !== 2 || authParts[0] !== 'Bearer') {
                                 return res.status(401).send('Invalid token format');
                         }
-                
+
                         const token = authParts[1];
 
-                        jwt.verify(token, 'panacek', async function(err, decoded) {
+                        jwt.verify(token, 'panacek', async function (err, decoded) {
                                 if (err) {
                                         return res.status(401).send('Invalid token');
                                 } else {
@@ -301,23 +312,23 @@ module.exports = {
                         res.status(500).send(err);
                 }
         },
-        
+
         deleteUser: async (req, res) => {
                 try {
                         const authHeader = req.headers.authorization;
 
-                        if(!authHeader) {
+                        if (!authHeader) {
                                 return res.status(403).send('No token provided');
                         }
-                
+
                         const authParts = authHeader.split(' ');
                         if (authParts.length !== 2 || authParts[0] !== 'Bearer') {
                                 return res.status(401).send('Invalid token format');
                         }
-                
+
                         const token = authParts[1];
 
-                        jwt.verify(token, 'panacek', async function(err, decoded) {
+                        jwt.verify(token, 'panacek', async function (err, decoded) {
                                 if (err) {
                                         return res.status(401).send('Invalid token');
                                 } else {
@@ -333,23 +344,23 @@ module.exports = {
                         res.status(500).send(err);
                 }
         },
-        
+
         updateProperties: async (req, res) => {
                 try {
                         const authHeader = req.headers.authorization;
 
-                        if(!authHeader) {
+                        if (!authHeader) {
                                 return res.status(403).send('No token provided');
                         }
-                
+
                         const authParts = authHeader.split(' ');
                         if (authParts.length !== 2 || authParts[0] !== 'Bearer') {
                                 return res.status(401).send('Invalid token format');
                         }
-                
+
                         const token = authParts[1];
 
-                        jwt.verify(token, 'panacek', async function(err, decoded) {
+                        jwt.verify(token, 'panacek', async function (err, decoded) {
                                 if (err) {
                                         return res.status(401).send('Invalid token');
                                 } else {
@@ -365,7 +376,7 @@ module.exports = {
                         res.status(500).send(err);
                 }
         },
-        
+
         /*addProperties: async (req, res) => {
                 const user = new User(req.body.name, req.body.email, req.body.password);
                 try {
@@ -402,29 +413,29 @@ module.exports = {
         verifyToken: async (req, res) => {
                 const authHeader = req.headers.authorization;
 
-                if(!authHeader) {
+                if (!authHeader) {
                         return res.status(403).send('No token provided');
                 }
-        
+
                 const authParts = authHeader.split(' ');
                 if (authParts.length !== 2 || authParts[0] !== 'Bearer') {
                         return res.status(401).send('Invalid token format');
                 }
-        
+
                 const token = authParts[1];
 
-            
-                jwt.verify(token, 'panacek', function(err, decoded) {
+
+                jwt.verify(token, 'panacek', function (err, decoded) {
                         if (err) {
                                 return res.status(401).json({ message: 'Invalid token or token expired.' });
-                        } 
-                
+                        }
+
                         // Pokud není chyba, token je platný. Ověříme, že uživatel stále existuje.
                         User.find(decoded.userID).then(user => {
                                 if (!user) {
                                         return res.status(404).json({ message: 'User not found.' });
                                 }
-                                
+
                                 return res.status(200).json({ message: 'Token is valid and user exists.' });
                         }).catch(err => {
                                 return res.status(500).send(err);
@@ -433,7 +444,7 @@ module.exports = {
         },
 
         // endpoint for sensor geocoding
-        findSensor: async(req, res) => {
+        findSensor: async (req, res) => {
                 try {
                         console.log(req.body.address);
                         const geocode = await Geocode.geocode(req.body.address);
