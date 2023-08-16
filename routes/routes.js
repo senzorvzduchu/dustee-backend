@@ -206,13 +206,13 @@ module.exports = {
                 }
         },
 
-        async searchForSensors(req, res) {
+        async searchForSensors  (req, res) {
                 try {
-                        const searchQuery = req.params.searchQuery;
-                        const finalData = await fetchDataForSearchQuery(searchQuery);
-                        res.json(finalData);
+                  const searchQuery = req.body.searchQuery; // Retrieve searchQuery from request body
+                  const finalData = await fetchDataForSearchQuery(searchQuery);
+                  res.json(finalData);
                 } catch (error) {
-                        res.status(500).json({ error: "An error occurred" });
+                  res.status(500).json({ error: "An error occurred" });
                 }
         },
 
