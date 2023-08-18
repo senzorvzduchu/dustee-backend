@@ -22,6 +22,7 @@
     "geoip-lite": "^1.4.7",
     "jsonwebtoken": "^9.0.1",
     "mongodb": "^5.7.0",
-    "mongoose": "^7.3.4"
+    "mongoose": "^7.3.4",
+    "winston": "^3.10.0"
   }
 }

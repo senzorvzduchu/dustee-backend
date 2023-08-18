@@ -72,7 +72,7 @@ async function fetchTemperatureData(location) {
     const response = await axios.get(url);
     return response.data.main;
   } catch (error) {
-    console.error("Error fetching temperature data:", error);
+    logger.error("Error fetching temperature data:", error);
     return null;
   }
 }
@@ -85,7 +85,7 @@ async function fetchAirQualityData(latitude, longitude) {
     const response = await axios.get(url);
     return response.data.list[0].components;
   } catch (error) {
-    console.error("Error fetching air quality data:", error);
+    logger.error("Error fetching air quality data:", error);
     return null;
   }
 }
@@ -142,7 +142,7 @@ function extractDataFromFile(filePath) {
 
     return extractedData;
   } catch (error) {
-    console.error("Error extracting data from file:", error);
+    logger.error("Error extracting data from file:", error);
     return null;
   }
 }
@@ -155,7 +155,7 @@ async function fetchDataForSearchQuery(searchQuery) {
   const location = "Czech Republic";
   const temperatureData = await fetchTemperatureData(location);
   if (!temperatureData) {
-    console.log("Failed to fetch temperature data.");
+    logger.log("Failed to fetch temperature data.");
     return [];
   }
 
@@ -163,7 +163,7 @@ async function fetchDataForSearchQuery(searchQuery) {
   const longitude = 14.4378;
   const airQualityData = await fetchAirQualityData(latitude, longitude);
   if (!airQualityData) {
-    console.log("Failed to fetch air quality data.");
+    logger.log("Failed to fetch air quality data.");
     return [];
   }
 
@@ -180,7 +180,7 @@ async function fetchDataForSearchQuery(searchQuery) {
     numResults,
     excludedStrings
   );
-  console.log("Top Search Results:", results);
+  logger.log("Top Search Results:", results);
 
   const finalData = [];
 
@@ -188,7 +188,7 @@ async function fetchDataForSearchQuery(searchQuery) {
     for (const folderPath of folderPaths) {
       const filePath = path.join(folderPath, result);
       if (fs.existsSync(filePath)) {
-        console.log(`Found file: ${result}`);
+        logger.log(`Found file: ${result}`);
         const locationAddress = result.replace(".csv", "");
         const extractedData = extractDataFromFile(filePath);
 
@@ -237,7 +237,7 @@ async function fetchDataForSearchQuery(searchQuery) {
           PM10: extractedData.PM10,
         };
 
-        console.log(`Final extracted data for ${result}:`, finalExtractedData);
+        logger.log(`Final extracted data for ${result}:`, finalExtractedData);
 
         finalData.push(finalExtractedData);
       }

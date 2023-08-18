@@ -2,12 +2,30 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const Routes = require("./routes/routes");
 const cors = require("cors");
+const winston = require('winston');
+
 
 const app = express();
+
+// Configure Winston logger
+const logger = winston.createLogger({
+  level: 'info', // Set the log level (options: 'error', 'warn', 'info', 'verbose', 'debug', 'silly')
+  format: winston.format.combine(
+    winston.format.colorize(),
+    winston.format.timestamp(),
+    winston.format.printf(info => `${info.timestamp} [${info.level}] ${info.message}`)
+  ),
+  transports: [
+    new winston.transports.Console(), // Output logs to the console
+    new winston.transports.File({ filename: 'app.log' }), // Output logs to a file
+  ],
+});
+
 app.use(cors({
         origin: ['https://dustee-frontned.vercel.app', 'http://localhost:5173'],
         credentials: true,
 }));
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -48,5 +66,5 @@ app.post("/getNeighborhoodSensor", Routes.findSensor);
 
 const port = process.env.PORT || 80;
 app.listen(port, () => {
-  console.log(`API server listening on port ${port}`);
+  logger.log(`API server listening on port ${port}`);
 });
