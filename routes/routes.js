@@ -14,7 +14,7 @@ module.exports = {
         // endpoint for getting the nearest sensor
         async getNearestSensor(req, res) {
                 var ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim().split(':')[0];
-                console.log(ip);
+                logger.log(ip);
 
                 if (!ip) {
                         return res.status(400).json({ error: 'Missing IP address' });
@@ -37,7 +37,7 @@ module.exports = {
         // endpoint for getting sensor state for temperature
         async getSensorStateTemp(req, res, next) {
                 var ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim().split(':')[0];
-                console.log(ip);
+                logger.log(ip);
 
                 if (!ip) {
                         return res.status(400).json({ error: 'Missing IP address' });
@@ -50,16 +50,16 @@ module.exports = {
                 }
 
                 const data = await SensorService.getSensorData(geo.ll[0], geo.ll[1], 1);
-                //console.log(data);
+                //logger.log(data);
                 const parserData = JsonParser.getSensorValue(data, 'temperature');
                 if (parserData) {
-                        console.log(parserData)
+                        logger.log(parserData)
                         const state = SensorState.getTemperatureStat(parserData)
                         res.sendFile(state, (err) => {
                                 if (err) {
                                         next(err);
                                 } else {
-                                        console.log('File Sent:', state);
+                                        logger.log('File Sent:', state);
                                 }
                         });
                 } else {
@@ -70,7 +70,7 @@ module.exports = {
         //endpoint for getting sensor state for pressure
         async getSensorStatePressure(req, res, next) {
                 var ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim().split(':')[0];
-                console.log(ip);
+                logger.log(ip);
 
                 if (!ip) {
                         return res.status(400).json({ error: 'Missing IP address' });
@@ -85,13 +85,13 @@ module.exports = {
                 const data = await SensorService.getSensorData(geo.ll[0], geo.ll[1], 1);
                 const parserData = JsonParser.getSensorValue(data, 'pressure');
                 if (parserData) {
-                        console.log(parserData)
+                        logger.log(parserData)
                         const state = SensorState.getPressureStat(parserData);
                         res.sendFile(state, (err) => {
                                 if (err) {
                                         next(err);
                                 } else {
-                                        console.log('File Sent:', state);
+                                        logger.log('File Sent:', state);
                                 }
                         });
                 } else {
@@ -102,7 +102,7 @@ module.exports = {
         //endpoint for getting sensor state for humidity
         async getSensorStateHumidity(req, res, next) {
                 var ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim().split(':')[0];
-                console.log(ip);
+                logger.log(ip);
 
                 if (!ip) {
                         return res.status(400).json({ error: 'Missing IP address' });
@@ -117,13 +117,13 @@ module.exports = {
                 const data = await SensorService.getSensorData(geo.ll[0], geo.ll[1], 1);
                 const parserData = JsonParser.getSensorValue(data, 'humidity');
                 if (parserData) {
-                        console.log(parserData)
+                        logger.log(parserData)
                         const state = SensorState.getHumidityStat(parserData);
                         res.sendFile(state, (err) => {
                                 if (err) {
                                         next(err);
                                 } else {
-                                        console.log('File Sent:', state);
+                                        logger.log('File Sent:', state);
                                 }
                         });
                 } else {
@@ -134,7 +134,7 @@ module.exports = {
         //endpoint for getting sensor state for pm2.5
         async getSensorStatePm2(req, res, next) {
                 var ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim().split(':')[0];
-                console.log(ip);
+                logger.log(ip);
 
                 if (!ip) {
                         return res.status(400).json({ error: 'Missing IP address' });
@@ -149,13 +149,13 @@ module.exports = {
                 const data = await SensorService.getSensorData(geo.ll[0], geo.ll[1], 1);
                 const parserData = JsonParser.getSensorValue(data, 'pm25');
                 if (parserData) {
-                        console.log(parserData)
+                        logger.log(parserData)
                         const state = SensorState.getPm2Stat(parserData);
                         res.sendFile(state, (err) => {
                                 if (err) {
                                         next(err);
                                 } else {
-                                        console.log('File Sent:', state);
+                                        logger.log('File Sent:', state);
                                 }
                         });
                 } else {
@@ -166,7 +166,7 @@ module.exports = {
         //endpoint for getting sensor state for pm10
         async getSensorStatePm10(req, res, next) {
                 var ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim().split(':')[0];
-                console.log(ip);
+                logger.log(ip);
 
                 if (!ip) {
                         return res.status(400).json({ error: 'Missing IP address' });
@@ -181,13 +181,13 @@ module.exports = {
                 const data = await SensorService.getSensorData(geo.ll[0], geo.ll[1], 1);
                 const parserData = JsonParser.getSensorValue(data, 'pm10');
                 if (parserData) {
-                        console.log(parserData)
+                        logger.log(parserData)
                         const state = SensorState.getPm10Stat(parserData);
                         res.sendFile(state, (err) => {
                                 if (err) {
                                         next(err);
                                 } else {
-                                        console.log('File Sent:', state);
+                                        logger.log('File Sent:', state);
                                 }
                         });
                 } else {
@@ -268,7 +268,7 @@ module.exports = {
                                 } else {
                                         try {
                                                 const user = await User.find(decoded.email);
-                                                console.log(user);
+                                                logger.log(user);
                                                 res.status(200).send(user);
                                         } catch (err) {
                                                 res.status(500).send(err);
