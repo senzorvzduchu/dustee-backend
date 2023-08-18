@@ -213,7 +213,7 @@ module.exports = {
     }
   },
 
-  //endpoint for getting coordinates of all sensors
+  // Endpoint for getting coordinates of all sensors
   async getAllLocations(req, res) {
     try {
       const filePath = "cron-scraper/data/sensor_community/all-sensors.csv"; // Update the path to your CSV file
@@ -223,9 +223,16 @@ module.exports = {
       const fullSensors = token ? true : false;
 
       const locations = await parseCSVToJSON(filePath, fullSensors);
-      res.json({ locations });
+
+      if (fullSensors) {
+        res.status(200).json({ locations, status: "All sensors returned" }); // Use 200 for success
+      } else {
+        res
+          .status(400)
+          .json({ locations, status: "Only essential sensors returned" }); // Use 400 for bad request
+      }
     } catch (error) {
-      res.status(500).json({ error: "Error while parsing CSV file" });
+      res.status(500).json({ error: "Error while parsing CSV file" }); // Use 500 for internal server error
     }
   },
 
