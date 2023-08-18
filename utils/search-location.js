@@ -130,9 +130,9 @@ function extractDataFromFile(filePath) {
             temperature.trim() || extractedData.Temperature;
 
           // Divide pressure by 100 before storing it
-          extractedData.Pressure =
-            (parseFloat(pressure) / 100).toString() || extractedData.Pressure;
-
+          //extractedData.Pressure =
+          //  (parseFloat(pressure) / 100).toString() || extractedData.Pressure;
+          extractedData.Pressure = pressure.trim() || extractedData.Pressure;
           extractedData.Humidity = humidity.trim() || extractedData.Humidity;
           extractedData.PM2_5 = pm25.trim() || extractedData.PM2_5;
           extractedData.PM10 = pm10.trim() || extractedData.PM10;
@@ -147,7 +147,10 @@ function extractDataFromFile(filePath) {
   }
 }
 async function fetchDataForSearchQuery(searchQuery) {
-  const folderPaths = ["cron-scraper/data/sensor_community", "cron-scraper/data/CHMU/Česká republika"];
+  const folderPaths = [
+    "cron-scraper/data/sensor_community",
+    "cron-scraper/data/CHMU/Česká republika",
+  ];
   const fileExtension = ".csv";
   const numResults = 15;
   const excludedStrings = ["all-sensors", "all_stations"];
