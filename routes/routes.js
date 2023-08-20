@@ -228,7 +228,7 @@ module.exports = {
         res.status(200).json({ locations, status: "All sensors returned" }); // Use 200 for success
       } else {
         res
-          .status(400)
+          .status(200)
           .json({ locations, status: "Only essential sensors returned" }); // Use 400 for bad request
       }
     } catch (error) {
