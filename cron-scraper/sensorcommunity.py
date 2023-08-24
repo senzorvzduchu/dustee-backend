@@ -8,8 +8,8 @@ def get_sensor_data(country_code, limit=None):
     print("Fetching sensor data...")
     url = f'https://data.sensor.community/airrohr/v1/filter/country={country_code}'
     # TODO Replace 'geoapiExercises' with our custom user agent
-    headers = {'User-Agent': 'geoapiExercises'}
-    response = requests.get(url, headers=headers)
+    #headers = {'User-Agent': 'geoapiExercises'}
+    response = requests.get(url)
     if response.status_code == 200:
         data = response.json()
         print("Sensor data fetched successfully!")
@@ -21,7 +21,7 @@ def get_sensor_data(country_code, limit=None):
 
 def get_district_name(latitude, longitude):
     print("Retrieving district name...")
-    geolocator = Nominatim(user_agent="geoapiExercises")
+    geolocator = Nominatim(user_agent="openweathermap.0duyh@passinbox.com")
     location = geolocator.reverse((latitude, longitude), exactly_one=True)
     if location:
         address = location.raw.get('address', {})
@@ -158,9 +158,85 @@ if __name__ == '__main__':
             if sensor_id and latitude and longitude:
                 all_sensors_rows.append(
                     [sensor_id, latitude, longitude, temperature, pressure, humidity, pm25, pm10])
+                
+            unique_locations = set()  # To store unique locations
 
+            # Filter out sensors with the same coordinates
+            unique_sensor_rows = []
+            for row in all_sensors_rows:
+                sensor_id, latitude, longitude, temperature, pressure, humidity, pm25, pm10 = row
+                location = (latitude, longitude)
+                if location not in unique_locations:
+                    unique_locations.add(location)
+                    unique_sensor_rows.append(row)
+
+            # Dictionary to store sensor data grouped by location
+            location_groups = {}
+
+            # Iterate through unique_sensor_rows and separate sensors by whether they have the same location
+            for row in unique_sensor_rows:
+                sensor_id, latitude, longitude, temperature, pressure, humidity, pm25, pm10 = row
+                location = (latitude, longitude)
+
+                if location not in location_groups:
+                    location_groups[location] = {
+                        'count': 0,
+                        'total_temperature': None,
+                        'total_pressure': None,
+                        'total_humidity': None,
+                        'total_pm25': None,
+                        'total_pm10': None
+                    }
+
+                location_groups[location]['count'] += 1
+                if temperature is not None:
+                    location_groups[location]['total_temperature'] = (location_groups[location]['total_temperature'] or 0) + temperature
+                if pressure is not None:
+                    location_groups[location]['total_pressure'] = (location_groups[location]['total_pressure'] or 0) + pressure
+                if humidity is not None:
+                    location_groups[location]['total_humidity'] = (location_groups[location]['total_humidity'] or 0) + humidity
+                if pm25 is not None:
+                    location_groups[location]['total_pm25'] = (location_groups[location]['total_pm25'] or 0) + pm25
+                if pm10 is not None:
+                    location_groups[location]['total_pm10'] = (location_groups[location]['total_pm10'] or 0) + pm10
+                location_groups[location]['sensor_ids'] = location_groups[location].get('sensor_ids', []) + [sensor_id]
+
+            # Update all_sensors_rows with averaged data and keep individual sensors intact
+            updated_all_sensors_rows = unique_sensor_rows.copy()
+
+            # Initialize a dictionary to keep track of assigned sensor IDs for each location
+            assigned_ids = {}
+
+            for location, data in location_groups.items():
+                if data['count'] > 1:
+                    sensor_ids = data['sensor_ids']
+                    chosen_sensor_id = sensor_ids[0]  # Pick the first sensor ID in the group
+
+                    total_temperature = data['total_temperature']
+                    total_pressure = data['total_pressure']
+                    total_humidity = data['total_humidity']
+                    total_pm25 = data['total_pm25']
+                    total_pm10 = data['total_pm10']
+                    count = data['count']
+
+                    avg_temperature = total_temperature / count if total_temperature is not None else None
+                    avg_pressure = total_pressure / count if total_pressure is not None else None
+                    avg_humidity = total_humidity / count if total_humidity is not None else None
+                    avg_pm25 = total_pm25 / count if total_pm25 is not None else None
+                    avg_pm10 = total_pm10 / count if total_pm10 is not None else None
+
+                    if all(value is None for value in [avg_temperature, avg_pressure, avg_humidity, avg_pm25, avg_pm10]):
+                        avg_temperature = avg_pressure = avg_humidity = avg_pm25 = avg_pm10 = None
+
+                    latitude, longitude = location
+
+                    updated_all_sensors_rows.append(
+                        [chosen_sensor_id, latitude, longitude, avg_temperature, avg_pressure, avg_humidity, avg_pm25, avg_pm10]
+                    )
+
+                    
         write_to_csv(all_sensors_file, folder_path,
-                     all_sensors_headers, all_sensors_rows)
+                     all_sensors_headers, updated_all_sensors_rows)
 
         # Write separate CSV files for each district
         for district, data in district_data.items():

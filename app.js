@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
   res.send("Hello, World!");
 });
 
-app.get("/nearest-sensor", Routes.getNearestSensor);
+app.post("/nearest-sensor", Routes.getNearestSensor);
 
 // endpoint's for getting sensor states of multiple measurements
 app.get("/getSensorStateTemp", Routes.getSensorStateTemp);

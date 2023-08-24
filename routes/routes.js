@@ -9,33 +9,54 @@ const User = require("../db/user");
 const Geocode = require("../utils/geocode");
 const County = require("../utils/county-finder");
 const fetchDataForSearchQuery = require("../utils/search-location");
+const parseSensorData = require('../utils/nearest-sensor-parser.js')
 
 module.exports = {
   // endpoint for getting the nearest sensor
   async getNearestSensor(req, res) {
-    var ip = (req.headers["x-forwarded-for"] || "")
-      .split(",")[0]
-      .trim()
-      .split(":")[0];
-    console.log(ip);
-
-    if (!ip) {
-      return res.status(400).json({ error: "Missing IP address" });
+    const latitude = req.body.latitude;
+    const longitude = req.body.longitude;
+  
+    if (!latitude || !longitude) {
+      const parsedData = await parseSensorData();
+      if (parsedData) {
+        res.json(parsedData);
+      }
+      return;
     }
-
-    const geo = geoip.lookup(ip);
-
-    if (!geo) {
-      return res.status(400).json({ error: "Unable to locate IP address" });
-    }
-
-    const data = await SensorService.getSensorData(geo.ll[0], geo.ll[1], 1);
-    if (data) {
-      res.json(data);
-    } else {
-      res.status(500).json({ error: "Failed to fetch sensor data" });
+  
+    // Use Promise.race to set a timeout for the sensor data retrieval
+    const timeoutPromise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        reject(new Error("Sensor data retrieval took too long"));
+      }, 8000); // 5000 milliseconds = 5 seconds
+    });
+  
+    try {
+      const data = await Promise.race([
+        SensorService.getSensorData(latitude, longitude, 1),
+        timeoutPromise
+      ]);
+  
+      if (data) {
+        const parsedData = await parseSensorData(data);
+        if (parsedData) {
+          res.json(parsedData);
+        } else {
+          res.status(400).json({ error: "Failed to parse sensor data" });
+        }
+      } else {
+        res.status(500).json({ error: "Failed to fetch sensor data" });
+      }
+    } catch (error) {
+      const parsedData = await parseSensorData();
+      if (parsedData) {
+        res.json(parsedData);
+      }
     }
   },
+  
+  
 
   // endpoint for getting sensor state for temperature
   async getSensorStateTemp(req, res, next) {
