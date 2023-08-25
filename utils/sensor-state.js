@@ -74,22 +74,22 @@ module.exports = {
                 const pm10 = parseFloat(pm100);
 
                 if (pm10 >= 0 && pm10 < 12) {
-                        //good
+                        //good - green
                         return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-1.svg');
                 } else if (pm10 >= 12.1 && pm10 < 35.4) {
-                        //moderate
+                        //moderate - yellow
                         return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-2.svg');
                 } else if (pm10 >= 35.5 && pm10 < 55.4) {
-                        //unhealty for sensitive groups
-                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-š.svg');
+                        //unhealty for sensitive groups - orange
+                        return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-3.svg');
                 } else if (pm10 >= 55.5 && pm10 < 150.4) {
-                        //unhealty
+                        //unhealty - red
                         return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-4.svg');
                 } else if (pm10 >= 150.5 && pm10 < 250.4) {
-                        //very unhealty
+                        //very unhealty - violet
                         return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-5.svg');
                 } else if (pm10 >= 250.5) {
-                        //hazardous
+                        //hazardous - pink/violet?
                         return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-6.svg');
                 } else {
                 return path.join(__dirname, '..', 'media', 'emoji-states', 'level', 'icon-level-4.svg');
