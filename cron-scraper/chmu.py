@@ -1,6 +1,12 @@
 import os
 import requests
 import csv
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
+
 
 pollutants = ['SO2', 'NO2', 'CO', 'O3', 'PM10', 'PM2_5']
 
@@ -17,7 +23,7 @@ def clean_csv(file_path):
         csv_writer.writerow(header)
 
 def main():
-    print("Fetching data and saving to CSV...")
+    logger.info("Fetching data and saving to CSV...")
     url = 'https://www.idea-envi.cz/JSON/ISKO/actual_hour_data/actual_hour_data.json'
     response = requests.get(url)
     data = response.json()
@@ -54,11 +60,26 @@ def main():
                         all_csv_writer = csv.writer(all_csvfile)
                         all_csv_writer.writerow([station_id] + [results[pollutant] for pollutant in pollutants])
                     
-                    print(f"Data for station '{station_name}' saved to '{csv_file_path}'.")
+                    logger.info(f"Data for station '{station_name}' saved to '{csv_file_path}'.")
             
-            print(f"All stations data for '{country_name}' saved to '{all_stations_csv_path}'.")
+            logger.info(f"All stations data for '{country_name}' saved to '{all_stations_csv_path}'.")
 
-    print("Data fetching and saving completed.")
+    logger.info("Data fetching and saving completed.")
 
 if __name__ == "__main__":
-    main()
+    try:
+        # Set up logging to write to a file
+        log_path = 'logs/chmulog.txt'
+        log_file_path = os.path.join(log_path, 'chmulog.txt')
+        file_handler = logging.FileHandler(log_path)
+        file_handler.setLevel(logging.INFO)
+        file_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+        file_handler.setFormatter(file_formatter)
+        logger.addHandler(file_handler)
+        
+        logger.info("Starting the script...")
+        main()
+        logger.info("Script execution completed.")
+
+    except Exception as e:
+        logger.exception("An error occurred during script execution: %s", e)
