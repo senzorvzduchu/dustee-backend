@@ -169,7 +169,7 @@ if __name__ == '__main__':
             # Write all-sensors.csv
             all_sensors_file = "all-sensors.csv"
             all_sensors_headers = ['SensorID', 'Latitude', 'Longitude',
-                                'Temperature', 'Pressure', 'Humidity', 'PM2.5', 'PM10']
+                                'Temperature', 'Pressure', 'Humidity', 'PM2_5', 'PM10']
             all_sensors_rows = []
             for sensor in sensor_data:
                 sensor_id = sensor.get('sensor', {}).get('id', None)

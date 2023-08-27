@@ -4,7 +4,7 @@ const csv = require("csv-parser");
 async function parseCSVToJSON(filePath, fullSensors = false) {
   return new Promise((resolve, reject) => {
     const results = [];
-    
+
     const headers = fullSensors
       ? [
           "Sensor ID",
@@ -13,23 +13,36 @@ async function parseCSVToJSON(filePath, fullSensors = false) {
           "Temperature",
           "Pressure",
           "Humidity",
-          "PM2.5",
+          "PM2_5",
           "PM10",
         ]
-      : ["Sensor ID", "Latitude", "Longitude", "Temperature","PM2.5"];
+      : ["Sensor ID", "Latitude", "Longitude", "Temperature", "PM2_5"];
 
     fs.createReadStream(filePath)
       .pipe(
         csv({
-          headers,
-          skipLines: 1, // Skip the header line in the CSV file
+          headers: false, // Do not skip the first line, so we can access all columns
         })
       )
       .on("data", (data) => {
         const filteredData = {};
-        headers.forEach((header) => {
-          filteredData[header] = data[header];
-        });
+
+        // Map data based on fixed column positions
+        filteredData["Sensor ID"] = data[0];
+        filteredData["Latitude"] = data[1];
+        filteredData["Longitude"] = data[2];
+
+        if (fullSensors) {
+          filteredData["Temperature"] = data[3];
+          filteredData["Pressure"] = data[4];
+          filteredData["Humidity"] = data[5];
+          filteredData["PM2_5"] = data[6];
+          filteredData["PM10"] = data[7];
+        } else {
+          filteredData["Temperature"] = data[3];
+          filteredData["PM2_5"] = data[6];
+        }
+
         results.push(filteredData);
       })
       .on("end", () => resolve(results))
