@@ -9,14 +9,14 @@ const User = require("../db/user");
 const Geocode = require("../utils/geocode");
 const County = require("../utils/county-finder");
 const fetchDataForSearchQuery = require("../utils/search-location");
-const parseSensorData = require('../utils/nearest-sensor-parser.js')
+const parseSensorData = require("../utils/nearest-sensor-parser.js");
 
 module.exports = {
   // endpoint for getting the nearest sensor
   async getNearestSensor(req, res) {
     const latitude = req.body.latitude;
     const longitude = req.body.longitude;
-  
+
     if (!latitude || !longitude) {
       const parsedData = await parseSensorData();
       if (parsedData) {
@@ -24,20 +24,20 @@ module.exports = {
       }
       return;
     }
-  
+
     // Use Promise.race to set a timeout for the sensor data retrieval
     const timeoutPromise = new Promise((resolve, reject) => {
       setTimeout(() => {
         reject(new Error("Sensor data retrieval took too long"));
       }, 8000); // 5000 milliseconds = 5 seconds
     });
-  
+
     try {
       const data = await Promise.race([
         SensorService.getSensorData(latitude, longitude, 1),
-        timeoutPromise
+        timeoutPromise,
       ]);
-  
+
       if (data) {
         const parsedData = await parseSensorData(data);
         if (parsedData) {
@@ -55,8 +55,6 @@ module.exports = {
       }
     }
   },
-  
-  
 
   // endpoint for getting sensor state for temperature
   async getSensorStateTemp(req, res, next) {
@@ -240,20 +238,37 @@ module.exports = {
       const filePath = "cron-scraper/data/sensor_community/all-sensors.csv"; // Update the path to your CSV file
 
       // Check if a JWT token is present in the request
-      const token = req.headers.authorization;
-      const fullSensors = token ? true : false;
+      const authHeader = req.headers.authorization;
 
-      const locations = await parseCSVToJSON(filePath, fullSensors);
-
-      if (fullSensors) {
-        res.status(200).json({ locations, status: "All sensors returned" }); // Use 200 for success
-      } else {
+      if (!authHeader) {
+        // If no token is provided, call parseCSVToJSON with fullSensors as false
+        const locations = await parseCSVToJSON(filePath, false);
         res
           .status(200)
-          .json({ locations, status: "Only essential sensors returned" }); // Use 400 for bad request
+          .json({ locations, status: "Only essential sensors returned" });
+        return;
       }
+
+      const tokenParts = authHeader.split(" ");
+      if (tokenParts.length !== 2 || tokenParts[0] !== "Bearer") {
+        return res.status(401).send("Invalid token format");
+      }
+
+      const token = tokenParts[1];
+
+      jwt.verify(token, "panacek", async function (err, decoded) {
+        if (err) {
+          return res.status(401).send("Invalid token");
+        }
+
+        const fullSensors = true; // Set this to true since the token is valid
+
+        const locations = await parseCSVToJSON(filePath, fullSensors);
+
+        res.status(200).json({ locations, status: "All sensors returned" });
+      });
     } catch (error) {
-      res.status(500).json({ error: "Error while parsing CSV file" }); // Use 500 for internal server error
+      res.status(500).json({ error: "Error while parsing CSV file" });
     }
   },
 
