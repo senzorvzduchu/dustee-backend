@@ -3,5 +3,5 @@
         "editor.defaultFormatter": "ms-python.autopep8"
     },
     "python.formatting.provider": "none",
-    "svg.preview.background": "transparent"
+    "svg.preview.background": "white"
 }
