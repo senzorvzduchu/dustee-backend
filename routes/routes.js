@@ -251,7 +251,7 @@ module.exports = {
 
       const tokenParts = authHeader.split(" ");
       if (tokenParts.length !== 2 || tokenParts[0] !== "Bearer") {
-        return res.status(401).send("Invalid token format");
+        return res.status(400).send("Invalid token format");
       }
 
       const token = tokenParts[1];
