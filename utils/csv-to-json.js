@@ -16,7 +16,7 @@ async function parseCSVToJSON(filePath, fullSensors = false) {
           "PM2.5",
           "PM10",
         ]
-      : ["Sensor ID", "Latitude", "Longitude", "Temperature"];
+      : ["Sensor ID", "Latitude", "Longitude", "Temperature","PM2.5"];
 
     fs.createReadStream(filePath)
       .pipe(
