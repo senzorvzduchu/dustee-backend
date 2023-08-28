@@ -64,8 +64,8 @@ async function parseCSVToJSON(filePath2, filePath1, fullSensors = false) {
 
             // Extract relevant values from the second file based on fullSensors
             if (fullSensors) {
-              filteredData["PM10"] = data[7];
               filteredData["PM2_5"] = data[8];
+              filteredData["PM10"] = data[7];
             } else {
               filteredData["PM2_5"] = data[8];
             }
