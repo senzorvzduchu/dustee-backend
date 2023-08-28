@@ -1,3 +1,5 @@
+const path = require("path");
+const fs = require("fs");
 const geoip = require("geoip-lite");
 const jwt = require("jsonwebtoken");
 //const path = require('path');
@@ -9,7 +11,12 @@ const User = require("../db/user");
 const Geocode = require("../utils/geocode");
 const County = require("../utils/county-finder");
 const fetchDataForSearchQuery = require("../utils/search-location");
-const parseSensorData = require("../utils/nearest-sensor-parser.js");
+const parseSensorData = require("../utils/nearest-sensor-parser");
+const getWeatherAndMapToSvg = require("../utils/weather-level-evaluator");
+const {
+  calculateOverallIconLevel,
+  getQualityText,
+} = require("../utils/icon-level-evaluator.js");
 
 module.exports = {
   // endpoint for getting the nearest sensor
@@ -53,6 +60,64 @@ module.exports = {
       if (parsedData) {
         res.json(parsedData);
       }
+    }
+  },
+
+  async getIconLevel(req, res) {
+    const inputData = req.body;
+
+    // Check if required data is provided
+    if (
+      !inputData ||
+      inputData.Temperature === undefined ||
+      inputData.Humidity === undefined ||
+      inputData.Pressure === undefined ||
+      inputData.PM2_5 === undefined ||
+      inputData.PM10 === undefined
+    ) {
+      res
+        .status(400)
+        .json({ error: "Missing or incomplete data in request body" });
+      return;
+    }
+
+    try {
+      const iconLevel = calculateOverallIconLevel(inputData);
+
+      // Construct the complete icon path based on the icon level
+      const iconPath = `icon-level-${iconLevel}.svg`;
+      const completeIconPath = path.join(
+        __dirname,
+        "..",
+        "media",
+        "emoji-states",
+        "level-colored",
+        iconPath
+      );
+
+      // Read the SVG file content
+      const svgContent = fs.readFileSync(completeIconPath, "utf8");
+
+      // Get quality text based on the icon level
+      const qualityText = getQualityText(iconLevel);
+      // Fetch the weather SVG name
+      const weatherSvgName = await getWeatherAndMapToSvg(inputData);
+
+      // Construct the complete weather SVG path
+      const weatherSvgPath = path.join(
+        __dirname,
+        "..",
+        "media",
+        "weather",
+        weatherSvgName
+      );
+      // Read the weather SVG file content
+      const weatherSvgContent = fs.readFileSync(weatherSvgPath, "utf8");
+
+      // Send the SVG file content and quality text as the response
+      res.json({ svgContent, weatherSvgContent, qualityText });
+    } catch (error) {
+      res.status(500).json({ error: `An error occurred: ${error.message}` });
     }
   },
 
@@ -197,35 +262,34 @@ module.exports = {
     }
   },
 
-    //endpoint for getting sensor state text for pm2.5
-    async getSensorStatePm2Text(req, res, next) {
-      var ip = (req.headers["x-forwarded-for"] || "")
-        .split(",")[0]
-        .trim()
-        .split(":")[0];
-      console.log(ip);
-  
-      if (!ip) {
-        return res.status(400).json({ error: "Missing IP address" });
-      }
-  
-      const geo = geoip.lookup(ip);
-  
-      if (!geo) {
-        return res.status(400).json({ error: "Unable to locate IP address" });
-      }
-  
-      const data = await SensorService.getSensorData(geo.ll[0], geo.ll[1], 1);
-      const parserData = JsonParser.getSensorValue(data, "pm25");
-      if (parserData) {
-        console.log(parserData);
-        const state = SensorState.getPm25Text(parserData);
-        res.status(200).json(state);
-      } else {
-        res.status(500).json({ error: "Failed to fetch parserSensor data" });
-      }
-    },
-  
+  //endpoint for getting sensor state text for pm2.5
+  async getSensorStatePm2Text(req, res, next) {
+    var ip = (req.headers["x-forwarded-for"] || "")
+      .split(",")[0]
+      .trim()
+      .split(":")[0];
+    console.log(ip);
+
+    if (!ip) {
+      return res.status(400).json({ error: "Missing IP address" });
+    }
+
+    const geo = geoip.lookup(ip);
+
+    if (!geo) {
+      return res.status(400).json({ error: "Unable to locate IP address" });
+    }
+
+    const data = await SensorService.getSensorData(geo.ll[0], geo.ll[1], 1);
+    const parserData = JsonParser.getSensorValue(data, "pm25");
+    if (parserData) {
+      console.log(parserData);
+      const state = SensorState.getPm25Text(parserData);
+      res.status(200).json(state);
+    } else {
+      res.status(500).json({ error: "Failed to fetch parserSensor data" });
+    }
+  },
 
   //endpoint for getting sensor state for pm10
   async getSensorStatePm10(req, res, next) {
@@ -266,13 +330,18 @@ module.exports = {
   async getAllLocations(req, res) {
     try {
       const SCfilePath = "cron-scraper/data/sensor_community/all-sensors.csv"; // Update the path to your CSV file
-      const CHMUfilePath = "cron-scraper/data/CHMU/Česká republika/all_stations.csv";
+      const CHMUfilePath =
+        "cron-scraper/data/CHMU/Česká republika/all_stations.csv";
       // Check if a JWT token is present in the request
       const authHeader = req.headers.authorization;
 
       if (!authHeader) {
         // If no token is provided, call parseCSVToJSON with fullSensors as false
-        const locations = await parseCSVToJSONforSC(CHMUfilePath, SCfilePath, false);
+        const locations = await parseCSVToJSONforSC(
+          CHMUfilePath,
+          SCfilePath,
+          false
+        );
         res
           .status(200)
           .json({ locations, status: "Only essential sensors returned" });
@@ -293,7 +362,11 @@ module.exports = {
 
         const fullSensors = true; // Set this to true since the token is valid
 
-        const locations = await parseCSVToJSONforSC(CHMUfilePath, SCfilePath, fullSensors);
+        const locations = await parseCSVToJSONforSC(
+          CHMUfilePath,
+          SCfilePath,
+          fullSensors
+        );
 
         res.status(200).json({ locations, status: "All sensors returned" });
       });

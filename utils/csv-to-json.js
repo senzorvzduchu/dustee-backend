@@ -5,19 +5,6 @@ async function parseCSVToJSON(filePath2, filePath1, fullSensors = false) {
   return new Promise((resolve, reject) => {
     const results = [];
 
-    const headers = fullSensors
-      ? [
-          "Sensor ID",
-          "Latitude",
-          "Longitude",
-          "Temperature",
-          "Pressure",
-          "Humidity",
-          "PM2_5",
-          "PM10",
-        ]
-      : ["Sensor ID", "Latitude", "Longitude", "Temperature", "PM2_5"];
-
     // Process first file
     fs.createReadStream(filePath1)
       .pipe(
@@ -64,9 +51,13 @@ async function parseCSVToJSON(filePath2, filePath1, fullSensors = false) {
 
             // Extract relevant values from the second file based on fullSensors
             if (fullSensors) {
+              filteredData["Temperature"] = "";
+              filteredData["Pressure"] = "";
+              filteredData["Humidity"] = "";
               filteredData["PM2_5"] = data[8];
               filteredData["PM10"] = data[7];
             } else {
+              filteredData["Temperature"] = "";
               filteredData["PM2_5"] = data[8];
             }
 

@@ -49,6 +49,9 @@ app.post("/searchLocation", Routes.searchForSensors);
 // endpoint to search for sensors in the neighborhood
 app.post("/getNeighborhoodSensor", Routes.findSensor);
 
+// endpoint for getting svg icon level absed on provided region data
+app.post("/getIconLevel", Routes.getIconLevel);
+
 const port = process.env.PORT || 80;
 app.listen(port, () => {
   console.log(`API server listening on port ${port}`);
