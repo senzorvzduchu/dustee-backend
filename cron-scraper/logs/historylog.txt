@@ -1,0 +1,521 @@
+2023-08-28 13:25:37,241 - INFO - Starting the script...
+2023-08-28 13:25:37,661 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:25:38,373 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:25:39,837 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:25:42,607 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:25:44,022 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:25:45,034 - INFO - Processing file: Chodov.csv
+2023-08-28 13:25:45,469 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:25:45,474 - INFO - Final extracted data for Chodov.csv:
+2023-08-28 13:25:46,903 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:25:47,907 - INFO - Processing file: Dolany u Prahy.csv
+2023-08-28 13:25:48,312 - INFO - Final extracted data for Dolany u Prahy.csv:
+2023-08-28 13:25:49,761 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:25:51,188 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:25:52,200 - INFO - Processing file: Habrovany.csv
+2023-08-28 13:25:52,613 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:25:52,618 - INFO - Final extracted data for Habrovany.csv:
+2023-08-28 13:25:54,084 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:25:55,520 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:25:56,934 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:25:58,348 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:25:59,758 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:01,189 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:02,616 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:04,040 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:05,044 - INFO - Processing file: Jabkenice.csv
+2023-08-28 13:26:05,465 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:05,467 - INFO - Final extracted data for Jabkenice.csv:
+2023-08-28 13:26:06,467 - INFO - Processing file: Jablonec nad Nisou.csv
+2023-08-28 13:26:06,951 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:06,955 - INFO - Final extracted data for Jablonec nad Nisou.csv:
+2023-08-28 13:26:07,956 - INFO - Processing file: Josefov.csv
+2023-08-28 13:26:08,362 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:08,367 - INFO - Final extracted data for Josefov.csv:
+2023-08-28 13:26:09,796 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:11,224 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:15,345 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:16,776 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:17,780 - INFO - Processing file: Kralupy nad Vltavou.csv
+2023-08-28 13:26:18,193 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:18,195 - INFO - Final extracted data for Kralupy nad Vltavou.csv:
+2023-08-28 13:26:19,196 - INFO - Processing file: Liberec.csv
+2023-08-28 13:26:19,612 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:19,617 - INFO - Final extracted data for Liberec.csv:
+2023-08-28 13:26:21,005 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:22,435 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:23,440 - INFO - Processing file: Lochkov.csv
+2023-08-28 13:26:23,857 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:23,862 - INFO - Final extracted data for Lochkov.csv:
+2023-08-28 13:26:25,317 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:26,743 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:27,754 - INFO - Processing file: Michle.csv
+2023-08-28 13:26:28,178 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:28,182 - INFO - Final extracted data for Michle.csv:
+2023-08-28 13:26:29,599 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:31,021 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:32,442 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:33,873 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:35,315 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:36,746 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:43,181 - INFO - Processing file: Opatovice u Hranic.csv
+2023-08-28 13:26:43,490 - INFO - Final extracted data for Opatovice u Hranic.csv:
+2023-08-28 13:26:44,491 - INFO - Processing file: Osek u Duchcova.csv
+2023-08-28 13:26:44,916 - INFO - Final extracted data for Osek u Duchcova.csv:
+2023-08-28 13:26:45,917 - INFO - Processing file: Otice.csv
+2023-08-28 13:26:46,344 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:46,346 - INFO - Final extracted data for Otice.csv:
+2023-08-28 13:26:48,667 - INFO - Processing file: Pecka.csv
+2023-08-28 13:26:49,137 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:49,142 - INFO - Final extracted data for Pecka.csv:
+2023-08-28 13:26:50,431 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:51,855 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:53,275 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:54,683 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:56,117 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:57,540 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:58,545 - INFO - Processing file: Radlice.csv
+2023-08-28 13:26:58,960 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:26:58,961 - INFO - Final extracted data for Radlice.csv:
+2023-08-28 13:27:00,383 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:01,394 - INFO - Processing file: Roudnice nad Labem.csv
+2023-08-28 13:27:01,789 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:01,794 - INFO - Final extracted data for Roudnice nad Labem.csv:
+2023-08-28 13:27:03,216 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:04,638 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:06,123 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:07,594 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:08,599 - INFO - Processing file: Statenice.csv
+2023-08-28 13:27:09,037 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:09,042 - INFO - Final extracted data for Statenice.csv:
+2023-08-28 13:27:10,335 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:11,756 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:13,242 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:14,644 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:15,652 - INFO - Processing file: Tuchlovice.csv
+2023-08-28 13:27:16,060 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:16,065 - INFO - Final extracted data for Tuchlovice.csv:
+2023-08-28 13:27:17,475 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:18,893 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:21,586 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:22,590 - INFO - Processing file: Vestec u Prahy.csv
+2023-08-28 13:27:22,963 - INFO - Final extracted data for Vestec u Prahy.csv:
+2023-08-28 13:27:24,383 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:25,386 - INFO - Processing file: Vinohrady.csv
+2023-08-28 13:27:25,846 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:25,848 - INFO - Final extracted data for Vinohrady.csv:
+2023-08-28 13:27:26,848 - INFO - Processing file: Vratimov.csv
+2023-08-28 13:27:27,236 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:27,238 - INFO - Final extracted data for Vratimov.csv:
+2023-08-28 13:27:28,732 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:30,193 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:31,622 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:33,042 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:34,495 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:35,960 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:37,374 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:38,782 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:40,249 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:41,682 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:44,389 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:45,394 - INFO - Processing file: Beroun.csv
+2023-08-28 13:27:45,868 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:27:45,870 - INFO - Final extracted data for Beroun.csv:
+2023-08-28 13:27:48,180 - INFO - Processing file: Brno-Arboretum.csv
+2023-08-28 13:27:48,578 - INFO - Final extracted data for Brno-Arboretum.csv:
+2023-08-28 13:27:53,485 - INFO - Processing file: Brno-Svatoplukova.csv
+2023-08-28 13:27:53,795 - INFO - Final extracted data for Brno-Svatoplukova.csv:
+2023-08-28 13:28:01,987 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:28:03,001 - INFO - Processing file: Cheb.csv
+2023-08-28 13:28:03,344 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:28:03,349 - INFO - Final extracted data for Cheb.csv:
+2023-08-28 13:28:04,351 - INFO - Processing file: Chomutov.csv
+2023-08-28 13:28:04,863 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:28:04,868 - INFO - Final extracted data for Chomutov.csv:
+2023-08-28 13:28:06,321 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:28:07,333 - INFO - Processing file: Doksany.csv
+2023-08-28 13:28:07,759 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:28:07,764 - INFO - Final extracted data for Doksany.csv:
+2023-08-28 13:28:09,055 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:28:10,341 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:28:11,755 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:28:14,450 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:28:15,850 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:28:17,320 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:28:22,399 - INFO - Processing file: Hranice.csv
+2023-08-28 13:28:22,699 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:28:22,700 - INFO - Final extracted data for Hranice.csv:
+2023-08-28 13:28:26,690 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:28:29,484 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:28:33,218 - INFO - Processing file: Klatovy soud.csv
+2023-08-28 13:28:33,596 - INFO - Final extracted data for Klatovy soud.csv:
+2023-08-28 13:28:34,597 - INFO - Processing file: Kocelovice.csv
+2023-08-28 13:28:35,060 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:28:35,061 - INFO - Final extracted data for Kocelovice.csv:
+2023-08-28 13:28:37,885 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:28:39,326 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:28:43,098 - INFO - Processing file: Krupka.csv
+2023-08-28 13:28:43,521 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:28:43,522 - INFO - Final extracted data for Krupka.csv:
+2023-08-28 13:28:44,945 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:28:48,523 - INFO - Processing file: Liberec-Rochlice.csv
+2023-08-28 13:28:48,801 - INFO - Final extracted data for Liberec-Rochlice.csv:
+2023-08-28 13:28:50,199 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:28:51,203 - INFO - Processing file: Lom.csv
+2023-08-28 13:28:51,610 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:28:51,614 - INFO - Final extracted data for Lom.csv:
+2023-08-28 13:28:52,615 - INFO - Processing file: Mikulov-Sedlec.csv
+2023-08-28 13:28:52,902 - INFO - Final extracted data for Mikulov-Sedlec.csv:
+2023-08-28 13:28:54,333 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:28:55,744 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:28:58,054 - INFO - Processing file: Most.csv
+2023-08-28 13:28:58,533 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:28:58,534 - INFO - Final extracted data for Most.csv:
+2023-08-28 13:28:59,961 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:29:01,388 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:29:05,577 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:29:07,959 - INFO - Processing file: Ostrava-Fifejdy.csv
+2023-08-28 13:29:08,371 - INFO - Final extracted data for Ostrava-Fifejdy.csv:
+2023-08-28 13:29:16,017 - INFO - Processing file: Ostrava-Poruba DD.csv
+2023-08-28 13:29:16,294 - INFO - Final extracted data for Ostrava-Poruba DD.csv:
+2023-08-28 13:29:20,101 - INFO - Processing file: Ostrava-Radvanice OZO.csv
+2023-08-28 13:29:20,512 - INFO - Final extracted data for Ostrava-Radvanice OZO.csv:
+2023-08-28 13:29:21,674 - ERROR - An error occurred during script execution: HTTPSConnectionPool(host='api.openweathermap.org', port=443): Max retries exceeded with url: /data/2.5/weather?q=Ostrava-Radvanice%20Z%C3%9A&appid=ce48301aaf1d16612230648eeff30329&units=metric (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:992)')))
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\Caric\dustee-backend\venv\Lib\site-packages\urllib3\connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\Admin\Documents\Caric\dustee-backend\venv\Lib\site-packages\urllib3\connectionpool.py", line 1092, in _validate_conn
+    conn.connect()
+  File "C:\Users\Admin\Documents\Caric\dustee-backend\venv\Lib\site-packages\urllib3\connection.py", line 642, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Caric\dustee-backend\venv\Lib\site-packages\urllib3\connection.py", line 783, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+               ^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Caric\dustee-backend\venv\Lib\site-packages\urllib3\util\ssl_.py", line 469, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Caric\dustee-backend\venv\Lib\site-packages\urllib3\util\ssl_.py", line 513, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 517, in wrap_socket
+    return self.sslsocket_class._create(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1075, in _create
+    self.do_handshake()
+  File "C:\Users\Admin\AppData\Local\Programs\Python\Python311\Lib\ssl.py", line 1346, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLEOFError: EOF occurred in violation of protocol (_ssl.c:992)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\Caric\dustee-backend\venv\Lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Caric\dustee-backend\venv\Lib\site-packages\urllib3\connectionpool.py", line 491, in _make_request
+    raise new_e
+urllib3.exceptions.SSLError: EOF occurred in violation of protocol (_ssl.c:992)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\Caric\dustee-backend\venv\Lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Caric\dustee-backend\venv\Lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Caric\dustee-backend\venv\Lib\site-packages\urllib3\util\retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.openweathermap.org', port=443): Max retries exceeded with url: /data/2.5/weather?q=Ostrava-Radvanice%20Z%C3%9A&appid=ce48301aaf1d16612230648eeff30329&units=metric (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:992)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\Caric\dustee-backend\cron-scraper\history.py", line 168, in <module>
+    data = fetch_data_for_all_files()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Caric\dustee-backend\cron-scraper\history.py", line 118, in fetch_data_for_all_files
+    open_weather_data = fetch_temperature_data(location_address)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Caric\dustee-backend\cron-scraper\history.py", line 53, in fetch_temperature_data
+    response = requests.get(url)
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Caric\dustee-backend\venv\Lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Caric\dustee-backend\venv\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Caric\dustee-backend\venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Caric\dustee-backend\venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Caric\dustee-backend\venv\Lib\site-packages\requests\adapters.py", line 517, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='api.openweathermap.org', port=443): Max retries exceeded with url: /data/2.5/weather?q=Ostrava-Radvanice%20Z%C3%9A&appid=ce48301aaf1d16612230648eeff30329&units=metric (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:992)')))
+2023-08-28 13:49:47,523 - INFO - Starting the script...
+2023-08-28 13:49:47,523 - ERROR - An error occurred during script execution: Retry.__init__() got an unexpected keyword argument 'method_whitelist'
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\Caric\dustee-backend\cron-scraper\history.py", line 213, in <module>
+    data = fetch_data_for_all_files()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Caric\dustee-backend\cron-scraper\history.py", line 123, in fetch_data_for_all_files
+    temperature_data = fetch_temperature_data(location)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Caric\dustee-backend\cron-scraper\history.py", line 66, in fetch_temperature_data
+    retry_strategy = Retry(
+                     ^^^^^^
+TypeError: Retry.__init__() got an unexpected keyword argument 'method_whitelist'
+2023-08-28 13:53:34,773 - INFO - Starting the script...
+2023-08-28 13:53:35,211 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:53:35,918 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:53:37,271 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:53:40,164 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:53:41,629 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:53:42,641 - INFO - Processing file: Chodov.csv
+2023-08-28 13:53:43,045 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:53:43,046 - INFO - Final extracted data for Chodov.csv:
+2023-08-28 13:53:44,481 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:53:45,486 - INFO - Processing file: Dolany u Prahy.csv
+2023-08-28 13:53:45,827 - INFO - Final extracted data for Dolany u Prahy.csv:
+2023-08-28 13:53:47,257 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:53:48,714 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:53:49,719 - INFO - Processing file: Habrovany.csv
+2023-08-28 13:53:50,149 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:53:50,154 - INFO - Final extracted data for Habrovany.csv:
+2023-08-28 13:53:51,585 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:53:53,113 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:53:54,549 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:53:55,863 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:53:57,269 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:53:58,755 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:00,190 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:01,599 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:02,605 - INFO - Processing file: Jabkenice.csv
+2023-08-28 13:54:03,025 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:03,027 - INFO - Final extracted data for Jabkenice.csv:
+2023-08-28 13:54:04,028 - INFO - Processing file: Jablonec nad Nisou.csv
+2023-08-28 13:54:04,556 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:04,557 - INFO - Final extracted data for Jablonec nad Nisou.csv:
+2023-08-28 13:54:05,558 - INFO - Processing file: Josefov.csv
+2023-08-28 13:54:06,000 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:06,002 - INFO - Final extracted data for Josefov.csv:
+2023-08-28 13:54:07,448 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:08,995 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:13,072 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:14,486 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:15,489 - INFO - Processing file: Kralupy nad Vltavou.csv
+2023-08-28 13:54:15,771 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:15,772 - INFO - Final extracted data for Kralupy nad Vltavou.csv:
+2023-08-28 13:54:16,773 - INFO - Processing file: Liberec.csv
+2023-08-28 13:54:17,113 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:17,114 - INFO - Final extracted data for Liberec.csv:
+2023-08-28 13:54:18,517 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:19,947 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:20,950 - INFO - Processing file: Lochkov.csv
+2023-08-28 13:54:21,356 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:21,358 - INFO - Final extracted data for Lochkov.csv:
+2023-08-28 13:54:22,775 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:24,206 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:25,219 - INFO - Processing file: Michle.csv
+2023-08-28 13:54:26,139 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:26,144 - INFO - Final extracted data for Michle.csv:
+2023-08-28 13:54:28,754 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:30,174 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:31,878 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:33,359 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:34,816 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:36,277 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:42,560 - INFO - Processing file: Opatovice u Hranic.csv
+2023-08-28 13:54:42,913 - INFO - Final extracted data for Opatovice u Hranic.csv:
+2023-08-28 13:54:43,914 - INFO - Processing file: Osek u Duchcova.csv
+2023-08-28 13:54:44,302 - INFO - Final extracted data for Osek u Duchcova.csv:
+2023-08-28 13:54:45,303 - INFO - Processing file: Otice.csv
+2023-08-28 13:54:45,694 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:45,695 - INFO - Final extracted data for Otice.csv:
+2023-08-28 13:54:48,120 - INFO - Processing file: Pecka.csv
+2023-08-28 13:54:48,534 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:48,536 - INFO - Final extracted data for Pecka.csv:
+2023-08-28 13:54:49,951 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:51,390 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:52,787 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:54,304 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:55,735 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:57,305 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:58,316 - INFO - Processing file: Radlice.csv
+2023-08-28 13:54:58,722 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:54:58,727 - INFO - Final extracted data for Radlice.csv:
+2023-08-28 13:55:00,193 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:01,205 - INFO - Processing file: Roudnice nad Labem.csv
+2023-08-28 13:55:01,622 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:01,627 - INFO - Final extracted data for Roudnice nad Labem.csv:
+2023-08-28 13:55:03,094 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:04,556 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:06,017 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:07,543 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:08,555 - INFO - Processing file: Statenice.csv
+2023-08-28 13:55:08,959 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:08,964 - INFO - Final extracted data for Statenice.csv:
+2023-08-28 13:55:10,310 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:11,763 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:13,202 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:14,636 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:15,642 - INFO - Processing file: Tuchlovice.csv
+2023-08-28 13:55:16,060 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:16,062 - INFO - Final extracted data for Tuchlovice.csv:
+2023-08-28 13:55:17,464 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:19,012 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:21,772 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:22,776 - INFO - Processing file: Vestec u Prahy.csv
+2023-08-28 13:55:23,158 - INFO - Final extracted data for Vestec u Prahy.csv:
+2023-08-28 13:55:24,573 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:25,577 - INFO - Processing file: Vinohrady.csv
+2023-08-28 13:55:25,995 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:25,997 - INFO - Final extracted data for Vinohrady.csv:
+2023-08-28 13:55:26,998 - INFO - Processing file: Vratimov.csv
+2023-08-28 13:55:27,404 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:27,405 - INFO - Final extracted data for Vratimov.csv:
+2023-08-28 13:55:28,809 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:30,105 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:31,505 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:32,923 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:34,325 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:35,755 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:37,191 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:38,624 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:40,062 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:41,501 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:44,261 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:45,274 - INFO - Processing file: Beroun.csv
+2023-08-28 13:55:45,677 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:55:45,680 - INFO - Final extracted data for Beroun.csv:
+2023-08-28 13:55:47,983 - INFO - Processing file: Brno-Arboretum.csv
+2023-08-28 13:55:48,291 - INFO - Final extracted data for Brno-Arboretum.csv:
+2023-08-28 13:55:53,421 - INFO - Processing file: Brno-Svatoplukova.csv
+2023-08-28 13:55:53,742 - INFO - Final extracted data for Brno-Svatoplukova.csv:
+2023-08-28 13:56:01,915 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:56:02,927 - INFO - Processing file: Cheb.csv
+2023-08-28 13:56:03,352 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:56:03,357 - INFO - Final extracted data for Cheb.csv:
+2023-08-28 13:56:04,359 - INFO - Processing file: Chomutov.csv
+2023-08-28 13:56:04,764 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:56:04,769 - INFO - Final extracted data for Chomutov.csv:
+2023-08-28 13:56:06,341 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:56:07,352 - INFO - Processing file: Doksany.csv
+2023-08-28 13:56:07,850 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:56:07,855 - INFO - Final extracted data for Doksany.csv:
+2023-08-28 13:56:09,302 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:56:10,759 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:56:12,179 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:56:14,885 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:56:16,313 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:56:17,730 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:56:22,906 - INFO - Processing file: Hranice.csv
+2023-08-28 13:56:23,333 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:56:23,334 - INFO - Final extracted data for Hranice.csv:
+2023-08-28 13:56:27,303 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:56:30,065 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:56:33,678 - INFO - Processing file: Klatovy soud.csv
+2023-08-28 13:56:33,987 - INFO - Final extracted data for Klatovy soud.csv:
+2023-08-28 13:56:34,989 - INFO - Processing file: Kocelovice.csv
+2023-08-28 13:56:35,391 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:56:35,396 - INFO - Final extracted data for Kocelovice.csv:
+2023-08-28 13:56:38,171 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:56:39,918 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:56:43,540 - INFO - Processing file: Krupka.csv
+2023-08-28 13:56:44,041 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:56:44,047 - INFO - Final extracted data for Krupka.csv:
+2023-08-28 13:56:45,460 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:56:49,278 - INFO - Processing file: Liberec-Rochlice.csv
+2023-08-28 13:56:49,574 - INFO - Final extracted data for Liberec-Rochlice.csv:
+2023-08-28 13:56:50,994 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:56:52,003 - INFO - Processing file: Lom.csv
+2023-08-28 13:56:52,467 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:56:52,470 - INFO - Final extracted data for Lom.csv:
+2023-08-28 13:56:53,472 - INFO - Processing file: Mikulov-Sedlec.csv
+2023-08-28 13:56:53,796 - INFO - Final extracted data for Mikulov-Sedlec.csv:
+2023-08-28 13:56:55,234 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:56:56,666 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:56:58,956 - INFO - Processing file: Most.csv
+2023-08-28 13:56:59,373 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:56:59,375 - INFO - Final extracted data for Most.csv:
+2023-08-28 13:57:00,794 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:57:02,226 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:57:06,567 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:57:08,882 - INFO - Processing file: Ostrava-Fifejdy.csv
+2023-08-28 13:57:09,296 - INFO - Final extracted data for Ostrava-Fifejdy.csv:
+2023-08-28 13:57:18,962 - INFO - Processing file: Ostrava-Poruba DD.csv
+2023-08-28 13:57:19,268 - INFO - Final extracted data for Ostrava-Poruba DD.csv:
+2023-08-28 13:57:22,911 - INFO - Processing file: Ostrava-Radvanice OZO.csv
+2023-08-28 13:57:23,204 - INFO - Final extracted data for Ostrava-Radvanice OZO.csv:
+2023-08-28 13:57:30,131 - INFO - Processing file: Pardubice Dukla.csv
+2023-08-28 13:57:30,783 - INFO - Final extracted data for Pardubice Dukla.csv:
+2023-08-28 13:57:31,784 - INFO - Processing file: Pardubice-Rosice.csv
+2023-08-28 13:57:32,140 - INFO - Final extracted data for Pardubice-Rosice.csv:
+2023-08-28 13:57:33,444 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:57:41,961 - INFO - Processing file: Polom.csv
+2023-08-28 13:57:42,523 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:57:42,524 - INFO - Final extracted data for Polom.csv:
+2023-08-28 13:57:43,525 - INFO - Processing file: Prachatice.csv
+2023-08-28 13:57:44,037 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:57:44,038 - INFO - Final extracted data for Prachatice.csv:
+2023-08-28 13:57:45,040 - INFO - Processing file: Praha 1-n. Republiky.csv
+2023-08-28 13:57:45,545 - INFO - Final extracted data for Praha 1-n. Republiky.csv:
+2023-08-28 13:57:50,912 - INFO - Processing file: Praha 2-Legerova (hot spot).csv
+2023-08-28 13:57:51,437 - INFO - Final extracted data for Praha 2-Legerova (hot spot).csv:
+2023-08-28 13:57:52,438 - INFO - Processing file: Praha 2-Riegrovy sady.csv
+2023-08-28 13:57:52,808 - INFO - Final extracted data for Praha 2-Riegrovy sady.csv:
+2023-08-28 13:57:53,809 - INFO - Processing file: Praha 4-Chodov.csv
+2023-08-28 13:57:54,218 - INFO - Final extracted data for Praha 4-Chodov.csv:
+2023-08-28 13:58:01,315 - INFO - Processing file: Praha 6-Suchdol.csv
+2023-08-28 13:58:01,869 - INFO - Final extracted data for Praha 6-Suchdol.csv:
+2023-08-28 13:58:08,790 - INFO - Processing file: Praha 8-Kobylisy.csv
+2023-08-28 13:58:11,367 - INFO - Final extracted data for Praha 8-Kobylisy.csv:
+2023-08-28 13:58:15,199 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:58:16,703 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:58:18,024 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:58:19,469 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:58:22,327 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:58:25,072 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:58:26,084 - INFO - Processing file: Rychvald.csv
+2023-08-28 13:58:26,519 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:58:26,524 - INFO - Final extracted data for Rychvald.csv:
+2023-08-28 13:58:27,525 - INFO - Processing file: Sivice.csv
+2023-08-28 13:58:27,991 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:58:27,996 - INFO - Final extracted data for Sivice.csv:
+2023-08-28 13:58:29,460 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:58:30,465 - INFO - Processing file: Sokolov.csv
+2023-08-28 13:58:30,929 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:58:30,930 - INFO - Final extracted data for Sokolov.csv:
+2023-08-28 13:58:32,340 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:58:35,081 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:58:36,092 - INFO - Processing file: Svratouch.csv
+2023-08-28 13:58:36,540 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:58:36,544 - INFO - Final extracted data for Svratouch.csv:
+2023-08-28 13:58:37,546 - INFO - Processing file: Teplice .csv
+2023-08-28 13:58:37,980 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:58:37,982 - INFO - Final extracted data for Teplice .csv:
+2023-08-28 13:58:42,165 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:58:43,499 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:58:44,962 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:58:46,374 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:58:50,745 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:58:52,205 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:58:53,714 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:58:56,319 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:58:57,331 - INFO - Processing file: Znojmo.csv
+2023-08-28 13:58:57,731 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:58:57,736 - INFO - Final extracted data for Znojmo.csv:
+2023-08-28 13:59:04,538 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:59:07,437 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:59:08,826 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:59:10,126 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:59:12,856 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:59:14,159 - INFO - OpenWeatherMap API Response:
+2023-08-28 13:59:16,603 - INFO - Data saved to data\history\region_data\data_2023-08-28_13-59-16.json
+2023-08-28 13:59:16,603 - INFO - Script execution completed.

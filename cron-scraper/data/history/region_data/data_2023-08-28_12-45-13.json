@@ -1,0 +1,1874 @@
+[
+    {
+        "Location": "Bechyně",
+        "Temperature": 23.8125,
+        "Pressure": 964.4586499999999,
+        "Humidity": 44.355000000000004,
+        "PM2_5": 2.5,
+        "PM10": 2.5
+    },
+    {
+        "Location": "Brandýs nad Labem",
+        "Temperature": 19.11,
+        "Pressure": 988.0453,
+        "Humidity": 84.67,
+        "PM2_5": 3.06,
+        "PM10": 3.6
+    },
+    {
+        "Location": "Brtnické předměstí",
+        "Temperature": 15.06,
+        "Pressure": 622.7791000000001,
+        "Humidity": 100.0,
+        "PM2_5": 0.39,
+        "PM10": 0.925
+    },
+    {
+        "Location": "Brušperk",
+        "Temperature": 24.320000000000004,
+        "Pressure": 1009.0,
+        "Humidity": 78.97333333333334,
+        "PM2_5": 17.650000000000002,
+        "PM10": 27.156666666666666
+    },
+    {
+        "Location": "Chabařovice",
+        "Temperature": 16.700000000000003,
+        "Pressure": 989.8603333333334,
+        "Humidity": 100.0,
+        "PM2_5": 3.1733333333333333,
+        "PM10": 5.583333333333333
+    },
+    {
+        "Location": "Chodov",
+        "Temperature": 15.06,
+        "Pressure": 798.392525,
+        "Humidity": 97.89250000000001,
+        "PM2_5": 3.45,
+        "PM10": 5.7075
+    },
+    {
+        "Location": "Desná III",
+        "Temperature": 16.32,
+        "Pressure": 945.9584,
+        "Humidity": 86.05,
+        "PM2_5": 1.525,
+        "PM10": 2.3499999999999996
+    },
+    {
+        "Location": "Dolany u Prahy",
+        "Temperature": 16.955,
+        "Pressure": 989.413425,
+        "Humidity": 100.0,
+        "PM2_5": 4.0525,
+        "PM10": 6.9325
+    },
+    {
+        "Location": "Dolní Bukovsko",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 2.115,
+        "PM10": 4.665
+    },
+    {
+        "Location": "Frýdek",
+        "Temperature": 20.505000000000003,
+        "Pressure": 970.9864,
+        "Humidity": 100.0,
+        "PM2_5": 11.735,
+        "PM10": 22.439999999999998
+    },
+    {
+        "Location": "Habrovany",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 4.4799999999999995,
+        "PM10": 4.4799999999999995
+    },
+    {
+        "Location": "Hodkovičky",
+        "Temperature": 20.210000000000004,
+        "Pressure": 983.6627333333332,
+        "Humidity": 81.64333333333333,
+        "PM2_5": 2.706666666666667,
+        "PM10": 5.136666666666667
+    },
+    {
+        "Location": "Holešovice",
+        "Temperature": 18.225,
+        "Pressure": 988.06765,
+        "Humidity": 81.86,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Horní Libchava",
+        "Temperature": 20.1025,
+        "Pressure": 1009.0,
+        "Humidity": 72.9125,
+        "PM2_5": 1.375,
+        "PM10": 2.99
+    },
+    {
+        "Location": "Horní Počernice",
+        "Temperature": 21.23,
+        "Pressure": 981.1971,
+        "Humidity": 48.32,
+        "PM2_5": 10.0,
+        "PM10": 10.5
+    },
+    {
+        "Location": "Horoměřice",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.215,
+        "PM10": 4.6850000000000005
+    },
+    {
+        "Location": "Hrdlořezy",
+        "Temperature": 18.65,
+        "Pressure": 987.02875,
+        "Humidity": 97.755,
+        "PM2_5": 2.19,
+        "PM10": 4.665
+    },
+    {
+        "Location": "Háje",
+        "Temperature": 20.380000000000003,
+        "Pressure": 978.0531,
+        "Humidity": 73.68,
+        "PM2_5": 1.875,
+        "PM10": 2.99
+    },
+    {
+        "Location": "Hýskov",
+        "Temperature": 18.763333333333335,
+        "Pressure": 978.0754000000001,
+        "Humidity": 100.0,
+        "PM2_5": 2.24,
+        "PM10": 3.4
+    },
+    {
+        "Location": "Jabkenice",
+        "Temperature": 16.295,
+        "Pressure": 984.3552999999999,
+        "Humidity": 100.0,
+        "PM2_5": 2.33,
+        "PM10": 3.2
+    },
+    {
+        "Location": "Jablonec nad Nisou",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 1.125,
+        "PM10": 1.24
+    },
+    {
+        "Location": "Josefov",
+        "Temperature": 22.283333333333335,
+        "Pressure": 989.0329,
+        "Humidity": 62.04,
+        "PM2_5": 2.145,
+        "PM10": 2.145
+    },
+    {
+        "Location": "Jílové u Prahy",
+        "Temperature": 16.895000000000003,
+        "Pressure": 967.17735,
+        "Humidity": 100.0,
+        "PM2_5": 1.85,
+        "PM10": 5.51
+    },
+    {
+        "Location": "Karlín",
+        "Temperature": 15.06,
+        "Pressure": 650.485,
+        "Humidity": 100.0,
+        "PM2_5": 2.915,
+        "PM10": 6.64
+    },
+    {
+        "Location": "Kocléřov",
+        "Temperature": 17.965,
+        "Pressure": 951.87005,
+        "Humidity": 83.31,
+        "PM2_5": 1.4,
+        "PM10": 2.75
+    },
+    {
+        "Location": "Komárov u Holic",
+        "Temperature": 27.380000000000003,
+        "Pressure": 984.6876,
+        "Humidity": 52.71,
+        "PM2_5": 2.25,
+        "PM10": 3.0999999999999996
+    },
+    {
+        "Location": "Komárov",
+        "Temperature": 21.4,
+        "Pressure": 985.44705,
+        "Humidity": 95.785,
+        "PM2_5": 4.025,
+        "PM10": 7.785
+    },
+    {
+        "Location": "Kostelec nad Černými lesy",
+        "Temperature": 16.744999999999997,
+        "Pressure": 968.08845,
+        "Humidity": 100.0,
+        "PM2_5": 2.295,
+        "PM10": 3.34
+    },
+    {
+        "Location": "Kralupy nad Vltavou",
+        "Temperature": 20.16,
+        "Pressure": 990.5661,
+        "Humidity": 67.855,
+        "PM2_5": 3.525,
+        "PM10": 7.199999999999999
+    },
+    {
+        "Location": "Liberec",
+        "Temperature": 17.105,
+        "Pressure": 964.4102,
+        "Humidity": 74.195,
+        "PM2_5": 1.55,
+        "PM10": 4.05
+    },
+    {
+        "Location": "Libeň",
+        "Temperature": 18.666777676050962,
+        "Pressure": 979.4524651603198,
+        "Humidity": 85.60542712545458,
+        "PM2_5": 4.02,
+        "PM10": 4.02
+    },
+    {
+        "Location": "Lobeček",
+        "Temperature": 17.525,
+        "Pressure": 990.7746999999999,
+        "Humidity": 100.0,
+        "PM2_5": 2.54,
+        "PM10": 6.3100000000000005
+    },
+    {
+        "Location": "Lochkov",
+        "Temperature": 20.285,
+        "Pressure": 974.7179,
+        "Humidity": 71.495,
+        "PM2_5": 2.7,
+        "PM10": 7.15
+    },
+    {
+        "Location": "Lyžbice",
+        "Temperature": 21.2,
+        "Pressure": 1009.0,
+        "Humidity": 76.5,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Líně",
+        "Temperature": 17.38,
+        "Pressure": 973.704,
+        "Humidity": 83.34,
+        "PM2_5": 1.45,
+        "PM10": 4.6
+    },
+    {
+        "Location": "Michle",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.5999999999999996,
+        "PM10": 8.325
+    },
+    {
+        "Location": "Mladá Boleslav II",
+        "Temperature": 17.48,
+        "Pressure": 984.0072,
+        "Humidity": 100.0,
+        "PM2_5": 1.7000000000000002,
+        "PM10": 3.46
+    },
+    {
+        "Location": "Mnichovo Hradiště",
+        "Temperature": 18.183333333333334,
+        "Pressure": 985.2240333333333,
+        "Humidity": 78.48,
+        "PM2_5": 1.6333333333333335,
+        "PM10": 4.533333333333333
+    },
+    {
+        "Location": "Moravská Ostrava",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 12.476666666666667,
+        "PM10": 14.996666666666664
+    },
+    {
+        "Location": "Měchenice",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 4.335,
+        "PM10": 7.540000000000001
+    },
+    {
+        "Location": "Nové Město",
+        "Temperature": 18.848,
+        "Pressure": 981.6732600000001,
+        "Humidity": 85.934,
+        "PM2_5": 1.8199999999999998,
+        "PM10": 3.7979999999999996
+    },
+    {
+        "Location": "Nový Bohumín",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 14.89,
+        "PM10": 23.615000000000002
+    },
+    {
+        "Location": "Nový Jičín-Dolní Předměstí",
+        "Temperature": 22.426666666666666,
+        "Pressure": 975.4163666666667,
+        "Humidity": 89.52999999999999,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Nový Jičín-Horní Předměstí",
+        "Temperature": 20.08,
+        "Pressure": 976.8893499999999,
+        "Humidity": 100.0,
+        "PM2_5": 15.075,
+        "PM10": 15.08
+    },
+    {
+        "Location": "Němčice nad Labem",
+        "Temperature": 18.51,
+        "Pressure": 982.6992500000001,
+        "Humidity": 100.0,
+        "PM2_5": 18.385,
+        "PM10": 19.59
+    },
+    {
+        "Location": "Olomouc-město",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.3,
+        "PM10": 5.72
+    },
+    {
+        "Location": "Opatovice u Hranic",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 14.335,
+        "PM10": 16.93
+    },
+    {
+        "Location": "Osek u Duchcova",
+        "Temperature": 15.95,
+        "Pressure": 974.9811,
+        "Humidity": 100.0,
+        "PM2_5": 1.7,
+        "PM10": 6.26
+    },
+    {
+        "Location": "Otice",
+        "Temperature": 21.14,
+        "Pressure": 978.7706,
+        "Humidity": 83.24,
+        "PM2_5": 10.43,
+        "PM10": 20.57
+    },
+    {
+        "Location": "Pacov u Říčan",
+        "Temperature": 17.875,
+        "Pressure": 1009.0,
+        "Humidity": 97.11,
+        "PM2_5": 2.335,
+        "PM10": 5.925
+    },
+    {
+        "Location": "Pecka",
+        "Temperature": 16.695,
+        "Pressure": 970.74,
+        "Humidity": 95.12,
+        "PM2_5": 2.6,
+        "PM10": 4.3
+    },
+    {
+        "Location": "Plzeň",
+        "Temperature": 17.78,
+        "Pressure": 974.0,
+        "Humidity": 84.72,
+        "PM2_5": 4.595000000000001,
+        "PM10": 4.63
+    },
+    {
+        "Location": "Podolí",
+        "Temperature": 19.540000000000003,
+        "Pressure": 982.42995,
+        "Humidity": 85.57249999999999,
+        "PM2_5": 3.4299999999999997,
+        "PM10": 6.1825
+    },
+    {
+        "Location": "Polička-Město",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 5.135,
+        "PM10": 9.77
+    },
+    {
+        "Location": "Prostějov",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 2.49,
+        "PM10": 3.5999999999999996
+    },
+    {
+        "Location": "Písková Lhota",
+        "Temperature": 17.049999999999997,
+        "Pressure": 980.8331,
+        "Humidity": 100.0,
+        "PM2_5": 2.5,
+        "PM10": 5.225
+    },
+    {
+        "Location": "Pňovice",
+        "Temperature": 22.875,
+        "Pressure": 984.0391999999999,
+        "Humidity": 67.09,
+        "PM2_5": 1.575,
+        "PM10": 2.315
+    },
+    {
+        "Location": "Radlice",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 2.5766666666666667,
+        "PM10": 4.043333333333333
+    },
+    {
+        "Location": "Rakovník II",
+        "Temperature": 18.39,
+        "Pressure": 974.7291,
+        "Humidity": 92.9,
+        "PM2_5": 2.53,
+        "PM10": 8.6
+    },
+    {
+        "Location": "Roudnice nad Labem",
+        "Temperature": 19.080000000000002,
+        "Pressure": 991.0052,
+        "Humidity": 100.0,
+        "PM2_5": 3.2866666666666666,
+        "PM10": 3.2866666666666666
+    },
+    {
+        "Location": "Rybárny",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 0.15,
+        "PM10": 0.15
+    },
+    {
+        "Location": "Smíchov",
+        "Temperature": 21.25,
+        "Pressure": 989.4116999999999,
+        "Humidity": 65.375,
+        "PM2_5": 2.815,
+        "PM10": 5.82
+    },
+    {
+        "Location": "Staré Brno",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 1.9266666666666665,
+        "PM10": 4.66
+    },
+    {
+        "Location": "Staré Křečany",
+        "Temperature": 14.0,
+        "Pressure": 9.6633,
+        "Humidity": 100.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Statenice",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 4.98,
+        "PM10": 7.825
+    },
+    {
+        "Location": "Strašnice",
+        "Temperature": 17.225,
+        "Pressure": 984.6975,
+        "Humidity": 87.975,
+        "PM2_5": 1.825,
+        "PM10": 4.654999999999999
+    },
+    {
+        "Location": "Střešovice",
+        "Temperature": 15.06,
+        "Pressure": 628.625,
+        "Humidity": 100.0,
+        "PM2_5": 2.38,
+        "PM10": 3.63
+    },
+    {
+        "Location": "Střížkov",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 4.04,
+        "PM10": 6.890000000000001
+    },
+    {
+        "Location": "Sušice II",
+        "Temperature": 16.0,
+        "Pressure": 958.7,
+        "Humidity": 100.0,
+        "PM2_5": 0.9,
+        "PM10": 0.9800000000000001
+    },
+    {
+        "Location": "Tuchlovice",
+        "Temperature": 15.515,
+        "Pressure": 963.93345,
+        "Humidity": 100.0,
+        "PM2_5": 4.8149999999999995,
+        "PM10": 8.215
+    },
+    {
+        "Location": "Třebechovice pod Orebem",
+        "Temperature": 18.225,
+        "Pressure": 982.7886,
+        "Humidity": 100.0,
+        "PM2_5": 13.875,
+        "PM10": 16.285
+    },
+    {
+        "Location": "Tři Dvory",
+        "Temperature": 20.555,
+        "Pressure": 988.24595,
+        "Humidity": 100.0,
+        "PM2_5": 0.95,
+        "PM10": 4.949999999999999
+    },
+    {
+        "Location": "Valašské Meziříčí-město",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 19.875,
+        "PM10": 30.675
+    },
+    {
+        "Location": "Veleslavín",
+        "Temperature": 29.950000000000003,
+        "Pressure": 975.0276,
+        "Humidity": 36.985,
+        "PM2_5": 3.0,
+        "PM10": 3.5
+    },
+    {
+        "Location": "Vestec u Prahy",
+        "Temperature": 17.189999999999998,
+        "Pressure": 975.6360999999999,
+        "Humidity": 73.465,
+        "PM2_5": 3.1399999999999997,
+        "PM10": 6.75
+    },
+    {
+        "Location": "Veveří",
+        "Temperature": 20.445,
+        "Pressure": 979.57015,
+        "Humidity": 76.39,
+        "PM2_5": 0.05,
+        "PM10": 0.125
+    },
+    {
+        "Location": "Vinohrady",
+        "Temperature": 20.585,
+        "Pressure": 981.4938,
+        "Humidity": 72.04166666666667,
+        "PM2_5": 2.6666666666666665,
+        "PM10": 3.153333333333333
+    },
+    {
+        "Location": "Vratimov",
+        "Temperature": 22.509999999999998,
+        "Pressure": 978.1629499999999,
+        "Humidity": 86.83,
+        "PM2_5": 17.3,
+        "PM10": 17.564999999999998
+    },
+    {
+        "Location": "Vršovice",
+        "Temperature": 20.655,
+        "Pressure": 987.01485,
+        "Humidity": 73.235,
+        "PM2_5": 2.825,
+        "PM10": 5.015
+    },
+    {
+        "Location": "Vsetín",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 1.51,
+        "PM10": 1.645
+    },
+    {
+        "Location": "Zličín",
+        "Temperature": 17.915,
+        "Pressure": 967.60905,
+        "Humidity": 100.0,
+        "PM2_5": 3.29,
+        "PM10": 3.29
+    },
+    {
+        "Location": "Ústí nad Labem",
+        "Temperature": 19.765,
+        "Pressure": 994.2592,
+        "Humidity": 78.045,
+        "PM2_5": 2.6500000000000004,
+        "PM10": 4.27
+    },
+    {
+        "Location": "Čelákovice",
+        "Temperature": 17.42,
+        "Pressure": 988.35375,
+        "Humidity": 100.0,
+        "PM2_5": 1.23,
+        "PM10": 1.23
+    },
+    {
+        "Location": "Česká Třebová",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 4.76,
+        "PM10": 5.21
+    },
+    {
+        "Location": "České Budějovice 5",
+        "Temperature": 16.349999999999998,
+        "Pressure": 965.8105333333333,
+        "Humidity": 100.0,
+        "PM2_5": 1.7233333333333334,
+        "PM10": 4.696666666666666
+    },
+    {
+        "Location": "Český Brod",
+        "Temperature": 20.945,
+        "Pressure": 986.3017,
+        "Humidity": 86.0,
+        "PM2_5": 2.135,
+        "PM10": 3.79
+    },
+    {
+        "Location": "Český Těšín",
+        "Temperature": 20.86,
+        "Pressure": 9.7761,
+        "Humidity": 87.62,
+        "PM2_5": 24.7,
+        "PM10": 26.9
+    },
+    {
+        "Location": "Čimice",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 2.085,
+        "PM10": 6.425
+    },
+    {
+        "Location": "Říčany u Prahy",
+        "Temperature": 23.125,
+        "Pressure": 971.7072000000001,
+        "Humidity": 56.435,
+        "PM2_5": 0.135,
+        "PM10": 0.165
+    },
+    {
+        "Location": "Žižkov",
+        "Temperature": 17.105,
+        "Pressure": 981.9618499999999,
+        "Humidity": 85.96,
+        "PM2_5": 2.565,
+        "PM10": 4.9350000000000005
+    },
+    {
+        "Location": "Beroun",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 32.0,
+        "PM10": 58.0
+    },
+    {
+        "Location": "Brno - Dětská nemocnice",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 44.0,
+        "PM10": 43.0
+    },
+    {
+        "Location": "Brno-Arboretum",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 35.5,
+        "PM10": 50.5
+    },
+    {
+        "Location": "Brno-Lány",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 29.7,
+        "PM10": 42.5
+    },
+    {
+        "Location": "Brno-Líšeň",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 25.0,
+        "PM10": 48.0
+    },
+    {
+        "Location": "Brno-Masná",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 38.0,
+        "PM10": 53.0
+    },
+    {
+        "Location": "Brno-Svatoplukova",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 32.9,
+        "PM10": 67.5
+    },
+    {
+        "Location": "Brno-Tuřany",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 36.0,
+        "PM10": 43.0
+    },
+    {
+        "Location": "Brno-Výstaviště",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 33.5,
+        "PM10": 50.9
+    },
+    {
+        "Location": "Brno-Zvonařka",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Brno-Úvoz (hot spot)",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 29.0,
+        "PM10": 46.0
+    },
+    {
+        "Location": "Bílý Kříž",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Bělotín",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 39.0,
+        "PM10": 36.0
+    },
+    {
+        "Location": "Cheb",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 39.0
+    },
+    {
+        "Location": "Chomutov",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 42.0
+    },
+    {
+        "Location": "Churáňov",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Doksany",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Děčín",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 48.0,
+        "PM10": 61.0
+    },
+    {
+        "Location": "Frýdek-Místek",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 28.0,
+        "PM10": 48.0
+    },
+    {
+        "Location": "Frýdlant",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Havířov ZÚ",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 58.0
+    },
+    {
+        "Location": "Havířov",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 20.0,
+        "PM10": 31.0
+    },
+    {
+        "Location": "Hodonín",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 25.0,
+        "PM10": 39.0
+    },
+    {
+        "Location": "Hojná Voda",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 24.0
+    },
+    {
+        "Location": "Hr.Král.-Sukovy sady",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Hradec Králové-Brněnská",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 30.0,
+        "PM10": 57.0
+    },
+    {
+        "Location": "Hradec Králové-observatoř",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Hranice",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Jeseník-lázně",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 33.0
+    },
+    {
+        "Location": "Jihlava-Znojemská",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 22.0,
+        "PM10": 56.0
+    },
+    {
+        "Location": "Kamenný Újezd",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 15.0,
+        "PM10": 30.0
+    },
+    {
+        "Location": "Karviná ZÚ",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 45.0,
+        "PM10": 63.0
+    },
+    {
+        "Location": "Karviná",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 53.0,
+        "PM10": 83.0
+    },
+    {
+        "Location": "Kladno-střed města",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 37.0,
+        "PM10": 42.0
+    },
+    {
+        "Location": "Kladno-Švermov",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 48.0
+    },
+    {
+        "Location": "Klatovy soud",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Kocelovice",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Kolín SAZ",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Kostelní Myslová",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Košetice",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 31.0,
+        "PM10": 25.0
+    },
+    {
+        "Location": "Kralupy nad Vltavou-sportoviště",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Krkonoše-Rýchory",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Krupka",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 38.0
+    },
+    {
+        "Location": "Kuchařovice",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 34.0,
+        "PM10": 35.0
+    },
+    {
+        "Location": "Kutná Hora-Orebitská",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 32.0,
+        "PM10": 37.0
+    },
+    {
+        "Location": "Letiště Praha",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 32.0,
+        "PM10": 45.0
+    },
+    {
+        "Location": "Liberec-Rochlice",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 19.0,
+        "PM10": 38.0
+    },
+    {
+        "Location": "Litoměřice",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 87.0
+    },
+    {
+        "Location": "Lom",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 27.0,
+        "PM10": 44.0
+    },
+    {
+        "Location": "Mikulov-Sedlec",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 33.0,
+        "PM10": 40.0
+    },
+    {
+        "Location": "Mladá Boleslav",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 43.0,
+        "PM10": 65.0
+    },
+    {
+        "Location": "Mokrá",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Moravská Třebová - Piaristická.",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 50.0,
+        "PM10": 56.0
+    },
+    {
+        "Location": "Most",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 44.0,
+        "PM10": 77.0
+    },
+    {
+        "Location": "Měděnec",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 43.0
+    },
+    {
+        "Location": "Nošovice",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Olomouc-Hejčín",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 51.0,
+        "PM10": 70.0
+    },
+    {
+        "Location": "Olomouc-Šmeralova",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 33.0,
+        "PM10": 61.0
+    },
+    {
+        "Location": "Ondřejov",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Opava-Kateřinky",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 52.0,
+        "PM10": 56.0
+    },
+    {
+        "Location": "Ostrava-Fifejdy",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 102.0
+    },
+    {
+        "Location": "Ostrava-Heřmanice",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 62.0
+    },
+    {
+        "Location": "Ostrava-Hrabůvka",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 32.0
+    },
+    {
+        "Location": "Ostrava-Hrušov",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 57.1,
+        "PM10": 80.5
+    },
+    {
+        "Location": "Ostrava-Krásné Pole",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 54.0
+    },
+    {
+        "Location": "Ostrava-Mariánské Hory",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 91.0
+    },
+    {
+        "Location": "Ostrava-Poruba DD",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 46.0,
+        "PM10": 72.0
+    },
+    {
+        "Location": "Ostrava-Poruba ČHMÚ",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 50.0
+    },
+    {
+        "Location": "Ostrava-Přívoz",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 61.0,
+        "PM10": 79.0
+    },
+    {
+        "Location": "Ostrava-Radvanice OZO",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 102.0
+    },
+    {
+        "Location": "Ostrava-Radvanice ZÚ",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 54.0,
+        "PM10": 98.0
+    },
+    {
+        "Location": "Ostrava-Zábřeh",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 49.0,
+        "PM10": 57.0
+    },
+    {
+        "Location": "Ostrava-Českobratrská (hot spot)",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 54.0,
+        "PM10": 98.0
+    },
+    {
+        "Location": "Otrokovice-město",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Pardubice Dukla",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 35.0,
+        "PM10": 44.0
+    },
+    {
+        "Location": "Pardubice-Rosice",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Pelhřimov",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 12.0,
+        "PM10": 18.0
+    },
+    {
+        "Location": "Plzeň - mobil 09.03.2021 Plzeň - Jižní Předměstí",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 42.0,
+        "PM10": 59.0
+    },
+    {
+        "Location": "Plzeň-Doubravka",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 24.0,
+        "PM10": 42.0
+    },
+    {
+        "Location": "Plzeň-Lochotín",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 34.0,
+        "PM10": 46.0
+    },
+    {
+        "Location": "Plzeň-Slovany",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 31.0,
+        "PM10": 41.0
+    },
+    {
+        "Location": "Plzeň-střed",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 28.0,
+        "PM10": 46.0
+    },
+    {
+        "Location": "Polom",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 25.0
+    },
+    {
+        "Location": "Prachatice",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 42.0
+    },
+    {
+        "Location": "Praha 1-n. Republiky",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Praha 10-Průmyslová",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 88.0
+    },
+    {
+        "Location": "Praha 10-Vršovice",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 54.0
+    },
+    {
+        "Location": "Praha 10-Šrobárova",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Praha 2-Legerova (hot spot)",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 34.0,
+        "PM10": 50.0
+    },
+    {
+        "Location": "Praha 2-Riegrovy sady",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 41.0,
+        "PM10": 52.0
+    },
+    {
+        "Location": "Praha 4-Chodov",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 47.0
+    },
+    {
+        "Location": "Praha 4-Libuš",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 34.1,
+        "PM10": 43.0
+    },
+    {
+        "Location": "Praha 5-Stodůlky",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 31.0,
+        "PM10": 37.0
+    },
+    {
+        "Location": "Praha 5-Řeporyje",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Praha 6-Břevnov",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 35.0
+    },
+    {
+        "Location": "Praha 6-Suchdol",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 49.0
+    },
+    {
+        "Location": "Praha 7-Holešovice",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 37.0,
+        "PM10": 64.0
+    },
+    {
+        "Location": "Praha 8-Karlín",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 56.0
+    },
+    {
+        "Location": "Praha 8-Kobylisy",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 52.0
+    },
+    {
+        "Location": "Praha 9-Vysočany",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 101.0
+    },
+    {
+        "Location": "Prostějov",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 42.0
+    },
+    {
+        "Location": "Přebuz",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Přerov",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 44.0,
+        "PM10": 48.0
+    },
+    {
+        "Location": "Přimda",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Příbram-Březové Hory",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 55.0
+    },
+    {
+        "Location": "Rožnov pod Radhoštěm",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 27.4,
+        "PM10": 38.2
+    },
+    {
+        "Location": "Rožďalovice-Ruská",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 39.0,
+        "PM10": 34.0
+    },
+    {
+        "Location": "Rudolice v Horách",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 34.0
+    },
+    {
+        "Location": "Rychvald",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 49.0,
+        "PM10": 80.0
+    },
+    {
+        "Location": "Sivice",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 33.0,
+        "PM10": 109.0
+    },
+    {
+        "Location": "Sněžník",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Sokolov",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 35.0,
+        "PM10": 43.0
+    },
+    {
+        "Location": "Souš",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Strakonice-ZŠ Strakonice",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Studénka",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 38.0,
+        "PM10": 49.0
+    },
+    {
+        "Location": "Svratouch",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Teplice ",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 47.0,
+        "PM10": 47.0
+    },
+    {
+        "Location": "Tobolka-Čertovy schody",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 29.0,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Trutnov - Tkalcovská",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 49.0
+    },
+    {
+        "Location": "Tušimice",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 29.0,
+        "PM10": 31.0
+    },
+    {
+        "Location": "Tábor",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 65.0
+    },
+    {
+        "Location": "Těšnovice",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 33.0,
+        "PM10": 37.0
+    },
+    {
+        "Location": "Třebíč",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 52.0
+    },
+    {
+        "Location": "Třinec-Kanada",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 36.0,
+        "PM10": 69.0
+    },
+    {
+        "Location": "Třinec-Kosmos",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 33.0,
+        "PM10": 39.0
+    },
+    {
+        "Location": "Uherské Hradiště",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 45.3
+    },
+    {
+        "Location": "Valašské Meziříčí",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 34.0,
+        "PM10": 48.0
+    },
+    {
+        "Location": "Věřňovice",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 90.0,
+        "PM10": 112.0
+    },
+    {
+        "Location": "Zlín - ZŠ Kvítkova",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 30.9,
+        "PM10": 37.6
+    },
+    {
+        "Location": "Zlín",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 19.0,
+        "PM10": 41.0
+    },
+    {
+        "Location": "Znojmo",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 24.0,
+        "PM10": 38.0
+    },
+    {
+        "Location": "Ústí n. L.-Prokopa Diviše",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Ústí n.L.-Kočkov",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 29.0,
+        "PM10": 38.0
+    },
+    {
+        "Location": "Ústí n.L.-město",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 59.0
+    },
+    {
+        "Location": "Ústí n.L.-Všebořická (hot spot)",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 48.0,
+        "PM10": 75.0
+    },
+    {
+        "Location": "Červená hora",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Čes. Budějovice-Třešň.",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Česká Lípa",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 41.0
+    },
+    {
+        "Location": "České Budějovice",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 25.0,
+        "PM10": 33.0
+    },
+    {
+        "Location": "Český Těšín",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 37.0,
+        "PM10": 43.0
+    },
+    {
+        "Location": "Štítná n.Vláří",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Štětí",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 41.0,
+        "PM10": 56.0
+    },
+    {
+        "Location": "Šumperk, ZŠ Vrchlického",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 3.99,
+        "PM10": 4.88
+    },
+    {
+        "Location": "Ždár nad Sázavou",
+        "Temperature": 15.06,
+        "Pressure": 1009.0,
+        "Humidity": 86.0,
+        "PM2_5": 15.0,
+        "PM10": 39.0
+    }
+]
