@@ -197,6 +197,36 @@ module.exports = {
     }
   },
 
+    //endpoint for getting sensor state text for pm2.5
+    async getSensorStatePm2Text(req, res, next) {
+      var ip = (req.headers["x-forwarded-for"] || "")
+        .split(",")[0]
+        .trim()
+        .split(":")[0];
+      console.log(ip);
+  
+      if (!ip) {
+        return res.status(400).json({ error: "Missing IP address" });
+      }
+  
+      const geo = geoip.lookup(ip);
+  
+      if (!geo) {
+        return res.status(400).json({ error: "Unable to locate IP address" });
+      }
+  
+      const data = await SensorService.getSensorData(geo.ll[0], geo.ll[1], 1);
+      const parserData = JsonParser.getSensorValue(data, "pm25");
+      if (parserData) {
+        console.log(parserData);
+        const state = SensorState.getPm25Text(parserData);
+        res.status(200).json(state);
+      } else {
+        res.status(500).json({ error: "Failed to fetch parserSensor data" });
+      }
+    },
+  
+
   //endpoint for getting sensor state for pm10
   async getSensorStatePm10(req, res, next) {
     var ip = (req.headers["x-forwarded-for"] || "")

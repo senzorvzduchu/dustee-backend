@@ -51,7 +51,33 @@ module.exports = {
         color-level-4: #f2807c;
         color-level-5: #e68fbb; 
         color-level-6: #bc8cc5;
-         */
+        */
+        getPm25Text(pm25) {
+                const pm2 = parseFloat(pm25);
+
+                if (pm2 >= 0 && pm2 < 12) {
+                        //good
+                        return "Kvalita ovzduší je výborná.";
+                } else if (pm2 >= 12.1 && pm2 < 35.4) {
+                        //moderate
+                        return "Kvalita ovzduší je dobrá.";
+                } else if (pm2 >= 35.5 && pm2 < 55.4) {
+                        //unhealty for sensitive groups
+                        return "Kvalita ovzduší je nezdravá pro rizikové skupiny.";
+                } else if (pm2 >= 55.5 && pm2 < 150.4) {
+                        //unhealty
+                        return "Kvalita ovzduší je riziková.";
+                } else if (pm2 >= 150.5 && pm2 < 250.4) {
+                        //very unhealty
+                        return "Kvalita ovzduší je v nezdravá.";
+                } else if (pm2 >= 250.5) {
+                        //hazardous
+                        return "Kvalita ovzduší je nebezpečná.";
+                } else {
+                        return "Kvalita ovzduší je nezdravá pro rizikové skupiny.";
+                }
+        },
+
         getPm2Stat(pm25) {
                 const pm2 = parseFloat(pm25);
 
