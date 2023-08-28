@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const SensorService = require("../data-scrapers/sensor-community");
 const JsonParser = require("../data-scrapers/json-parser");
 const SensorState = require("../utils/sensor-state");
-const parseCSVToJSON = require("../utils/csv-to-json"); // Import the function from csvParser.js
+const parseCSVToJSONforSC = require("../utils/csv-to-json"); // Import the function from csvParser.js
 const User = require("../db/user");
 const Geocode = require("../utils/geocode");
 const County = require("../utils/county-finder");
@@ -235,14 +235,14 @@ module.exports = {
   // Endpoint for getting coordinates of all sensors
   async getAllLocations(req, res) {
     try {
-      const filePath = "cron-scraper/data/sensor_community/all-sensors.csv"; // Update the path to your CSV file
-
+      const SCfilePath = "cron-scraper/data/sensor_community/all-sensors.csv"; // Update the path to your CSV file
+      const CHMUfilePath = "cron-scraper/data/CHMU/Česká republika/all_stations.csv";
       // Check if a JWT token is present in the request
       const authHeader = req.headers.authorization;
 
       if (!authHeader) {
         // If no token is provided, call parseCSVToJSON with fullSensors as false
-        const locations = await parseCSVToJSON(filePath, false);
+        const locations = await parseCSVToJSONforSC(CHMUfilePath, SCfilePath, false);
         res
           .status(200)
           .json({ locations, status: "Only essential sensors returned" });
@@ -263,7 +263,7 @@ module.exports = {
 
         const fullSensors = true; // Set this to true since the token is valid
 
-        const locations = await parseCSVToJSON(filePath, fullSensors);
+        const locations = await parseCSVToJSONforSC(CHMUfilePath, SCfilePath, fullSensors);
 
         res.status(200).json({ locations, status: "All sensors returned" });
       });
