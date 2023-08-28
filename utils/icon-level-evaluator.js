@@ -9,13 +9,13 @@ function getQualityText(iconLevel) {
     case 4:
       return "Kvalita ovzduší je riziková.";
     case 5:
-      return "Kvalita ovzduší je v nezdravá.";
+      return "Kvalita ovzduší je nezdravá.";
     case 6:
       return "Kvalita ovzduší je nebezpečná.";
     case 7:
       return "Kvalita ovzduší je extrémní.";
     default:
-      return "Není dostupná žádná informace o kvalitě ovzduší.";
+      return "Kvalita ovzduší je nezdravá pro rizikové skupiny.";
   }
 }
 
