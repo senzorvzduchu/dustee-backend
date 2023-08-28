@@ -70,7 +70,7 @@ async function parseSensorData(data) {
       longitude = parseFloat(data.location.longitude);
       latitude = parseFloat(data.location.latitude);
 
-      const pm25Data = data.sensordatavalues.find(value => value.value_type === "PM2.5");
+      const pm25Data = data.sensordatavalues.find(value => value.value_type === "PM2_5");
       const pm10Data = data.sensordatavalues.find(value => value.value_type === "PM10");
 
       pm25 = pm25Data ? parseFloat(pm25Data.value) : null;
@@ -82,7 +82,7 @@ async function parseSensorData(data) {
       Temperature: temperature,
       Pressure: pressure,
       Humidity: humidity,
-      "PM2.5": pm25,
+      PM2_5: pm25,
       PM10: pm10,
       Longitude: longitude,
       Latitude: latitude,
