@@ -1,7 +1,21 @@
 const axios = require("axios"); // Import the axios library
 
 const openWeatherApiKey = "ce48301aaf1d16612230648eeff30329";
+const nominatimBaseUrl = "https://nominatim.openstreetmap.org";
 
+// Function to fetch location data from Nominatim API
+async function fetchLocationData(latitude, longitude) {
+  const url = `${nominatimBaseUrl}/reverse?lat=${latitude}&lon=${longitude}&format=json`;
+
+  try {
+    const response = await axios.get(url);
+    const data = response.data;
+    return data.address.city || data.address.town || data.address.village || null;
+  } catch (error) {
+    console.error("Error fetching location data:", error);
+    return null;
+  }
+}
 // Function to fetch temperature data from OpenWeatherMap API
 async function fetchTemperatureData(location) {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
@@ -39,8 +53,9 @@ async function parseSensorData(data) {
       humidity,
       pm25,
       pm10,
+      latitude,
       longitude,
-      latitude;
+      location;
 
     if (!data) {
       // Fetch data for Czech Republic and average it
@@ -54,8 +69,9 @@ async function parseSensorData(data) {
       humidity = averageTemperatureData ? averageTemperatureData.humidity : null;
       pm25 = averageAirQualityData ? averageAirQualityData.pm2_5 : null;
       pm10 = averageAirQualityData ? averageAirQualityData.pm10 : null;
-      longitude = 15.473; // Czech Republic longitude
-      latitude = 49.8175; // Czech Republic latitude
+      location = "Česká republika";
+      //longitude = 15.473; // Czech Republic longitude
+      //latitude = 49.8175; // Czech Republic latitude
     } else {
       sensorId = data.sensor.id;
 
@@ -70,22 +86,26 @@ async function parseSensorData(data) {
       longitude = parseFloat(data.location.longitude);
       latitude = parseFloat(data.location.latitude);
 
+      
+
       const pm25Data = data.sensordatavalues.find(value => value.value_type === "PM2_5");
       const pm10Data = data.sensordatavalues.find(value => value.value_type === "PM10");
 
       pm25 = pm25Data ? parseFloat(pm25Data.value) : null;
       pm10 = pm10Data ? parseFloat(pm10Data.value) : null;
+
+      const cityName = await fetchLocationData(latitude, longitude);
+      location = cityName || "Česká republika"; // Fallback to "Česká republika" if location not found
     }
 
     return {
       sensorId,
+      Location: location,
       Temperature: temperature,
       Pressure: pressure,
       Humidity: humidity,
       PM2_5: pm25,
       PM10: pm10,
-      Longitude: longitude,
-      Latitude: latitude,
     };
   } catch (error) {
     console.error("Error parsing sensor data:", error);
