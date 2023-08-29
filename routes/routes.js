@@ -13,6 +13,8 @@ const County = require("../utils/county-finder");
 const fetchDataForSearchQuery = require("../utils/search-location");
 const parseSensorData = require("../utils/nearest-sensor-parser");
 const getWeatherAndMapToSvg = require("../utils/weather-level-evaluator");
+const getWeatherForecast = require("../utils/weather-forecast");
+
 const {
   calculateOverallIconLevel,
   getQualityText,
@@ -82,6 +84,8 @@ module.exports = {
     }
 
     try {
+      //-------------------------------Emojis--------------------------------------------
+
       const iconLevel = calculateOverallIconLevel(inputData);
 
       // Construct the complete icon path based on the icon level
@@ -96,10 +100,19 @@ module.exports = {
       );
 
       // Read the SVG file content
-      const svgContent = fs.readFileSync(completeIconPath, "utf8");
+      const emojiSvgContent = fs.readFileSync(completeIconPath, "utf8");
 
       // Get quality text based on the icon level
       const qualityText = getQualityText(iconLevel);
+
+      const emoji = {
+        title: "Current air quality state",
+        airQuality: qualityText,
+        emojiSvgContent: emojiSvgContent,
+      };
+
+      //----------------------------Weather--------------------------------------------------------
+
       // Fetch the weather SVG name
       const weatherSvgName = await getWeatherAndMapToSvg(inputData);
 
@@ -114,8 +127,58 @@ module.exports = {
       // Read the weather SVG file content
       const weatherSvgContent = fs.readFileSync(weatherSvgPath, "utf8");
 
-      // Send the SVG file content and quality text as the response
-      res.json({ svgContent, weatherSvgContent, qualityText });
+      // Fetch the weather forecast data
+      const forecasts = await getWeatherForecast(inputData);
+
+      const weather = {
+        title: "Current weather",
+        currentTemperature: inputData.Temperature,
+        weatherSvgContent: weatherSvgContent,
+      };
+
+      //////---------------------Forecasts------------------------------------------------------
+
+      // Extract SVG filenames from forecasts
+      const forecastSvgFilenames = [
+        forecasts.forecast3Hours.icon,
+        forecasts.forecast6Hours.icon,
+        forecasts.forecast12Hours.icon,
+      ];
+
+      // Construct the complete weather SVG paths
+      const forecastWeatherSvgPaths = forecastSvgFilenames.map((filename) =>
+        path.join(__dirname, "..", "media", "weather", filename)
+      );
+
+      // Read the weather SVG file contents
+      const forecastWeatherSvgContents = forecastWeatherSvgPaths.map(
+        (svgPath) => fs.readFileSync(svgPath, "utf8")
+      );
+
+      // Prepare forecast intervals for titles
+      const forecastIntervals = ["3 hours", "6 hours", "12 hours"];
+
+      // Map interval strings to corresponding forecast properties
+      const intervalToPropertyMap = {
+        "3 hours": "forecast3Hours",
+        "6 hours": "forecast6Hours",
+        "12 hours": "forecast12Hours",
+      };
+
+      // Combine forecast intervals with their respective SVG contents and temperatures
+      const forecastWeatherSvgWithTitle = forecastIntervals.map((interval) => ({
+        title: `${interval} forecast`,
+        temperature: forecasts[intervalToPropertyMap[interval]]?.temperature,
+        svgContent:
+          forecastWeatherSvgContents[forecastIntervals.indexOf(interval)],
+      }));
+
+      //-------------------------------Response-----------------------------------------------
+      res.json({
+        emoji,
+        weather,
+        weatherForecast: forecastWeatherSvgWithTitle,
+      });
     } catch (error) {
       res.status(500).json({ error: `An error occurred: ${error.message}` });
     }
