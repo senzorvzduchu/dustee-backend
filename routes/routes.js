@@ -169,7 +169,7 @@ module.exports = {
 
       // Combine forecast intervals with their respective SVG contents and temperatures
       const forecastWeatherSvgWithTitle = forecastIntervals.map((interval) => ({
-        title: `${interval} Weather forecasts`,
+        title: `${interval} Weather forecast`,
         temperature: forecasts[intervalToPropertyMap[interval]]?.temperature,
         svgContent:
           forecastWeatherSvgContents[forecastIntervals.indexOf(interval)],
@@ -209,7 +209,7 @@ module.exports = {
       res.json({
         emoji,
         weather,
-        weatherForecast: forecastWeatherSvgWithTitle,
+        weatherForecasts: forecastWeatherSvgWithTitle,
         aqiForecasts: finalAqiForecasts,
       });
     } catch (error) {
