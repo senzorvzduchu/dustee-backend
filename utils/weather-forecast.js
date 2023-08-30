@@ -85,8 +85,8 @@ function getWeatherForecast(input) {
           return fallbackForecasts;
         } else {
           return {
-            weather: input.Weather,
-            icon: weatherSvgMap[input.Weather],
+            weather: 'Clouds',
+            icon: weatherSvgMap.Clouds,
             temperature: input.Temperature,
           };
         }

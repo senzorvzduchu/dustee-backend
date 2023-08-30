@@ -10,6 +10,7 @@
   "author": "Alexandr Waage",
   "license": "ISC",
   "dependencies": {
+    "arima": "^0.2.5",
     "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",

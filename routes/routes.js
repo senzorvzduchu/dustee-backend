@@ -6,14 +6,16 @@ const jwt = require("jsonwebtoken");
 const SensorService = require("../data-scrapers/sensor-community");
 const JsonParser = require("../data-scrapers/json-parser");
 const SensorState = require("../utils/sensor-state");
-const parseCSVToJSONforSC = require("../utils/csv-to-json"); // Import the function from csvParser.js
-const User = require("../db/user");
+const parseCSVToJSONforSC = require("../utils/csv-to-json");
 const Geocode = require("../utils/geocode");
 const County = require("../utils/county-finder");
 const fetchDataForSearchQuery = require("../utils/search-location");
 const parseSensorData = require("../utils/nearest-sensor-parser");
 const getWeatherAndMapToSvg = require("../utils/weather-level-evaluator");
 const getWeatherForecast = require("../utils/weather-forecast");
+const getMedianPredictions = require("../utils/aqi-prediction");
+const extractPMAverages = require("../utils/aqi-file-extractor");
+const processForecastData = require("../utils/prediction-to-levels");
 
 const {
   calculateOverallIconLevel,
@@ -38,7 +40,7 @@ module.exports = {
     const timeoutPromise = new Promise((resolve, reject) => {
       setTimeout(() => {
         reject(new Error("Sensor data retrieval took too long"));
-      }, 8000); // 5000 milliseconds = 5 seconds
+      }, 8000);
     });
 
     try {
@@ -136,7 +138,7 @@ module.exports = {
         weatherSvgContent: weatherSvgContent,
       };
 
-      //////---------------------Forecasts------------------------------------------------------
+      //////---------------------Weather Forecasts------------------------------------------------------
 
       // Extract SVG filenames from forecasts
       const forecastSvgFilenames = [
@@ -167,225 +169,51 @@ module.exports = {
 
       // Combine forecast intervals with their respective SVG contents and temperatures
       const forecastWeatherSvgWithTitle = forecastIntervals.map((interval) => ({
-        title: `${interval} forecast`,
+        title: `${interval} Weather forecasts`,
         temperature: forecasts[intervalToPropertyMap[interval]]?.temperature,
         svgContent:
           forecastWeatherSvgContents[forecastIntervals.indexOf(interval)],
       }));
+
+      //-----------------------------AQI FORECASTS-----------------------------------------------
+
+      const folderPath = "cron-scraper/data/history/region_data";
+      const pmValues = extractPMAverages(inputData, folderPath);
+      const aqiForecasts = getMedianPredictions(pmValues);
+      console.log(aqiForecasts);
+      const aqiLevels = processForecastData(aqiForecasts);
+      console.log(aqiLevels);
+
+      const forecastAqiSvgContents = Object.values(aqiLevels).map(
+        (value, index) => {
+          const filename = `icon-level-${value}.svg`;
+          const svgPath = path.join(
+            __dirname,
+            "..",
+            "media",
+            "emoji-states",
+            "level",
+            filename
+          );
+          return fs.readFileSync(svgPath, "utf8");
+        }
+      );
+
+      const finalAqiForecasts = forecastIntervals.map((interval, index) => ({
+        title: `${interval} AQI forecast`,
+        svgContent: forecastAqiSvgContents[index],
+      }));
+
 
       //-------------------------------Response-----------------------------------------------
       res.json({
         emoji,
         weather,
         weatherForecast: forecastWeatherSvgWithTitle,
+        aqiForecasts: finalAqiForecasts,
       });
     } catch (error) {
       res.status(500).json({ error: `An error occurred: ${error.message}` });
-    }
-  },
-
-  // endpoint for getting sensor state for temperature
-  async getSensorStateTemp(req, res, next) {
-    var ip = (req.headers["x-forwarded-for"] || "")
-      .split(",")[0]
-      .trim()
-      .split(":")[0];
-    console.log(ip);
-
-    if (!ip) {
-      return res.status(400).json({ error: "Missing IP address" });
-    }
-
-    const geo = geoip.lookup(ip);
-
-    if (!geo) {
-      return res.status(400).json({ error: "Unable to locate IP address" });
-    }
-
-    const data = await SensorService.getSensorData(geo.ll[0], geo.ll[1], 1);
-    //console.log(data);
-    const parserData = JsonParser.getSensorValue(data, "temperature");
-    if (parserData) {
-      console.log(parserData);
-      const state = SensorState.getTemperatureStat(parserData);
-      res.sendFile(state, (err) => {
-        if (err) {
-          next(err);
-        } else {
-          console.log("File Sent:", state);
-        }
-      });
-    } else {
-      res.status(500).json({ error: "Failed to fetch parserSensor data" });
-    }
-  },
-
-  //endpoint for getting sensor state for pressure
-  async getSensorStatePressure(req, res, next) {
-    var ip = (req.headers["x-forwarded-for"] || "")
-      .split(",")[0]
-      .trim()
-      .split(":")[0];
-    console.log(ip);
-
-    if (!ip) {
-      return res.status(400).json({ error: "Missing IP address" });
-    }
-
-    const geo = geoip.lookup(ip);
-
-    if (!geo) {
-      return res.status(400).json({ error: "Unable to locate IP address" });
-    }
-
-    const data = await SensorService.getSensorData(geo.ll[0], geo.ll[1], 1);
-    const parserData = JsonParser.getSensorValue(data, "pressure");
-    if (parserData) {
-      console.log(parserData);
-      const state = SensorState.getPressureStat(parserData);
-      res.sendFile(state, (err) => {
-        if (err) {
-          next(err);
-        } else {
-          console.log("File Sent:", state);
-        }
-      });
-    } else {
-      res.status(500).json({ error: "Failed to fetch parserSensor data" });
-    }
-  },
-
-  //endpoint for getting sensor state for humidity
-  async getSensorStateHumidity(req, res, next) {
-    var ip = (req.headers["x-forwarded-for"] || "")
-      .split(",")[0]
-      .trim()
-      .split(":")[0];
-    console.log(ip);
-
-    if (!ip) {
-      return res.status(400).json({ error: "Missing IP address" });
-    }
-
-    const geo = geoip.lookup(ip);
-
-    if (!geo) {
-      return res.status(400).json({ error: "Unable to locate IP address" });
-    }
-
-    const data = await SensorService.getSensorData(geo.ll[0], geo.ll[1], 1);
-    const parserData = JsonParser.getSensorValue(data, "humidity");
-    if (parserData) {
-      console.log(parserData);
-      const state = SensorState.getHumidityStat(parserData);
-      res.sendFile(state, (err) => {
-        if (err) {
-          next(err);
-        } else {
-          console.log("File Sent:", state);
-        }
-      });
-    } else {
-      res.status(500).json({ error: "Failed to fetch parserSensor data" });
-    }
-  },
-
-  //endpoint for getting sensor state for pm2.5
-  async getSensorStatePm2(req, res, next) {
-    var ip = (req.headers["x-forwarded-for"] || "")
-      .split(",")[0]
-      .trim()
-      .split(":")[0];
-    console.log(ip);
-
-    if (!ip) {
-      return res.status(400).json({ error: "Missing IP address" });
-    }
-
-    const geo = geoip.lookup(ip);
-
-    if (!geo) {
-      return res.status(400).json({ error: "Unable to locate IP address" });
-    }
-
-    const data = await SensorService.getSensorData(geo.ll[0], geo.ll[1], 1);
-    const parserData = JsonParser.getSensorValue(data, "pm25");
-    if (parserData) {
-      console.log(parserData);
-      const state = SensorState.getPm2Stat(parserData);
-      res.sendFile(state, (err) => {
-        if (err) {
-          next(err);
-        } else {
-          console.log("File Sent:", state);
-        }
-      });
-    } else {
-      res.status(500).json({ error: "Failed to fetch parserSensor data" });
-    }
-  },
-
-  //endpoint for getting sensor state text for pm2.5
-  async getSensorStatePm2Text(req, res, next) {
-    var ip = (req.headers["x-forwarded-for"] || "")
-      .split(",")[0]
-      .trim()
-      .split(":")[0];
-    console.log(ip);
-
-    if (!ip) {
-      return res.status(400).json({ error: "Missing IP address" });
-    }
-
-    const geo = geoip.lookup(ip);
-
-    if (!geo) {
-      return res.status(400).json({ error: "Unable to locate IP address" });
-    }
-
-    const data = await SensorService.getSensorData(geo.ll[0], geo.ll[1], 1);
-    const parserData = JsonParser.getSensorValue(data, "pm25");
-    if (parserData) {
-      console.log(parserData);
-      const state = SensorState.getPm25Text(parserData);
-      res.status(200).json(state);
-    } else {
-      res.status(500).json({ error: "Failed to fetch parserSensor data" });
-    }
-  },
-
-  //endpoint for getting sensor state for pm10
-  async getSensorStatePm10(req, res, next) {
-    var ip = (req.headers["x-forwarded-for"] || "")
-      .split(",")[0]
-      .trim()
-      .split(":")[0];
-    console.log(ip);
-
-    if (!ip) {
-      return res.status(400).json({ error: "Missing IP address" });
-    }
-
-    const geo = geoip.lookup(ip);
-
-    if (!geo) {
-      return res.status(400).json({ error: "Unable to locate IP address" });
-    }
-
-    const data = await SensorService.getSensorData(geo.ll[0], geo.ll[1], 1);
-    const parserData = JsonParser.getSensorValue(data, "pm10");
-    if (parserData) {
-      console.log(parserData);
-      const state = SensorState.getPm10Stat(parserData);
-      res.sendFile(state, (err) => {
-        if (err) {
-          next(err);
-        } else {
-          console.log("File Sent:", state);
-        }
-      });
-    } else {
-      res.status(500).json({ error: "Failed to fetch parserSensor data" });
     }
   },
 

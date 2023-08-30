@@ -23,13 +23,6 @@ app.get("/", (req, res) => {
 
 app.post("/nearest-sensor", Routes.getNearestSensor);
 
-// endpoint's for getting sensor states of multiple measurements
-app.get("/getSensorStateTemp", Routes.getSensorStateTemp);
-app.get("/getSensorStatePressure", Routes.getSensorStatePressure);
-app.get("/getSensorStateHumidity", Routes.getSensorStateHumidity);
-app.get("/getSensorStatePm2", Routes.getSensorStatePm2);
-app.get("/getSensorStatePm10", Routes.getSensorStatePm10);
-
 // endpoint's for job's dealing with database
 app.post("/createNewUser", Routes.newUser);
 app.post("/getUserInformation", Routes.findUser);
@@ -47,7 +40,7 @@ app.get("/getAllLocations", Routes.getAllLocations);
 app.post("/searchLocation", Routes.searchForSensors);
 
 // endpoint to search for sensors in the neighborhood
-app.post("/getNeighborhoodSensor", Routes.findSensor);
+//app.post("/getNeighborhoodSensor", Routes.findSensor);
 
 // endpoint for getting svg icon level absed on provided region data
 app.post("/getIconLevel", Routes.getIconLevel);
