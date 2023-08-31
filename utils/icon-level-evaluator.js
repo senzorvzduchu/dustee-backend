@@ -30,7 +30,7 @@ function calculateOverallIconLevel(data) {
   const combinedIconLevel = Math.max(pm2_5IconLevel, pm10IconLevel);
 
   // Get quality text based on the icon level
-  const qualityText = getQualityText(combinedIconLevel);
+  //const qualityText = getQualityText(combinedIconLevel);
 
   //console.log("PM2.5 Icon Level:", pm2_5IconLevel);
   //console.log("PM10 Icon Level:", pm10IconLevel);
