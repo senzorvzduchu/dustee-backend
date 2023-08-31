@@ -16,6 +16,7 @@ const getWeatherForecast = require("../utils/weather-forecast");
 const getMedianPredictions = require("../utils/aqi-prediction");
 const extractPMAverages = require("../utils/aqi-file-extractor");
 const processForecastData = require("../utils/prediction-to-levels");
+const History = require("../utils/history");
 
 const {
   calculateOverallIconLevel,
@@ -519,11 +520,20 @@ module.exports = {
     });
   },
 
-  // endpoint for sensor geocoding
-  findSensor: async (req, res) => {
+  //endpoint for location history
+  getHistory: async (req, res) => {
     try {
-    } catch (err) {
-      res.status(500).send(err);
+      const { location } = req.body;
+      
+      if (!location) {
+        return res.status(400).json({ error: 'Missing location parameter' });
+      }
+
+      const locationData = await History.getDataForLocation(location);
+      return res.json(locationData);
+    } catch (error) {
+      console.error('An error occurred:', error);
+      return res.status(500).json({ error: 'Internal server error' });
     }
-  },
+  }
 };

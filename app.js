@@ -51,6 +51,9 @@ app.post("/searchLocation", Routes.searchForSensors);
 // endpoint for getting svg icon level absed on provided region data
 app.post("/getIconLevel", Routes.getIconLevel);
 
+// endpoint for getting sensor's history
+app.post("/getLocationHistory", Routes.getHistory);
+
 const port = process.env.PORT || 80;
 app.listen(port, () => {
   console.log(`API server listening on port ${port}`);
