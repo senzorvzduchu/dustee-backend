@@ -9,7 +9,7 @@ function performSearch(query, data, numResults) {
     includeScore: true,
     shouldSort: true,
     threshold: 0.3, // Adjust the threshold for better matching
-    minMatchCharLength: 3, // Require at least 2 characters for matching
+    minMatchCharLength: 3, // Require at least 3 characters for matching
   };
   const fuse = new Fuse(data, options);
 

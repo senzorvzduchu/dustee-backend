@@ -6,10 +6,45 @@ import csv
 import time
 import requests
 from tenacity import retry, stop_after_attempt, wait_exponential
+from geopy.geocoders import Nominatim
+from geopy.extra.rate_limiter import RateLimiter
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
+
+# geographical center of CR
+default_latitude = 49.7437  # Default latitude for CR
+default_longitude = 15.33914  # Default longitude for CR
+
+def get_lat_long(location_name, default_lat=None, default_long=None):
+    # Create a geocoder object
+    geolocator = Nominatim(user_agent="openweathermap.0duyh@passinbox.com")
+
+    # Create a rate limiter with a specified rate limit (e.g., 1 request per second)
+    geocode_with_delay = RateLimiter(geolocator.geocode, min_delay_seconds=1)
+
+    try:
+        # Use geocode method with rate limiting
+        location = geocode_with_delay(location_name)
+
+        if location:
+            # Extract latitude and longitude
+            latitude = location.latitude
+            longitude = location.longitude
+            return latitude, longitude
+        else:
+            if default_lat is not None and default_long is not None:
+                return default_lat, default_long
+            else:
+                return None  # Location not found, and no default provided
+
+    except Exception as e:
+        logger.error(f"An error occurred: {str(e)}")
+        if default_lat is not None and default_long is not None:
+            return default_lat, default_long
+        else:
+            return None
 
 
 def calculate_average(numbers):
@@ -139,13 +174,17 @@ def fetch_data_for_all_files():
                 extracted_data["PM2_5"] = update_value(extracted_data["PM2_5"], average_pm2_5)
                 extracted_data["PM10"] = update_value(extracted_data["PM10"], average_pm10)
 
+                finalLatitude, finalLongitude = get_lat_long(location_address, default_lat=default_latitude, default_long=default_longitude)
+
                 final_extracted_data = {
                     "Location": location_address,
                     "Temperature": extracted_data["Temperature"],
                     "Pressure": extracted_data["Pressure"],
                     "Humidity": extracted_data["Humidity"],
                     "PM2_5": extracted_data["PM2_5"],
-                    "PM10": extracted_data["PM10"]
+                    "PM10": extracted_data["PM10"],
+                    "Latitude": finalLatitude,
+                    "Longitude":finalLongitude,
                 }
 
                 logger.info(f"Final extracted data for {file_name}:", final_extracted_data)

@@ -1,87 +1,98 @@
-const axios = require('axios');
+const axios = require("axios");
 
-const apiKey = 'ce48301aaf1d16612230648eeff30329';
+async function getAirQualityForecasts(lat, lon) {
+  const apiKey = "ce48301aaf1d16612230648eeff30329";
+  // Calculate the current timestamp
+  const now = Date.now() / 1000;
 
-async function fetchAQI(location) {
-  const baseUrl = 'https://api.openweathermap.org/data/2.5/air_pollution';
-  const url = `${baseUrl}?q=${location}&appid=${apiKey}`;
+  // Create an array to store the requested AQI values
+  const aqiValues = [];
+
+  // Define the time intervals (in hours)
+  const timeIntervals = [3, 6, 12];
+
+  // Build the API URL for the provided coordinates
+  const apiUrl = `http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`;
 
   try {
-    const response = await axios.get(url);
-    return response.data.list[0].main.aqi;
-  } catch (error) {
-    console.error('Chyba při načítání dat AQI:', error.message);
-    throw error;
-  }
-}
+    // Fetch the data from the API using Axios
+    const response = await axios.get(apiUrl);
+    const data = response.data;
 
-async function getAQIPrediction(input) {
-  const location = input.Location;
-  try {
-    const aqi = await fetchAQI(location);
+    for (const interval of timeIntervals) {
+      // Calculate the target time for the current interval
+      const targetTime = now + interval * 3600; // Add hours in seconds
 
-    const categorizeAQI = (aqiValue) => {
-      if (aqiValue <= 50) {
-        return 1; // Excellent
-      } else if (aqiValue <= 100) {
-        return 2; // Good
-      } else if (aqiValue <= 150) {
-        return 3; // Unhealthy for Sensitive Groups
-      } else if (aqiValue <= 200) {
-        return 4; // Unhealthy
-      } else if (aqiValue <= 300) {
-        return 5; // Very Unhealthy
-      } else {
-        return 6; // Hazardous
+      // Find the forecast closest to the target time
+      let closestForecast = null;
+      let timeDifference = Infinity;
+
+      for (const forecast of data.list) {
+        const forecastTime = forecast.dt;
+
+        // Calculate the time difference
+        const diff = Math.abs(targetTime - forecastTime);
+
+        if (diff < timeDifference) {
+          closestForecast = forecast;
+          timeDifference = diff;
+        }
       }
-    };
 
-    const aqiCategory = categorizeAQI(aqi);
-    const qualityText = getQualityText(aqiCategory);
-
-    return {
-      aqiValue: aqi,
-      category: aqiCategory,
-      quality: qualityText,
-    };
-  } catch (error) {
-    console.error('Chyba při načítání předpovědi AQI:', error.message);
-    return null;
-  }
-}
-
-function getQualityText(iconLevel) {
-  switch (iconLevel) {
-    case 1:
-      return "Kvalita ovzduší je vynikající.";
-    case 2:
-      return "Kvalita ovzduší je dobrá.";
-    case 3:
-      return "Kvalita ovzduší je nezdravá pro citlivé skupiny.";
-    case 4:
-      return "Kvalita ovzduší je nezdravá.";
-    case 5:
-      return "Kvalita ovzduší je velmi nezdravá.";
-    case 6:
-      return "Kvalita ovzduší je nebezpečná.";
-    default:
-      return "Kvalita ovzduší je nezdravá pro citlivé skupiny.";
-  }
-}
-
-function getAQIPredictionForLocation(input) {
-  const location = input.Location;
-  return getAQIPrediction(location).then((aqiPrediction) => {
-    if (aqiPrediction) {
-      return aqiPrediction;
-    } else {
-      return {
-        aqiValue: input.AQI,
-        category: 'Neznámá',
-        quality: 'Nezdravá pro citlivé skupiny',
-      };
+      // Extract and push the AQI (Air Quality Index) to the array
+      if (closestForecast) {
+        aqiValues.push(closestForecast.main.aqi);
+      } else {
+        // If no data found for the interval, push null
+        aqiValues.push(null);
+      }
     }
-  });
+
+    return aqiValues;
+  } catch (error) {
+    console.error("Error fetching air quality forecasts for provided coordinates. Trying Prague's coordinates:", error);
+
+    // Build the API URL for Prague's coordinates as a fallback
+    const pragueLat = 50.0755; // Prague's latitude
+    const pragueLon = 14.4378; // Prague's longitude
+    const pragueApiUrl = `http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=${pragueLat}&lon=${pragueLon}&appid=${apiKey}`;
+
+    try {
+      // Fetch the data from the API using Axios for Prague's coordinates
+      const pragueResponse = await axios.get(pragueApiUrl);
+      const pragueData = pragueResponse.data;
+
+      // Proceed with the same logic as before to get AQI values for Prague
+      for (const interval of timeIntervals) {
+        const targetTime = now + interval * 3600;
+        let closestForecast = null;
+        let timeDifference = Infinity;
+
+        for (const forecast of pragueData.list) {
+          const forecastTime = forecast.dt;
+          const diff = Math.abs(targetTime - forecastTime);
+
+          if (diff < timeDifference) {
+            closestForecast = forecast;
+            timeDifference = diff;
+          }
+        }
+
+        if (closestForecast) {
+          aqiValues.push(closestForecast.main.aqi);
+        } else {
+          aqiValues.push(null);
+        }
+      }
+
+      return aqiValues;
+    } catch (pragueError) {
+      console.error("Error fetching air quality forecasts for Prague's coordinates. Fallback to AQI = 2:", pragueError);
+
+      // If both requests fail, return an array of AQI values equal to 2
+      return [2, 2, 2];
+    }
+  }
 }
 
-module.exports = getAQIPredictionForLocation;
+module.exports = getAirQualityForecasts;

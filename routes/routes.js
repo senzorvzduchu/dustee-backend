@@ -8,7 +8,7 @@ const SensorState = require("../utils/sensor-state");
 const parseCSVToJSONforSC = require("../utils/csv-to-json");
 const Geocode = require("../utils/geocode");
 const County = require("../utils/county-finder");
-const User = require('../db/user')
+const User = require("../db/user");
 const fetchDataForSearchQuery = require("../utils/search-location");
 const parseSensorData = require("../utils/nearest-sensor-parser");
 const getWeatherAndMapToSvg = require("../utils/weather-level-evaluator");
@@ -17,6 +17,7 @@ const getMedianPredictions = require("../utils/aqi-prediction");
 const extractPMAverages = require("../utils/aqi-file-extractor");
 const processForecastData = require("../utils/prediction-to-levels");
 const History = require("../utils/history");
+const getAirQualityForecasts = require("../utils/aqi-prediction-using-openweather");
 
 const {
   calculateOverallIconLevel,
@@ -75,10 +76,10 @@ module.exports = {
     if (
       !inputData ||
       inputData.Temperature === undefined ||
-      inputData.Humidity === undefined ||
-      inputData.Pressure === undefined ||
-      inputData.PM2_5 === undefined ||
-      inputData.PM10 === undefined
+      //inputData.Humidity === undefined ||
+      //inputData.Pressure === undefined ||
+      inputData.PM2_5 === undefined //||
+      //inputData.PM10 === undefined
     ) {
       res
         .status(400)
@@ -177,13 +178,21 @@ module.exports = {
       }));
 
       //-----------------------------AQI FORECASTS-----------------------------------------------
-
-      const folderPath = "cron-scraper/data/history/region_data";
-      const pmValues = extractPMAverages(inputData, folderPath);
-      const aqiForecasts = getMedianPredictions(pmValues);
-      console.log(aqiForecasts);
-      const aqiLevels = processForecastData(aqiForecasts);
-      console.log(aqiLevels);
+      let aqiLevels;
+      if (inputData.Location) {
+        const folderPath = "cron-scraper/data/history/region_data";
+        const pmValues = extractPMAverages(inputData, folderPath);
+        const aqiForecasts = getMedianPredictions(pmValues);
+        aqiLevels = processForecastData(aqiForecasts);
+        console.log(aqiLevels);
+        console.log(aqiForecasts);
+      } else if (inputData.Latitude && inputData.Longitude) {
+        aqiLevels = await getAirQualityForecasts(
+          inputData.Latitude,
+          inputData.Longitude
+        );
+        console.log(aqiLevels);
+      }
 
       const forecastAqiSvgContents = Object.values(aqiLevels).map(
         (value, index) => {
@@ -204,7 +213,6 @@ module.exports = {
         title: `${interval} AQI forecast`,
         svgContent: forecastAqiSvgContents[index],
       }));
-
 
       //-------------------------------Response-----------------------------------------------
       res.json({
@@ -524,16 +532,16 @@ module.exports = {
   getHistory: async (req, res) => {
     try {
       const { location } = req.body;
-      
+
       if (!location) {
-        return res.status(400).json({ error: 'Missing location parameter' });
+        return res.status(400).json({ error: "Missing location parameter" });
       }
 
       const locationData = await History.getDataForLocation(location);
       return res.json(locationData);
     } catch (error) {
-      console.error('An error occurred:', error);
-      return res.status(500).json({ error: 'Internal server error' });
+      console.error("An error occurred:", error);
+      return res.status(500).json({ error: "Internal server error" });
     }
-  }
+  },
 };

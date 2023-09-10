@@ -4,7 +4,7 @@ function getMedianPredictions(inputData) {
   const order = { p: 1, d: 1, q: 1 };
   const model = new ARIMA(order);
 
-  const timeInterval = 10;
+  const timeInterval = 15;
   const timeHorizons = [3 * 60, 6 * 60, 12 * 60];
   const predictions = {};
 
