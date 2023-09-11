@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const Routes = require("./routes/routes");
-//const cors = require("cors");
+const cors = require("cors");
 const cronScheduler = require("./utils/cron-scheduler")
 
 // Spouštění funkce na spouštění Python skriptu každou minutu
