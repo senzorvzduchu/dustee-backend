@@ -13,10 +13,10 @@ const app = express();
 
 //app.use(cors);
 
-//app.use(cors({
-        //origin: ['https://dustee-frontned.vercel.app', 'http://localhost:5173', 'http://localhost:80'],
-        //credentials: true,
-//}));
+app.use(cors({
+  origin: ['https://test.dustee.cz', 'http://test.dustee.cz', 'http://localhost:5173', 'http://localhost:80'],
+  credentials: true,
+}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
