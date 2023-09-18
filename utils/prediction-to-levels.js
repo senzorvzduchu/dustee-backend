@@ -12,7 +12,7 @@ function calculateSinglePMIconLevel(pmValue) {
     } else if (pmValue > 250.4 && pmValue <= 300) {
         return 6;
     } else {
-        return 7;
+        return 2;
     }
 }
 

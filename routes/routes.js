@@ -74,11 +74,11 @@ module.exports = {
 
     // Check if required data is provided
     if (
-      !inputData ||
-      inputData.Temperature === undefined ||
+      !inputData
+      //inputData.Temperature === undefined ||
       //inputData.Humidity === undefined ||
       //inputData.Pressure === undefined ||
-      inputData.PM2_5 === undefined //||
+      //inputData.PM2_5 === undefined //||
       //inputData.PM10 === undefined
     ) {
       res
@@ -93,7 +93,7 @@ module.exports = {
       const iconLevel = calculateOverallIconLevel(inputData);
 
       // Construct the complete icon path based on the icon level
-      const iconPath = `icon-level-${iconLevel}.svg`;
+      const iconPath = `icon-level-${iconLevel > 6 ? 2 : iconLevel}.svg`;
       const completeIconPath = path.join(
         __dirname,
         "..",
@@ -196,7 +196,7 @@ module.exports = {
 
       const forecastAqiSvgContents = Object.values(aqiLevels).map(
         (value, index) => {
-          const filename = `icon-level-${value}.svg`;
+          const filename = `icon-level-${value > 6 ? 2 : value}.svg`;
           const svgPath = path.join(
             __dirname,
             "..",

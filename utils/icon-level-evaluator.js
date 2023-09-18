@@ -12,8 +12,6 @@ function getQualityText(iconLevel) {
       return "Kvalita ovzduší je nezdravá.";
     case 6:
       return "Kvalita ovzduší je nebezpečná.";
-    case 7:
-      return "Kvalita ovzduší je extrémní.";
     default:
       return "Kvalita ovzduší je nezdravá pro rizikové skupiny.";
   }
@@ -54,7 +52,7 @@ function calculateSinglePMIconLevel(pmValue) {
   } else if (pmValue > 250.4 && pmValue <= 300) {
     return 6;
   } else {
-    return 7;
+    return 2;
   }
 }
 
