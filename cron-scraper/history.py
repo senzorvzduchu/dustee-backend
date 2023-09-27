@@ -54,11 +54,15 @@ def calculate_average(numbers):
 
 def extract_data_from_file(file_path):
     extracted_data = {
+        "Provider": "none",
         "Temperature": "none",
         "Pressure": "none",
         "Humidity": "none",
         "PM2_5": "none",
-        "PM10": "none"
+        "PM10": "none",
+        "SO2": "none",
+        "NO2": "none",
+        "O3": "none"
     }
 
     with open(file_path, "r") as file:
@@ -68,13 +72,19 @@ def extract_data_from_file(file_path):
         if "Sensor Code" in header:
             for parts in reader:
                 if len(parts) >= 7 and parts[0] != "Sensor Code":
-                    _, so2, _, co, o3, pm10, pm2_5 = parts
+                    _, so2, no2, _, o3, pm10, pm2_5 = parts
+                    extracted_data["Provider"] = "CHMI"
                     extracted_data["PM2_5"] = pm2_5.strip() or extracted_data["PM2_5"]
                     extracted_data["PM10"] = pm10.strip() or extracted_data["PM10"]
+                    extracted_data["SO2"] = so2.strip() or extracted_data["SO2"]
+                    extracted_data["NO2"] = no2.strip() or extracted_data["NO2"]
+                    extracted_data["O3"] = o3.strip() or extracted_data["O3"]
+                    
         elif "Temperature" in header:
             for parts in reader:
                 if len(parts) >= 5 and parts[0] != "Temperature":
                     temperature, pressure, humidity, pm25, pm10 = parts
+                    extracted_data["Provider"] = "sensor.community"
                     extracted_data["Temperature"] = temperature.strip() or extracted_data["Temperature"]
                     extracted_data["Pressure"] = pressure.strip() or extracted_data["Pressure"]
                     extracted_data["Humidity"] = humidity.strip() or extracted_data["Humidity"]
@@ -137,6 +147,8 @@ def fetch_data_for_all_files():
     average_pm2_5 = calculate_average([air_quality_data["pm2_5"]])
     average_pm10 = calculate_average([air_quality_data["pm10"]])
 
+
+
     final_data = []
 
     for folder_path in folder_paths:
@@ -173,16 +185,22 @@ def fetch_data_for_all_files():
                 extracted_data["Humidity"] = update_value(extracted_data["Humidity"], average_humidity)
                 extracted_data["PM2_5"] = update_value(extracted_data["PM2_5"], average_pm2_5)
                 extracted_data["PM10"] = update_value(extracted_data["PM10"], average_pm10)
-
+                extracted_data["SO2"] = update_value(extracted_data["SO2"], None)
+                extracted_data["NO2"] = update_value(extracted_data["NO2"], None)
+                extracted_data["O3"] = update_value(extracted_data["O3"], None)
                 finalLatitude, finalLongitude = get_lat_long(location_address, default_lat=default_latitude, default_long=default_longitude)
 
                 final_extracted_data = {
+                    "Provider": extracted_data["Provider"],
                     "Location": location_address,
                     "Temperature": extracted_data["Temperature"],
                     "Pressure": extracted_data["Pressure"],
                     "Humidity": extracted_data["Humidity"],
                     "PM2_5": extracted_data["PM2_5"],
                     "PM10": extracted_data["PM10"],
+                    "SO2": extracted_data["SO2"],
+                    "NO2": extracted_data["NO2"],
+                    "O3": extracted_data["O3"],
                     "Latitude": finalLatitude,
                     "Longitude":finalLongitude,
                 }
