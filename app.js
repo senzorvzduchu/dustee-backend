@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const Routes = require("./routes/routes");
-//const cors = require("cors");
+const cors = require("cors");
 const cronScheduler = require("./utils/cron-scheduler")
 
 // Spouštění funkce na spouštění Python skriptu každou minutu
@@ -11,12 +11,19 @@ cronScheduler.runSCpy("*/35 * * * *");
 
 const app = express();
 
-//app.use(cors);
+const corsOptions = {
+  origin: '*', // replace with your actual origin
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  maxAge: 86400, // Cache preflight response for 24 hours
+};
 
-//app.use(cors({
-  //origin: ['https://test.dustee.cz', 'http://test.dustee.cz', 'http://localhost:5173', 'http://localhost:80'],
-  //credentials: true,
-//}));
+app.use(cors);
+/*
+app.use(cors({
+  origin: ['*'],
+}));
+*/
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
