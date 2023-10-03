@@ -18,7 +18,7 @@ const extractPMAverages = require("../utils/aqi-file-extractor");
 const processForecastData = require("../utils/prediction-to-levels");
 const History = require("../utils/history");
 const getAirQualityForecasts = require("../utils/aqi-prediction-using-openweather");
-const jsonToAQI = require("../utils/aqi-scale");
+const AqiScale = require("../utils/aqi-scale");
 
 const {
   calculateOverallIconLevel,
@@ -238,11 +238,13 @@ module.exports = {
 
       if (!authHeader) {
         // If no token is provided, call parseCSVToJSON with fullSensors as false
-        const locations = await parseCSVToJSONforSC(
+        locations = await parseCSVToJSONforSC(
           CHMUfilePath,
           SCfilePath,
           false
         );
+        locations = AqiScale.jsonToAQI(locations);
+        console.log(locations);
         res
           .status(200)
           .json({ locations, status: "Only essential sensors returned" });
@@ -263,17 +265,18 @@ module.exports = {
 
         const fullSensors = true; // Set this to true since the token is valid
 
-        const locations = await parseCSVToJSONforSC(
+        locations = await parseCSVToJSONforSC(
           CHMUfilePath,
           SCfilePath,
           fullSensors
         );
 
-        jsonToAQI.jsonToAQI(locations);
-
+        locations = AqiScale.jsonToAQI(locations);
+        console.log(locations);
         res.status(200).json({ locations, status: "All sensors returned" });
       });
     } catch (error) {
+      console.log(error);
       res.status(500).json({ error: "Error while parsing CSV file" });
     }
   },
