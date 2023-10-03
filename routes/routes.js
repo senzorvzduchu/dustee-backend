@@ -18,6 +18,7 @@ const extractPMAverages = require("../utils/aqi-file-extractor");
 const processForecastData = require("../utils/prediction-to-levels");
 const History = require("../utils/history");
 const getAirQualityForecasts = require("../utils/aqi-prediction-using-openweather");
+const jsonToAQI = require("../utils/aqi-scale");
 
 const {
   calculateOverallIconLevel,
@@ -267,6 +268,8 @@ module.exports = {
           SCfilePath,
           fullSensors
         );
+
+        jsonToAQI.jsonToAQI(locations);
 
         res.status(200).json({ locations, status: "All sensors returned" });
       });

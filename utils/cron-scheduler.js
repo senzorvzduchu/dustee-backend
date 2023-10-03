@@ -19,7 +19,7 @@ module.exports = {
         //function for running CHMU.py script via CRON
         runCHMUpy(schedule) {
                 cron.schedule(schedule, () => {
-                        exec('python ../cron-scraper/chmu.py', (error, stdout, stderr) => {
+                        exec('python3 ../cron-scraper/chmu.py', (error, stdout, stderr) => {
                             if (error) {
                                 console.error(`Chyba: ${error}`);
                                 return;
@@ -32,7 +32,7 @@ module.exports = {
 
         runHistorypy(schedule) {
                 cron.schedule(schedule, () => {
-                        exec('python ../cron-scraper/history.py', (error, stdout, stderr) => {
+                        exec('python3 ../cron-scraper/history.py', (error, stdout, stderr) => {
                             if (error) {
                                 console.error(`Chyba: ${error}`);
                                 return;
@@ -45,7 +45,7 @@ module.exports = {
 
         runSCpy(schedule) {
                 cron.schedule(schedule, () => {
-                        exec('python ../cron-scraper/sensorcommunity.py', (error, stdout, stderr) => {
+                        exec('python3 ../cron-scraper/sensorcommunity.py', (error, stdout, stderr) => {
                             if (error) {
                                 console.error(`Chyba: ${error}`);
                                 return;
