@@ -54,9 +54,6 @@ async function parseCSVToJSON(filePath2, filePath1, fullSensors = false) {
               filteredData["Temperature"] = "";
               filteredData["Pressure"] = "";
               filteredData["Humidity"] = "";
-              filteredData["SO2"] = data[3];
-              filteredData["NO2"] = data[4];
-              filteredData["O3"] = data[6];
               filteredData["PM2_5"] = data[8];
               filteredData["PM10"] = data[7];
             } else {
