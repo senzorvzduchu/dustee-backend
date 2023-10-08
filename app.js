@@ -11,6 +11,7 @@ cronScheduler.runSCpy("*/35 * * * *");
 
 const app = express();
 
+
 const corsOptions = {
   origin: '*', // Nahraď tím, odkud chceš povolit CORS
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
