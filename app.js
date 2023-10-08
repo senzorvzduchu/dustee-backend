@@ -12,13 +12,13 @@ cronScheduler.runSCpy("*/35 * * * *");
 const app = express();
 
 const corsOptions = {
-  origin: '*', // replace with your actual origin
+  origin: '*', // Nahraď tím, odkud chceš povolit CORS
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  maxAge: 86400, // Cache preflight response for 24 hours
+  allowedHeaders: ['Content-Type', '*'], // Přidání '*' pro povolení všech hlaviček
+  maxAge: 86400, // Cache preflight response na 24 hodin
 };
 
-app.use(cors);
+app.use(cors(corsOptions));
 /*
 app.use(cors({
   origin: ['*'],
