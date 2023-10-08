@@ -11,14 +11,15 @@ cronScheduler.runSCpy("*/35 * * * *");
 
 const app = express();
 
+
 const corsOptions = {
   origin: '*', // replace with your actual origin
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  allowedHeaders: ['Content-Type', '*'],
   maxAge: 86400, // Cache preflight response for 24 hours
 };
 
-app.use(cors);
+app.use(cors(corsOptions));
 /*
 app.use(cors({
   origin: ['*'],
