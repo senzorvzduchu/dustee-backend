@@ -25,6 +25,14 @@ module.exports = {
             if (locationData) {
               const timeStamp = file.match(/\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}/)[0];
               locationData.timeStamp = timeStamp;
+
+              const pm2_5 = locationData.PM2_5;
+              if (!isNaN(pm2_5)) {
+                locationData.aqi = Math.round(pm2_5 * 4);
+              } else {
+                locationData.aqi = null;
+              }
+
               result.push(locationData);
             }
           }
