@@ -5,7 +5,7 @@ module.exports = {
         //function for installing dependecies via PIP
         runPIP(schedule) {
                 cron.schedule(schedule, () => {
-                        exec('pip install -r ../cron-scraper/requirements.txt', (error, stdout, stderr) => {
+                        exec('pip install -r cron-scraper/requirements.txt', (error, stdout, stderr) => {
                                 if (error) {
                                     console.error(`Chyba: ${error}`);
                                     return;
@@ -19,7 +19,7 @@ module.exports = {
         //function for running CHMU.py script via CRON
         runCHMUpy(schedule) {
                 cron.schedule(schedule, () => {
-                        exec('python3 ../cron-scraper/chmu.py', (error, stdout, stderr) => {
+                        exec('python3 cron-scraper/chmu.py', (error, stdout, stderr) => {
                             if (error) {
                                 console.error(`Chyba: ${error}`);
                                 return;
@@ -32,7 +32,7 @@ module.exports = {
 
         runHistorypy(schedule) {
                 cron.schedule(schedule, () => {
-                        exec('python3 ../cron-scraper/history.py', (error, stdout, stderr) => {
+                        exec('python3 cron-scraper/history.py', (error, stdout, stderr) => {
                             if (error) {
                                 console.error(`Chyba: ${error}`);
                                 return;
@@ -45,7 +45,7 @@ module.exports = {
 
         runSCpy(schedule) {
                 cron.schedule(schedule, () => {
-                        exec('python3 ../cron-scraper/sensorcommunity.py', (error, stdout, stderr) => {
+                        exec('python3 cron-scraper/sensorcommunity.py', (error, stdout, stderr) => {
                             if (error) {
                                 console.error(`Chyba: ${error}`);
                                 return;

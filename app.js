@@ -5,9 +5,9 @@ const cors = require("cors");
 const cronScheduler = require("./utils/cron-scheduler")
 
 // Spouštění funkce na spouštění Python skriptu každou minutu
-cronScheduler.runCHMUpy("*/15 * * * *");
-cronScheduler.runHistorypy("*/20 * * * *");
-cronScheduler.runSCpy("*/35 * * * *");
+//cronScheduler.runCHMUpy("*/15 * * * *");
+//cronScheduler.runHistorypy("*/20 * * * *");
+//cronScheduler.runSCpy("*/35 * * * *");
 
 const app = express();
 
@@ -62,7 +62,7 @@ app.post("/getIconLevel", Routes.getIconLevel);
 // endpoint for getting sensor's history
 app.post("/getLocationHistory", Routes.getHistory);
 
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`API server listening on port ${port}`);
 });

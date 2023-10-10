@@ -63,18 +63,18 @@ module.exports = {
                         return "Kvalita ovzduší je dobrá.";
                 } else if (pm2 >= 35.5 && pm2 < 55.4) {
                         //unhealty for sensitive groups
-                        return "Kvalita ovzduší je nezdravá pro rizikové skupiny.";
+                        return "Kvalita ovzduší je nezdravá.";
                 } else if (pm2 >= 55.5 && pm2 < 150.4) {
                         //unhealty
                         return "Kvalita ovzduší je riziková.";
                 } else if (pm2 >= 150.5 && pm2 < 250.4) {
                         //very unhealty
-                        return "Kvalita ovzduší je v nezdravá.";
+                        return "Kvalita ovzduší je velmi nezdravá.";
                 } else if (pm2 >= 250.5) {
                         //hazardous
                         return "Kvalita ovzduší je nebezpečná.";
                 } else {
-                        return "Kvalita ovzduší je nezdravá pro rizikové skupiny.";
+                        return "Kvalita ovzduší je nezdravá.";
                 }
         },
 

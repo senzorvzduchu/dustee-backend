@@ -382,7 +382,7 @@ module.exports = {
         } else {
           try {
             await User.update(req.body.email, { password: req.body.password });
-            res.status(200).send("User updated");
+            res.status(200).json({ message: "User password updated." });
           } catch (err) {
             res.status(500).send(err);
           }
@@ -451,7 +451,7 @@ module.exports = {
               req.body.favSensor,
               req.body.group
             );
-            res.status(200).send("User properties updated");
+            res.status(200).json({ message: "User properties updated" });
           } catch (err) {
             res.status(500).send(err);
           }
