@@ -1,3 +1,5 @@
+const axios = require("axios");
+
 function getQualityText(iconLevel) {
   switch (iconLevel) {
     case 1:
@@ -17,27 +19,48 @@ function getQualityText(iconLevel) {
   }
 }
 
-function calculateOverallIconLevel(data) {
+async function calculateOverallIconLevel(data) {
   const { Temperature, Humidity, Pressure, PM2_5, PM10 } = data;
 
-  // Calculate AQI levels for PM2.5 and PM10
-  const pm2_5IconLevel = calculateSinglePMIconLevel(PM2_5 || 0); // Use 0 if PM2.5 value is missing
-  const pm10IconLevel = calculateSinglePMIconLevel(PM10 || 0); // Use 0 if PM10 value is missing
+  if (PM2_5 === undefined && PM10 === undefined) {
+    // Both PM2.5 and PM10 values are missing, fetch them from OpenWeather API
+    const aqiValue = await fetchOpenWeatherDataForCzechRepublic();
+    return aqiValue == null ? 2 : aqiValue;
+  } else {
+    // Calculate AQI levels for PM2.5 and PM10 from the provided data
+    const pm2_5IconLevel = calculateSinglePMIconLevel(PM2_5 || 0);
+    const pm10IconLevel = calculateSinglePMIconLevel(PM10 || 0);
 
-  // Determine the more severe PM icon level
-  const combinedIconLevel = Math.max(pm2_5IconLevel, pm10IconLevel);
+    // Determine the more severe PM icon level
+    const combinedIconLevel = Math.max(pm2_5IconLevel, pm10IconLevel);
 
-  // Get quality text based on the icon level
-  //const qualityText = getQualityText(combinedIconLevel);
-
-  //console.log("PM2.5 Icon Level:", pm2_5IconLevel);
-  //console.log("PM10 Icon Level:", pm10IconLevel);
-  //console.log("Combined Icon Level:", combinedIconLevel);
-  //console.log("Quality Text:", qualityText);
-
-  return combinedIconLevel;
+    // Return the combined icon level
+    return combinedIconLevel;
+  }
 }
 
+// Function to fetch OpenWeather data for Czech Republic
+async function fetchOpenWeatherDataForCzechRepublic() {
+  const apiKey = "ce48301aaf1d16612230648eeff30329";
+  const openWeatherApiUrl = `https://api.openweathermap.org/data/2.5/air_pollution?lat=49.8175&lon=15.4730&appid=${apiKey}`;
+
+  try {
+    const response = await axios.get(openWeatherApiUrl);
+    const aqiData = response.data;
+
+    if (aqiData.list && aqiData.list.length > 0) {
+      const aqiValue = aqiData.list[0].main.aqi;
+      console.log(aqiValue);
+      return aqiValue;
+    } else {
+      console.log("AQI data not found for the specified location.");
+      return null;
+    }
+  } catch (error) {
+    console.error("Error fetching AQI data:", error);
+    return null;
+  }
+}
 function calculateSinglePMIconLevel(pmValue) {
   if (pmValue >= 0 && pmValue <= 12) {
     return 1;

@@ -19,6 +19,7 @@ const processForecastData = require("../utils/prediction-to-levels");
 const History = require("../utils/history");
 const getAirQualityForecasts = require("../utils/aqi-prediction-using-openweather");
 const AqiScale = require("../utils/aqi-scale");
+const weatherModule = require("../utils/openweather-tempCZ.js");
 
 const {
   calculateOverallIconLevel,
@@ -91,7 +92,7 @@ module.exports = {
     try {
       //-------------------------------Emojis--------------------------------------------
 
-      const iconLevel = calculateOverallIconLevel(inputData);
+      const iconLevel = await calculateOverallIconLevel(inputData);
 
       // Construct the complete icon path based on the icon level
       const iconPath = `icon-level-${iconLevel > 6 ? 2 : iconLevel}.svg`;
@@ -135,9 +136,13 @@ module.exports = {
       // Fetch the weather forecast data
       const forecasts = await getWeatherForecast(inputData);
 
+      const temperature =
+        inputData.Temperature === undefined
+          ? await weatherModule.fetchTemperatureForCzechRepublic()
+          : inputData.Temperature;
       const weather = {
         title: "Current weather",
-        currentTemperature: inputData.Temperature,
+        currentTemperature: temperature,
         weatherSvgContent: weatherSvgContent,
       };
 
@@ -238,11 +243,7 @@ module.exports = {
 
       if (!authHeader) {
         // If no token is provided, call parseCSVToJSON with fullSensors as false
-        locations = await parseCSVToJSONforSC(
-          CHMUfilePath,
-          SCfilePath,
-          false
-        );
+        locations = await parseCSVToJSONforSC(CHMUfilePath, SCfilePath, false);
         locations = AqiScale.jsonToAQI(locations);
         console.log(locations);
         res
