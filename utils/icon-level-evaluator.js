@@ -22,20 +22,22 @@ function getQualityText(iconLevel) {
 async function calculateOverallIconLevel(data) {
   const { Temperature, Humidity, Pressure, PM2_5, PM10 } = data;
 
-  if (PM2_5 === undefined && PM10 === undefined) {
+  if (PM2_5 === undefined) {
     // Both PM2.5 and PM10 values are missing, fetch them from OpenWeather API
     const aqiValue = await fetchOpenWeatherDataForCzechRepublic();
     return aqiValue == null ? 2 : aqiValue;
   } else {
     // Calculate AQI levels for PM2.5 and PM10 from the provided data
-    const pm2_5IconLevel = calculateSinglePMIconLevel(PM2_5 || 0);
-    const pm10IconLevel = calculateSinglePMIconLevel(PM10 || 0);
+    const pm2_5IconLevel = calculateSinglePMIconLevel(
+      Math.round(PM2_5 * 4) || 0
+    );
+    //const pm10IconLevel = calculateSinglePMIconLevel(PM10 || 0);
 
     // Determine the more severe PM icon level
-    const combinedIconLevel = Math.max(pm2_5IconLevel, pm10IconLevel);
+    //const combinedIconLevel = Math.max(pm2_5IconLevel, pm10IconLevel);
 
     // Return the combined icon level
-    return combinedIconLevel;
+    return pm2_5IconLevel;
   }
 }
 
