@@ -1,9 +1,12 @@
+import json
 import requests
 import os
 import csv
 from geopy.geocoders import Nominatim
 from geopy.extra.rate_limiter import RateLimiter
 import logging
+from collections import defaultdict
+from statistics import median
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -114,11 +117,48 @@ def write_to_csv(file_name, folder_path, headers, rows):
         writer.writerows(rows)
 
 
+
+# Function to extract sensor measurements and calculate medians
+def extract_sensor_measurements(data):
+    # Define the list of relevant measurement types
+    relevant_measurement_types = ["temperature", "pressure", "humidity", "P1", "P2"]
+    station_data = []
+
+    for entry in data:
+        sensor_data = entry["sensordatavalues"]
+        sensor_id = entry["sensor"]["id"]
+        sensor_coords = (entry["location"]["longitude"], entry["location"]["latitude"])
+
+        measurements = {"SensorID": sensor_id,
+                    "Latitude": sensor_coords[1],
+                    "Longitude": sensor_coords[0]}
+
+        measurement_data = defaultdict(list)
+
+        for sensor_value in sensor_data:
+            value_type = sensor_value["value_type"]
+            if value_type in relevant_measurement_types:
+                value = float(sensor_value["value"])
+                if value_type == "pressure":
+                    # Divide the "pressure" value by 100
+                    value /= 100
+                measurement_data[value_type].append(value)
+
+        # Only add measurements if any relevant data type is present
+        if any(key in measurement_data for key in relevant_measurement_types):
+            for measurement_type, values in measurement_data.items():
+                measurements[measurement_type] = median(values)
+
+            station_data.append(measurements)
+
+    return station_data
+
+
 if __name__ == '__main__':
     try:
         country_code = 'CZ'  # country code
-        folder_path = 'data/sensor_community'  # where to save files
-        log_path = 'logs/sclog.txt'
+        folder_path = '/home/ubuntu/dustee-backend/cron-scraper/data/sensor_community'  # where to save files
+        log_path = '/home/ubuntu/dustee-backend/cron-scraper/data/logs/sclog.txt'
 
         # Set up logging to write to a file
         log_file_path = os.path.join(log_path, 'sclog.txt')
@@ -134,6 +174,7 @@ if __name__ == '__main__':
         sensor_data = get_sensor_data(country_code, limit=None)
 
         if sensor_data:
+        
             district_data = process_sensor_data(sensor_data)
 
 
@@ -164,122 +205,17 @@ if __name__ == '__main__':
                 ]]
 
                 write_to_csv(file_name, folder_path, headers, rows)
-
+            
 
             # Write all-sensors.csv
-            all_sensors_file = "all-sensors.csv"
-            all_sensors_headers = ['SensorID', 'Latitude', 'Longitude',
-                                'Temperature', 'Pressure', 'Humidity', 'PM2_5', 'PM10']
-            all_sensors_rows = []
-            for sensor in sensor_data:
-                sensor_id = sensor.get('sensor', {}).get('id', None)
-                latitude = sensor.get('location', {}).get('latitude', None)
-                longitude = sensor.get('location', {}).get('longitude', None)
+            
+            sfinal_data = extract_sensor_measurements(sensor_data)
 
-                temperature = None
-                pressure = None
-                humidity = None
-                pm25 = None
-                pm10 = None
+            # Save the station median data to a JSON file
+            with open('/home/ubuntu/dustee-backend/cron-scraper/data/sensor_community/all-sensors.json', "w") as json_file:
+                json.dump(sfinal_data, json_file, indent=4)
 
-                for sensordata in sensor.get('sensordatavalues', []):
-                    value_type = sensordata.get('value_type')
-                    value = sensordata.get('value')
-                    if value_type == 'temperature':
-                        temperature = float(value) if value is not None else None
-                    if value_type == 'pressure':
-                        # Divide pressure by 100
-                        pressure = float(value) / \
-                            100 if value is not None else None
-                    elif value_type == 'humidity':
-                        humidity = float(value) if value is not None else None
-                    elif value_type == 'P2':
-                        pm25 = float(value) if value is not None else None
-                    elif value_type == 'P1':
-                        pm10 = float(value) if value is not None else None
-
-                if sensor_id and latitude and longitude:
-                    all_sensors_rows.append(
-                        [sensor_id, latitude, longitude, temperature, pressure, humidity, pm25, pm10])
-                    
-                unique_locations = set()  # To store unique locations
-
-                # Filter out sensors with the same coordinates
-                unique_sensor_rows = []
-                for row in all_sensors_rows:
-                    sensor_id, latitude, longitude, temperature, pressure, humidity, pm25, pm10 = row
-                    location = (latitude, longitude)
-                    if location not in unique_locations:
-                        unique_locations.add(location)
-                        unique_sensor_rows.append(row)
-
-                # Dictionary to store sensor data grouped by location
-                location_groups = {}
-
-                # Iterate through unique_sensor_rows and separate sensors by whether they have the same location
-                for row in unique_sensor_rows:
-                    sensor_id, latitude, longitude, temperature, pressure, humidity, pm25, pm10 = row
-                    location = (latitude, longitude)
-
-                    if location not in location_groups:
-                        location_groups[location] = {
-                            'count': 0,
-                            'total_temperature': None,
-                            'total_pressure': None,
-                            'total_humidity': None,
-                            'total_pm25': None,
-                            'total_pm10': None
-                        }
-
-                    location_groups[location]['count'] += 1
-                    if temperature is not None:
-                        location_groups[location]['total_temperature'] = (location_groups[location]['total_temperature'] or 0) + temperature
-                    if pressure is not None:
-                        location_groups[location]['total_pressure'] = (location_groups[location]['total_pressure'] or 0) + pressure
-                    if humidity is not None:
-                        location_groups[location]['total_humidity'] = (location_groups[location]['total_humidity'] or 0) + humidity
-                    if pm25 is not None:
-                        location_groups[location]['total_pm25'] = (location_groups[location]['total_pm25'] or 0) + pm25
-                    if pm10 is not None:
-                        location_groups[location]['total_pm10'] = (location_groups[location]['total_pm10'] or 0) + pm10
-                    location_groups[location]['sensor_ids'] = location_groups[location].get('sensor_ids', []) + [sensor_id]
-
-                # Update all_sensors_rows with averaged data and keep individual sensors intact
-                updated_all_sensors_rows = unique_sensor_rows.copy()
-
-                # Initialize a dictionary to keep track of assigned sensor IDs for each location
-                assigned_ids = {}
-
-                for location, data in location_groups.items():
-                    if data['count'] > 1:
-                        sensor_ids = data['sensor_ids']
-                        chosen_sensor_id = sensor_ids[0]  # Pick the first sensor ID in the group
-
-                        total_temperature = data['total_temperature']
-                        total_pressure = data['total_pressure']
-                        total_humidity = data['total_humidity']
-                        total_pm25 = data['total_pm25']
-                        total_pm10 = data['total_pm10']
-                        count = data['count']
-
-                        avg_temperature = total_temperature / count if total_temperature is not None else None
-                        avg_pressure = total_pressure / count if total_pressure is not None else None
-                        avg_humidity = total_humidity / count if total_humidity is not None else None
-                        avg_pm25 = total_pm25 / count if total_pm25 is not None else None
-                        avg_pm10 = total_pm10 / count if total_pm10 is not None else None
-
-                        if all(value is None for value in [avg_temperature, avg_pressure, avg_humidity, avg_pm25, avg_pm10]):
-                            avg_temperature = avg_pressure = avg_humidity = avg_pm25 = avg_pm10 = None
-
-                        latitude, longitude = location
-
-                        updated_all_sensors_rows.append(
-                            [chosen_sensor_id, latitude, longitude, avg_temperature, avg_pressure, avg_humidity, avg_pm25, avg_pm10]
-                        )
-
-                        
-            write_to_csv(all_sensors_file, folder_path,
-                        all_sensors_headers, updated_all_sensors_rows)
+                logger.info("Station median data saved to station_medians.json")
     
     except Exception as e:
         logger.exception("An error occurred during script execution: %s", e)

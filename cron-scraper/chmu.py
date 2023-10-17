@@ -1,6 +1,6 @@
-import os
-import requests
-import csv
+import os 
+import requests 
+import csv 
 import logging
 
 # Configure logging
@@ -27,7 +27,7 @@ def main():
     response = requests.get(url)
     data = response.json()
 
-    save_path = 'data/CHMU/'
+    save_path = '/home/ubuntu/dustee-backend/cron-scraper/data/CHMU/'
     os.makedirs(save_path, exist_ok=True)
 
     for state in data['States']:
@@ -70,7 +70,7 @@ def main():
 
 if __name__ == "__main__":
     try:
-        log_path = 'logs/chmulog.txt'
+        log_path = '/home/ubuntu/dustee-backend/cron-scraper/data/logs/chmulog.txt'
         log_file_path = os.path.join(log_path, 'chmulog.txt')
         file_handler = logging.FileHandler(log_path)
         file_handler.setLevel(logging.INFO)

@@ -235,7 +235,7 @@ module.exports = {
   // Endpoint for getting coordinates of all sensors
   async getAllLocations(req, res) {
     try {
-      const SCfilePath = "cron-scraper/data/sensor_community/all-sensors.csv"; // Update the path to your CSV file
+      const SCfilePath = "cron-scraper/data/sensor_community/all-sensors.json"; // Update the path to your CSV file
       const CHMUfilePath =
         "cron-scraper/data/CHMU/Česká republika/all_stations.csv";
       // Check if a JWT token is present in the request
