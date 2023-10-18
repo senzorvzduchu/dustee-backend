@@ -118,11 +118,49 @@ def write_to_csv(file_name, folder_path, headers, rows):
 
 
 
-# Define the list of relevant measurement types
-relevant_measurement_types = ["temperature", "pressure", "humidity", "P1", "P2"]
+
+def filter_sensor_data(data_list):
+    filtered_data = []
+
+    for sensor_data in data_list:
+        add_data = True
+        temperature_low_limit = -30
+        temperature_high_limit = 60
+        humidity_low_limit = 0
+        humidity_high_limit = 100
+        p1_low_limit = 0
+        p1_high_limit = 500
+        p2_low_limit = 0
+        p2_high_limit = 400
+        # Check temperature limit
+        if 'temperature' in sensor_data:
+            if temperature_high_limit < float(sensor_data['temperature']) or float(sensor_data['temperature']) < temperature_low_limit:
+                add_data = False
+        # Check humidity limit
+        if 'humidity' in sensor_data:
+            if humidity_high_limit < float(sensor_data['humidity']) or float(sensor_data['humidity']) < humidity_low_limit:
+                add_data = False
+
+        # Check P1 limit
+        if 'P1' in sensor_data:
+            if p1_high_limit < float(sensor_data['P1']) or float(sensor_data['P1']) < p1_low_limit:
+                add_data = False
+
+        # Check P2 limit
+        if 'P2' in sensor_data:
+            if p2_high_limit < float(sensor_data['P2']) or float(sensor_data['P2']) < p2_low_limit:
+                add_data = False
+
+        if add_data:
+            filtered_data.append(sensor_data)
+
+    return filtered_data
+
 
 # Function to extract sensor measurements and calculate medians
 def extract_sensor_measurements(data):
+    # Define the list of relevant measurement types
+    relevant_measurement_types = ["temperature", "pressure", "humidity", "P1", "P2"]    
     # Create a dictionary to store sensor data with unique IDs
     sensor_data = {}
 
@@ -161,7 +199,8 @@ def extract_sensor_measurements(data):
             if measurement_type in relevant_measurement_types:
                 sensor_entry[measurement_type] = median(values)
 
-    return list(sensor_data.values())
+    filtered_data = filter_sensor_data(list(sensor_data.values()))
+    return filtered_data
 
 
 if __name__ == '__main__':
