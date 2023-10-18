@@ -42,22 +42,20 @@ async function parseCSVToJSON(filePath2, filePath1, fullSensors = false) {
 
           // Map data based on fixed column positions
           filteredData["Sensor ID"] = data[0];
-          filteredData["Latitude"] = data[1];
-          filteredData["Longitude"] = data[2];
+          filteredData["Location"] = data[1];
+          filteredData["Latitude"] = data[2];
+          filteredData["Longitude"] = data[3];
 
           // Extract relevant values from the second file based on fullSensors
           if (fullSensors) {
-            filteredData["Temperature"] = "";
-            filteredData["Pressure"] = "";
-            filteredData["Humidity"] = "";
-            filteredData["SO2"] = data[3];
-            filteredData["NO2"] = data[4];
-            filteredData["O3"] = data[6];
-            filteredData["PM2_5"] = data[8];
-            filteredData["PM10"] = data[7];
+            
+            if(data[4] !== undefined && data[4].trim() !== '') filteredData["SO2"] = data[4];
+            if(data[5] !== undefined && data[5].trim() !== '') filteredData["NO2"] = data[5];
+            if(data[7] !== undefined && data[7].trim() !== '') filteredData["O3"] = data[7];
+            if(data[9] !== undefined && data[9].trim() !== '') filteredData["PM2_5"] = data[9];
+            if(data[8] !== undefined && data[8].trim() !== '') filteredData["PM10"] = data[8];
           } else {
-            filteredData["Temperature"] = "";
-            filteredData["PM2_5"] = data[8];
+            if(data[9] !== undefined && data[9].trim() !== '') filteredData["PM2_5"] = data[9];
           }
 
           results.push(filteredData);

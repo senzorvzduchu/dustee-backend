@@ -202,7 +202,7 @@ module.exports = {
 
       const forecastAqiSvgContents = Object.values(aqiLevels).map(
         (value, index) => {
-          const filename = `icon-level-${value > 6 ? 2 : value}.svg`;
+          const filename = `icon-level-${value > 6 ? 6 : value}.svg`;
           const svgPath = path.join(
             __dirname,
             "..",
@@ -245,7 +245,7 @@ module.exports = {
         // If no token is provided, call parseCSVToJSON with fullSensors as false
         locations = await parseCSVToJSONforSC(CHMUfilePath, SCfilePath, false);
         locations = AqiScale.jsonToAQI(locations);
-        console.log(locations);
+       // console.log(locations);
         res
           .status(200)
           .json({ locations, status: "Only essential sensors returned" });
@@ -273,7 +273,7 @@ module.exports = {
         );
 
         locations = AqiScale.jsonToAQI(locations);
-        console.log(locations);
+        //console.log(locations);
         res.status(200).json({ locations, status: "All sensors returned" });
       });
     } catch (error) {

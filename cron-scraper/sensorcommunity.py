@@ -118,47 +118,57 @@ def write_to_csv(file_name, folder_path, headers, rows):
 
 
 
+# Define the list of relevant measurement types
+relevant_measurement_types = ["temperature", "pressure", "humidity", "P1", "P2"]
+
 # Function to extract sensor measurements and calculate medians
 def extract_sensor_measurements(data):
-    # Define the list of relevant measurement types
-    relevant_measurement_types = ["temperature", "pressure", "humidity", "P1", "P2"]
-    station_data = []
+    # Create a dictionary to store sensor data with unique IDs
+    sensor_data = {}
 
     for entry in data:
-        sensor_data = entry["sensordatavalues"]
+        sensor_data_entry = entry["sensordatavalues"]
         sensor_id = entry["sensor"]["id"]
-        sensor_coords = (entry["location"]["longitude"], entry["location"]["latitude"])
+        latitude = entry["location"]["latitude"]
+        longitude = entry["location"]["longitude"]
 
-        measurements = {"SensorID": sensor_id,
-                    "Latitude": sensor_coords[1],
-                    "Longitude": sensor_coords[0]}
+        if sensor_id not in sensor_data:
+            sensor_data[sensor_id] = {
+                "SensorID": sensor_id,
+                "Latitude": latitude,
+                "Longitude": longitude,
+            }
 
-        measurement_data = defaultdict(list)
-
-        for sensor_value in sensor_data:
+        for sensor_value in sensor_data_entry:
             value_type = sensor_value["value_type"]
             if value_type in relevant_measurement_types:
-                value = float(sensor_value["value"])
-                if value_type == "pressure":
-                    # Divide the "pressure" value by 100
-                    value /= 100
-                measurement_data[value_type].append(value)
+                value = sensor_value["value"]
+                if value != 'unknown':
+                    try:
+                        value = float(value)
+                        if value_type == "pressure":
+                            value /= 100
+                        if value_type not in sensor_data[sensor_id]:
+                            sensor_data[sensor_id][value_type] = [value]
+                        else:
+                            sensor_data[sensor_id][value_type].append(value)
+                    except ValueError:
+                        pass
 
-        # Only add measurements if any relevant data type is present
-        if any(key in measurement_data for key in relevant_measurement_types):
-            for measurement_type, values in measurement_data.items():
-                measurements[measurement_type] = median(values)
+    # Calculate medians for each unique sensor
+    for sensor_id, sensor_entry in sensor_data.items():
+        for measurement_type, values in sensor_entry.items():
+            if measurement_type in relevant_measurement_types:
+                sensor_entry[measurement_type] = median(values)
 
-            station_data.append(measurements)
-
-    return station_data
+    return list(sensor_data.values())
 
 
 if __name__ == '__main__':
     try:
         country_code = 'CZ'  # country code
         folder_path = '/home/ubuntu/dustee-backend/cron-scraper/data/sensor_community'  # where to save files
-        log_path = '/home/ubuntu/dustee-backend/cron-scraper/data/logs/sclog.txt'
+        log_path = '/home/ubuntu/dustee-backend/cron-scraper/logs/sclog.txt'
 
         # Set up logging to write to a file
         log_file_path = os.path.join(log_path, 'sclog.txt')

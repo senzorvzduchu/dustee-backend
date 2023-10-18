@@ -18,7 +18,7 @@ def extract_values_for_pollutant(station, pollutant_code):
 def clean_csv(file_path):
     with open(file_path, 'w', newline='') as csvfile:
         csv_writer = csv.writer(csvfile)
-        header = ['Sensor Code', 'Latitude', 'Longitude'] + pollutants
+        header = ['Sensor Code','Sensor Name', 'Latitude', 'Longitude'] + pollutants
         csv_writer.writerow(header)
 
 def main():
@@ -56,10 +56,11 @@ def main():
                         row_data = [station_id] + [results[pollutant] for pollutant in pollutants]
                         csv_writer.writerow(row_data)
 
-                    with open(all_stations_csv_path, 'a', newline='') as all_csvfile:
+                    with open(all_stations_csv_path, 'a', encoding="utf-8",newline='') as all_csvfile:
                         all_csv_writer = csv.writer(all_csvfile)
-                        row_data = [station_id, station['Lat'], station['Lon']]
+                        row_data = [station_id,station_name, station['Lat'], station['Lon']]
                         row_data += [results.get(pollutant, '') for pollutant in pollutants]
+                  
                         all_csv_writer.writerow(row_data)
 
                     logger.info(f"Data for station '{station_name}' saved to '{csv_file_path}'.")
@@ -70,7 +71,7 @@ def main():
 
 if __name__ == "__main__":
     try:
-        log_path = '/home/ubuntu/dustee-backend/cron-scraper/data/logs/chmulog.txt'
+        log_path =   '/home/ubuntu/dustee-backend/cron-scraper/logs/chmulog.txt'
         log_file_path = os.path.join(log_path, 'chmulog.txt')
         file_handler = logging.FileHandler(log_path)
         file_handler.setLevel(logging.INFO)

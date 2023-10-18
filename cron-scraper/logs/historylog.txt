@@ -1263,3 +1263,260 @@ TypeError: Retry.__init__() got an unexpected keyword argument 'method_whitelist
 2023-10-11 09:48:55,234 - INFO - OpenWeatherMap API Response:
 2023-10-11 09:48:57,632 - INFO - Data saved to data\history\region_data\data_2023-10-11_09-48-57.json
 2023-10-11 09:48:57,633 - INFO - Script execution completed.
+2023-10-18 20:00:04,060 - INFO - Starting the script...
+2023-10-18 20:00:04,355 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:07,213 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:10,139 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:11,254 - INFO - Processing file: Branka u Opavy.csv
+2023-10-18 20:00:11,484 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:11,631 - INFO - Final extracted data for Branka u Opavy.csv:
+2023-10-18 20:00:12,742 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:14,021 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:15,110 - INFO - Processing file: Chodov.csv
+2023-10-18 20:00:15,256 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:15,366 - INFO - Final extracted data for Chodov.csv:
+2023-10-18 20:00:16,627 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:17,785 - INFO - Processing file: Dolany u Prahy.csv
+2023-10-18 20:00:18,091 - INFO - Final extracted data for Dolany u Prahy.csv:
+2023-10-18 20:00:19,255 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:20,489 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:21,591 - INFO - Processing file: Habrovany.csv
+2023-10-18 20:00:21,754 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:21,845 - INFO - Final extracted data for Habrovany.csv:
+2023-10-18 20:00:22,996 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:25,031 - INFO - Processing file: Hodolany.csv
+2023-10-18 20:00:25,182 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:25,286 - INFO - Final extracted data for Hodolany.csv:
+2023-10-18 20:00:26,582 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:29,159 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:30,396 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:31,729 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:33,430 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:34,673 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:35,925 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:37,022 - INFO - Processing file: Jabkenice.csv
+2023-10-18 20:00:37,170 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:37,288 - INFO - Final extracted data for Jabkenice.csv:
+2023-10-18 20:00:38,289 - INFO - Processing file: Jablonec nad Nisou.csv
+2023-10-18 20:00:38,458 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:38,587 - INFO - Final extracted data for Jablonec nad Nisou.csv:
+2023-10-18 20:00:39,589 - INFO - Processing file: Josefov.csv
+2023-10-18 20:00:40,367 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:40,491 - INFO - Final extracted data for Josefov.csv:
+2023-10-18 20:00:41,676 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:42,995 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:46,676 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:47,943 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:49,067 - INFO - Processing file: Kralupy nad Vltavou.csv
+2023-10-18 20:00:49,226 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:49,360 - INFO - Final extracted data for Kralupy nad Vltavou.csv:
+2023-10-18 20:00:50,362 - INFO - Processing file: Liberec.csv
+2023-10-18 20:00:50,460 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:50,578 - INFO - Final extracted data for Liberec.csv:
+2023-10-18 20:00:51,699 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:52,993 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:54,332 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:55,444 - INFO - Processing file: Lochkov.csv
+2023-10-18 20:00:55,621 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:55,725 - INFO - Final extracted data for Lochkov.csv:
+2023-10-18 20:00:56,902 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:58,003 - INFO - Processing file: Michle.csv
+2023-10-18 20:00:58,128 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:00:58,243 - INFO - Final extracted data for Michle.csv:
+2023-10-18 20:00:59,396 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:00,678 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:02,212 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:03,502 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:04,830 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:06,117 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:09,730 - INFO - Processing file: Nusle.csv
+2023-10-18 20:01:09,891 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:10,007 - INFO - Final extracted data for Nusle.csv:
+2023-10-18 20:01:13,575 - INFO - Processing file: Opatovice u Hranic.csv
+2023-10-18 20:01:13,836 - INFO - Final extracted data for Opatovice u Hranic.csv:
+2023-10-18 20:01:14,838 - INFO - Processing file: Osek u Duchcova.csv
+2023-10-18 20:01:15,027 - INFO - Final extracted data for Osek u Duchcova.csv:
+2023-10-18 20:01:16,029 - INFO - Processing file: Otice.csv
+2023-10-18 20:01:16,169 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:16,284 - INFO - Final extracted data for Otice.csv:
+2023-10-18 20:01:17,395 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:18,663 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:19,984 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:21,301 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:22,647 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:23,897 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:25,001 - INFO - Processing file: Radlice.csv
+2023-10-18 20:01:25,180 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:25,290 - INFO - Final extracted data for Radlice.csv:
+2023-10-18 20:01:26,489 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:27,672 - INFO - Processing file: Roudnice nad Labem.csv
+2023-10-18 20:01:27,803 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:27,907 - INFO - Final extracted data for Roudnice nad Labem.csv:
+2023-10-18 20:01:28,908 - INFO - Processing file: Ruprechtice.csv
+2023-10-18 20:01:29,087 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:29,184 - INFO - Final extracted data for Ruprechtice.csv:
+2023-10-18 20:01:30,354 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:31,604 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:32,930 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:34,180 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:35,504 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:36,613 - INFO - Processing file: Statenice.csv
+2023-10-18 20:01:36,778 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:36,878 - INFO - Final extracted data for Statenice.csv:
+2023-10-18 20:01:38,172 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:39,436 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:40,704 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:42,025 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:43,223 - INFO - Processing file: Tuchlovice.csv
+2023-10-18 20:01:43,373 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:43,464 - INFO - Final extracted data for Tuchlovice.csv:
+2023-10-18 20:01:44,692 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:45,956 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:48,664 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:49,783 - INFO - Processing file: Vinohrady.csv
+2023-10-18 20:01:49,906 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:50,035 - INFO - Final extracted data for Vinohrady.csv:
+2023-10-18 20:01:51,037 - INFO - Processing file: Vratimov.csv
+2023-10-18 20:01:51,192 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:51,293 - INFO - Final extracted data for Vratimov.csv:
+2023-10-18 20:01:52,420 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:53,650 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:54,880 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:56,141 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:57,457 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:01:58,797 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:02:00,030 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:02:01,247 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:02:02,957 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:02:04,168 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:02:05,433 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:02:08,055 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:02:09,292 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:02:10,421 - INFO - Processing file: Beroun.csv
+2023-10-18 20:02:10,652 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:02:10,758 - INFO - Final extracted data for Beroun.csv:
+2023-10-18 20:02:13,081 - INFO - Processing file: Brno-Arboretum.csv
+2023-10-18 20:02:13,499 - INFO - Final extracted data for Brno-Arboretum.csv:
+2023-10-18 20:02:18,394 - INFO - Processing file: Brno-Svatoplukova.csv
+2023-10-18 20:02:18,672 - INFO - Final extracted data for Brno-Svatoplukova.csv:
+2023-10-18 20:02:26,271 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:02:27,383 - INFO - Processing file: Cheb.csv
+2023-10-18 20:02:27,571 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:02:27,676 - INFO - Final extracted data for Cheb.csv:
+2023-10-18 20:02:28,677 - INFO - Processing file: Chomutov.csv
+2023-10-18 20:02:28,778 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:02:28,895 - INFO - Final extracted data for Chomutov.csv:
+2023-10-18 20:02:30,057 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:02:31,184 - INFO - Processing file: Doksany.csv
+2023-10-18 20:02:31,312 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:02:31,424 - INFO - Final extracted data for Doksany.csv:
+2023-10-18 20:02:32,523 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:02:33,764 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:02:35,009 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:02:37,514 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:02:38,794 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:02:40,054 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:02:45,066 - INFO - Processing file: Hranice.csv
+2023-10-18 20:02:45,198 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:02:45,333 - INFO - Final extracted data for Hranice.csv:
+2023-10-18 20:02:49,019 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:02:51,545 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:02:55,253 - INFO - Processing file: Klatovy soud.csv
+2023-10-18 20:02:55,512 - INFO - Final extracted data for Klatovy soud.csv:
+2023-10-18 20:02:56,513 - INFO - Processing file: Kocelovice.csv
+2023-10-18 20:02:56,670 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:02:56,769 - INFO - Final extracted data for Kocelovice.csv:
+2023-10-18 20:02:59,202 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:03:00,458 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:03:04,109 - INFO - Processing file: Krupka.csv
+2023-10-18 20:03:04,258 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:03:04,363 - INFO - Final extracted data for Krupka.csv:
+2023-10-18 20:03:05,611 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:03:09,403 - INFO - Processing file: Liberec-Rochlice.csv
+2023-10-18 20:03:09,680 - INFO - Final extracted data for Liberec-Rochlice.csv:
+2023-10-18 20:03:10,833 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:03:11,963 - INFO - Processing file: Lom.csv
+2023-10-18 20:03:12,067 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:03:12,283 - INFO - Final extracted data for Lom.csv:
+2023-10-18 20:03:13,284 - INFO - Processing file: Mikulov-Sedlec.csv
+2023-10-18 20:03:13,481 - INFO - Final extracted data for Mikulov-Sedlec.csv:
+2023-10-18 20:03:14,576 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:03:15,936 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:03:18,276 - INFO - Processing file: Most.csv
+2023-10-18 20:03:18,370 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:03:18,478 - INFO - Final extracted data for Most.csv:
+2023-10-18 20:03:19,636 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:03:20,936 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:03:24,969 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:03:27,301 - INFO - Processing file: Ostrava-Fifejdy.csv
+2023-10-18 20:03:27,531 - INFO - Final extracted data for Ostrava-Fifejdy.csv:
+2023-10-18 20:03:34,826 - INFO - Processing file: Ostrava-Poruba DD.csv
+2023-10-18 20:03:35,155 - INFO - Final extracted data for Ostrava-Poruba DD.csv:
+2023-10-18 20:03:38,662 - INFO - Processing file: Ostrava-Radvanice OZO.csv
+2023-10-18 20:03:38,897 - INFO - Final extracted data for Ostrava-Radvanice OZO.csv:
+2023-10-18 20:03:44,847 - INFO - Processing file: Pardubice Dukla.csv
+2023-10-18 20:03:45,058 - INFO - Final extracted data for Pardubice Dukla.csv:
+2023-10-18 20:03:46,060 - INFO - Processing file: Pardubice-Rosice.csv
+2023-10-18 20:03:46,317 - INFO - Final extracted data for Pardubice-Rosice.csv:
+2023-10-18 20:03:47,421 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:03:55,226 - INFO - Processing file: Polom.csv
+2023-10-18 20:03:55,431 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:03:55,645 - INFO - Final extracted data for Polom.csv:
+2023-10-18 20:03:56,647 - INFO - Processing file: Prachatice.csv
+2023-10-18 20:03:56,764 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:03:56,881 - INFO - Final extracted data for Prachatice.csv:
+2023-10-18 20:03:57,883 - INFO - Processing file: Praha 1-n. Republiky.csv
+2023-10-18 20:03:58,270 - INFO - Final extracted data for Praha 1-n. Republiky.csv:
+2023-10-18 20:04:05,591 - INFO - Processing file: Praha 2-Legerova (hot spot).csv
+2023-10-18 20:04:05,901 - INFO - Final extracted data for Praha 2-Legerova (hot spot).csv:
+2023-10-18 20:04:06,902 - INFO - Processing file: Praha 2-Riegrovy sady.csv
+2023-10-18 20:04:07,420 - INFO - Final extracted data for Praha 2-Riegrovy sady.csv:
+2023-10-18 20:04:08,421 - INFO - Processing file: Praha 4-Chodov.csv
+2023-10-18 20:04:08,803 - INFO - Final extracted data for Praha 4-Chodov.csv:
+2023-10-18 20:04:15,362 - INFO - Processing file: Praha 6-Suchdol.csv
+2023-10-18 20:04:15,732 - INFO - Final extracted data for Praha 6-Suchdol.csv:
+2023-10-18 20:04:19,543 - INFO - Processing file: Praha 8-Kobylisy.csv
+2023-10-18 20:04:19,853 - INFO - Final extracted data for Praha 8-Kobylisy.csv:
+2023-10-18 20:04:22,277 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:04:23,581 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:04:24,935 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:04:26,212 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:04:28,633 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:04:31,093 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:04:32,196 - INFO - Processing file: Rychvald.csv
+2023-10-18 20:04:32,294 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:04:32,407 - INFO - Final extracted data for Rychvald.csv:
+2023-10-18 20:04:33,409 - INFO - Processing file: Sivice.csv
+2023-10-18 20:04:33,614 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:04:33,701 - INFO - Final extracted data for Sivice.csv:
+2023-10-18 20:04:34,874 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:04:36,011 - INFO - Processing file: Sokolov.csv
+2023-10-18 20:04:36,106 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:04:36,230 - INFO - Final extracted data for Sokolov.csv:
+2023-10-18 20:04:37,385 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:04:40,002 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:04:41,114 - INFO - Processing file: Svratouch.csv
+2023-10-18 20:04:41,218 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:04:41,303 - INFO - Final extracted data for Svratouch.csv:
+2023-10-18 20:04:42,304 - INFO - Processing file: Teplice .csv
+2023-10-18 20:04:42,394 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:04:42,540 - INFO - Final extracted data for Teplice .csv:
+2023-10-18 20:04:46,215 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:04:47,501 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:04:48,767 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:04:49,965 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:04:53,941 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:04:55,188 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:04:56,441 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:04:59,088 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:05:00,212 - INFO - Processing file: Znojmo.csv
+2023-10-18 20:05:00,380 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:05:00,479 - INFO - Final extracted data for Znojmo.csv:
+2023-10-18 20:05:08,023 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:05:10,480 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:05:11,723 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:05:13,017 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:05:15,621 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:05:17,044 - INFO - OpenWeatherMap API Response:
+2023-10-18 20:05:19,456 - INFO - Data saved to data\history\region_data\data_2023-10-18_20-05-19.json
+2023-10-18 20:05:19,456 - INFO - Script execution completed.
