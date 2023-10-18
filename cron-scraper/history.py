@@ -110,8 +110,8 @@ def fetch_air_quality_data(latitude, longitude):
     return data
 def fetch_data_for_all_files():
     folder_paths = [
-        "data/sensor_community",
-        "data/CHMU/Česká republika"
+        "/home/ubuntu/dustee-backend/cron-scraper/data/sensor_community",
+        "/home/ubuntu/dustee-backend/cron-scraper/data/CHMU/Česká republika"
     ]
     file_extension = ".csv"
     excluded_filenames = ["all-sensors.json", "all_stations.csv"]  # Add filenames to exclude
@@ -188,7 +188,7 @@ def fetch_data_for_all_files():
     return final_data
 if __name__ == "__main__":
     try:
-        log_path = 'logs/historylog.txt'
+        log_path = '/home/ubuntu/dustee-backend/cron-scraper/logs/historylog.txt'
         log_file_path = os.path.join(log_path, 'historylog.txt')
         file_handler = logging.FileHandler(log_path)
         file_handler.setLevel(logging.INFO)
