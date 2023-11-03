@@ -2,9 +2,29 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const Routes = require("./routes/routes");
 const cors = require("cors");
+const cronScheduler = require("./utils/cron-scheduler")
+
+// Spouštění funkce na spouštění Python skriptu každou minutu
+//cronScheduler.runCHMUpy("*/15 * * * *");
+//cronScheduler.runHistorypy("*/20 * * * *");
+//cronScheduler.runSCpy("*/35 * * * *");
 
 const app = express();
-app.use(cors());
+
+
+const corsOptions = {
+  origin: '*', // Nahraď tím, odkud chceš povolit CORS
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: ['Content-Type', '*'], // Přidání '*' pro povolení všech hlaviček
+  maxAge: 86400, // Cache preflight response na 24 hodin
+};
+
+app.use(cors(corsOptions));
+/*
+app.use(cors({
+  origin: ['*'],
+}));
+*/
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -15,14 +35,7 @@ app.get("/", (req, res) => {
   res.send("Hello, World!");
 });
 
-app.get("/nearest-sensor", Routes.getNearestSensor);
-
-// endpoint's for getting sensor states of multiple measurements
-app.get("/getSensorStateTemp", Routes.getSensorStateTemp);
-app.get("/getSensorStatePressure", Routes.getSensorStatePressure);
-app.get("/getSensorStateHumidity", Routes.getSensorStateHumidity);
-app.get("/getSensorStatePm2", Routes.getSensorStatePm2);
-app.get("/getSensorStatePm10", Routes.getSensorStatePm10);
+app.post("/nearest-sensor", Routes.getNearestSensor);
 
 // endpoint's for job's dealing with database
 app.post("/createNewUser", Routes.newUser);
@@ -41,9 +54,15 @@ app.get("/getAllLocations", Routes.getAllLocations);
 app.post("/searchLocation", Routes.searchForSensors);
 
 // endpoint to search for sensors in the neighborhood
-app.post("/getNeighborhoodSensor", Routes.findSensor);
+//app.post("/getNeighborhoodSensor", Routes.findSensor);
 
-const port = process.env.PORT || 80;
+// endpoint for getting svg icon level absed on provided region data
+app.post("/getIconLevel", Routes.getIconLevel);
+
+// endpoint for getting sensor's history
+app.post("/getLocationHistory", Routes.getHistory);
+
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`API server listening on port ${port}`);
 });

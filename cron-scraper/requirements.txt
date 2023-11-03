@@ -1,0 +1,4 @@
+requests
+geopy
+logging
+tenacity

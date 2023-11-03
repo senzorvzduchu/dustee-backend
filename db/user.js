@@ -52,11 +52,18 @@ class User {
             
 
         static async update(email, updates) {
+                // Pokud existuje pole `password` v `updates`, znamená to, že uživatel chce změnit heslo.
+                if (updates.password) {
+                        const hashedPassword = await bcrypt.hash(updates.password, SALT_ROUNDS);
+                        updates.password = hashedPassword;
+                }
+            
                 await client.connect();
                 const result = await client.db("test").collection("users").updateOne({ email }, { $set: updates });
                 await client.close();
                 return result;
         }
+            
 
         static async delete(email) {
                 await client.connect();
@@ -67,11 +74,26 @@ class User {
 
         static async updateProperties(email, address, favSensor, group) {
                 await client.connect();
-                const result = await client.db("test").collection("users").updateOne({ email }, { $set: { properties: { address, favSensor, group } } });
+                const updates = {};
+            
+                if (address !== undefined) {
+                        updates.address = address;
+                }
+            
+                if (favSensor !== undefined) {
+                        updates.favSensor = favSensor;
+                }
+            
+                if (group !== undefined) {
+                        updates.group = group;
+                }
+            
+                const result = await client.db("test").collection("users").updateOne({ email }, { $set: updates });
                 await client.close();
                 return result;
         }
-            // verifying the user
+            
+        // verifying the user
         static async verifyUser(email, password) {
                 try {
                         await client.connect();
@@ -96,7 +118,7 @@ class User {
 
         async deleteDb() {
                 try {
-                          // Smazání všech kolekcí
+                        // Smazání všech kolekcí
                         for (const collectionName in mongoose.connection.collections) {
                                 await mongoose.connection.collections[collectionName].deleteMany({});
                         }

@@ -10,18 +10,23 @@
   "author": "Alexandr Waage",
   "license": "ISC",
   "dependencies": {
+    "arima": "^0.2.5",
     "axios": "^1.4.0",
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
+    "cronitor": "^2.3.4",
     "csv-parse": "^5.4.0",
     "csv-parser": "^3.0.0",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
+    "fuse": "^0.4.0",
     "fuse.js": "^6.6.2",
     "geoip-lite": "^1.4.7",
     "jsonwebtoken": "^9.0.1",
     "mongodb": "^5.7.0",
-    "mongoose": "^7.3.4"
+    "mongoose": "^7.3.4",
+    "node-cron": "^3.0.2",
+    "winston": "^3.10.0"
   }
 }

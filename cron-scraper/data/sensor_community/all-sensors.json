@@ -1,0 +1,1577 @@
+[
+    {
+        "SensorID": 77351,
+        "Latitude": "50.246",
+        "Longitude": "14.32",
+        "temperature": 6.234999999999999,
+        "pressure": 988.46765,
+        "humidity": 79.67
+    },
+    {
+        "SensorID": 77350,
+        "Latitude": "50.246",
+        "Longitude": "14.32",
+        "P1": 14.49,
+        "P2": 7.529999999999999
+    },
+    {
+        "SensorID": 77003,
+        "Latitude": "50.06",
+        "Longitude": "14.288",
+        "temperature": 6.5,
+        "pressure": 964.3503,
+        "humidity": 81.06
+    },
+    {
+        "SensorID": 77002,
+        "Latitude": "50.06",
+        "Longitude": "14.288",
+        "P2": 18.1,
+        "P1": 18.23
+    },
+    {
+        "SensorID": 3447,
+        "Latitude": "49.5",
+        "Longitude": "17.736",
+        "P1": 31.7,
+        "P2": 18.1
+    },
+    {
+        "SensorID": 70221,
+        "Latitude": "49.76424500000",
+        "Longitude": "18.34908000000",
+        "temperature": 5.95,
+        "pressure": 984.2578,
+        "humidity": 76.09
+    },
+    {
+        "SensorID": 70220,
+        "Latitude": "49.76424500000",
+        "Longitude": "18.34908000000",
+        "P2": 20.095,
+        "P1": 20.095
+    },
+    {
+        "SensorID": 71915,
+        "Latitude": "49.994",
+        "Longitude": "14.66",
+        "temperature": 10.059999999999999,
+        "pressure": 968.9656500000001,
+        "humidity": 47.985
+    },
+    {
+        "SensorID": 71652,
+        "Latitude": "49.59528500000",
+        "Longitude": "17.99971880000",
+        "P2": 27.265,
+        "P1": 28.53
+    },
+    {
+        "SensorID": 71914,
+        "Latitude": "49.994",
+        "Longitude": "14.66",
+        "P1": 0.55,
+        "P2": 0.475
+    },
+    {
+        "SensorID": 77823,
+        "Latitude": "49.73",
+        "Longitude": "17.292",
+        "temperature": 7.640000000000001,
+        "pressure": 978.75185,
+        "humidity": 57.425
+    },
+    {
+        "SensorID": 65731,
+        "Latitude": "49.49413010451",
+        "Longitude": "14.67903998493",
+        "temperature": 3.2800000000000002,
+        "pressure": 947.9664,
+        "humidity": 100.0
+    },
+    {
+        "SensorID": 65730,
+        "Latitude": "49.49413010451",
+        "Longitude": "14.67903998493",
+        "P1": 11.875,
+        "P2": 7.574999999999999
+    },
+    {
+        "SensorID": 66692,
+        "Latitude": "50.03070230000",
+        "Longitude": "14.51126170000",
+        "P1": 16.275,
+        "P2": 9.95
+    },
+    {
+        "SensorID": 66812,
+        "Latitude": "50.12961081597",
+        "Longitude": "14.49200749397",
+        "P1": 12.875,
+        "P2": 8.525
+    },
+    {
+        "SensorID": 77822,
+        "Latitude": "49.73",
+        "Longitude": "17.292",
+        "P1": 0.4,
+        "P2": 0.4
+    },
+    {
+        "SensorID": 76594,
+        "Latitude": "50.24",
+        "Longitude": "14.302",
+        "temperature": 6.835,
+        "pressure": 988.1170500000001,
+        "humidity": 62.22
+    },
+    {
+        "SensorID": 76593,
+        "Latitude": "50.24",
+        "Longitude": "14.302",
+        "P1": 17.39,
+        "P2": 9.04
+    },
+    {
+        "SensorID": 82375,
+        "Latitude": "50.496",
+        "Longitude": "15.798",
+        "temperature": 6.255,
+        "pressure": 950.7194000000001,
+        "humidity": 66.67
+    },
+    {
+        "SensorID": 77406,
+        "Latitude": "49.22874549259",
+        "Longitude": "16.87556058168",
+        "P1": 9.06,
+        "P2": 9.09
+    },
+    {
+        "SensorID": 82374,
+        "Latitude": "50.496",
+        "Longitude": "15.798",
+        "P1": 6.865,
+        "P2": 4.575
+    },
+    {
+        "SensorID": 56894,
+        "Latitude": "50.078",
+        "Longitude": "13.704",
+        "temperature": 5.645,
+        "pressure": 961.47955,
+        "humidity": 76.45500000000001
+    },
+    {
+        "SensorID": 56893,
+        "Latitude": "50.078",
+        "Longitude": "13.704",
+        "P1": 73.465,
+        "P2": 42.1
+    },
+    {
+        "SensorID": 82285,
+        "Latitude": "50.13907030000",
+        "Longitude": "14.42895370000",
+        "P1": 11.809999999999999,
+        "P2": 4.175
+    },
+    {
+        "SensorID": 79305,
+        "Latitude": "49.33950880000",
+        "Longitude": "17.99406000000",
+        "P1": 3.925,
+        "P2": 2.3
+    },
+    {
+        "SensorID": 70219,
+        "Latitude": "49.76860130000",
+        "Longitude": "18.31600130000",
+        "temperature": 7.324999999999999,
+        "pressure": 981.3023499999999,
+        "humidity": 65.945
+    },
+    {
+        "SensorID": 70218,
+        "Latitude": "49.76860130000",
+        "Longitude": "18.31600130000",
+        "P2": 27.935,
+        "P1": 28.240000000000002
+    },
+    {
+        "SensorID": 47080,
+        "Latitude": "49.296",
+        "Longitude": "14.47",
+        "pressure": 960.6337,
+        "temperature": 8.92,
+        "humidity": 41.34
+    },
+    {
+        "SensorID": 47079,
+        "Latitude": "49.296",
+        "Longitude": "14.47",
+        "P2": 89.5,
+        "P1": 99.0
+    },
+    {
+        "SensorID": 77386,
+        "Latitude": "49.68",
+        "Longitude": "18.538",
+        "temperature": 4.24,
+        "humidity": 78.42,
+        "P2": 21.2,
+        "P1": 22.2
+    },
+    {
+        "SensorID": 77385,
+        "Latitude": "49.68",
+        "Longitude": "18.538",
+        "temperature": 5.427334489300847,
+        "pressure": 968.3037642449727
+    },
+    {
+        "SensorID": 77009,
+        "Latitude": "49.23971274259",
+        "Longitude": "13.51312994957",
+        "temperature": 0.3,
+        "humidity": 100.0,
+        "pressure": 954.0
+    },
+    {
+        "SensorID": 77008,
+        "Latitude": "49.23971274259",
+        "Longitude": "13.51312994957",
+        "P2": 44.2,
+        "P1": 100.5
+    },
+    {
+        "SensorID": 77469,
+        "Latitude": "50.272",
+        "Longitude": "12.818",
+        "temperature": 5.2,
+        "pressure": 951.14,
+        "humidity": 73.5
+    },
+    {
+        "SensorID": 65472,
+        "Latitude": "50.71",
+        "Longitude": "14.492",
+        "temperature": 23.5,
+        "humidity": 47.22
+    },
+    {
+        "SensorID": 65471,
+        "Latitude": "50.71",
+        "Longitude": "14.492",
+        "P1": 11.445,
+        "P2": 6.165
+    },
+    {
+        "SensorID": 78717,
+        "Latitude": "50.042",
+        "Longitude": "14.432",
+        "temperature": 7.56,
+        "pressure": 975.3163999999999,
+        "humidity": 67.045
+    },
+    {
+        "SensorID": 78716,
+        "Latitude": "50.042",
+        "Longitude": "14.432",
+        "P1": 15.19,
+        "P2": 8.25
+    },
+    {
+        "SensorID": 81225,
+        "Latitude": "50.22355521393",
+        "Longitude": "14.34489637613",
+        "temperature": 5.73,
+        "pressure": 986.8467,
+        "humidity": 100.0
+    },
+    {
+        "SensorID": 81226,
+        "Latitude": "50.22355521393",
+        "Longitude": "14.34489637613",
+        "P1": 14.05,
+        "P2": 7.640000000000001
+    },
+    {
+        "SensorID": 28714,
+        "Latitude": "49.17",
+        "Longitude": "14.572",
+        "P1": 19.1,
+        "P2": 11.265
+    },
+    {
+        "SensorID": 77112,
+        "Latitude": "50.226",
+        "Longitude": "14.344",
+        "temperature": 6.59,
+        "pressure": 987.05735,
+        "humidity": 80.32
+    },
+    {
+        "SensorID": 77111,
+        "Latitude": "50.226",
+        "Longitude": "14.344",
+        "P1": 31.225,
+        "P2": 24.09
+    },
+    {
+        "SensorID": 83417,
+        "Latitude": "0",
+        "Longitude": "0",
+        "P1": 8.55,
+        "P2": 6.15
+    },
+    {
+        "SensorID": 70027,
+        "Latitude": "50.092",
+        "Longitude": "15.804",
+        "temperature": 6.775,
+        "pressure": 984.8427999999999,
+        "humidity": 83.66
+    },
+    {
+        "SensorID": 70026,
+        "Latitude": "50.092",
+        "Longitude": "15.804",
+        "P1": 18.225,
+        "P2": 17.07
+    },
+    {
+        "SensorID": 79178,
+        "Latitude": "49.904",
+        "Longitude": "16.436",
+        "P1": 13.87,
+        "P2": 11.934999999999999
+    },
+    {
+        "SensorID": 82263,
+        "Latitude": "49.50231503731",
+        "Longitude": "17.70396888256",
+        "P1": 12.825,
+        "P2": 5.875
+    },
+    {
+        "SensorID": 79640,
+        "Latitude": "49.904",
+        "Longitude": "14.39",
+        "P1": 35.565,
+        "P2": 20.575000000000003
+    },
+    {
+        "SensorID": 77067,
+        "Latitude": "50.378",
+        "Longitude": "15.47",
+        "temperature": 7.785,
+        "pressure": 982.3864,
+        "humidity": 60.739999999999995
+    },
+    {
+        "SensorID": 81243,
+        "Latitude": "50.074",
+        "Longitude": "14.496",
+        "temperature": 5.515,
+        "pressure": 981.8561,
+        "humidity": 73.535
+    },
+    {
+        "SensorID": 77066,
+        "Latitude": "50.378",
+        "Longitude": "15.47",
+        "P1": 11.75,
+        "P2": 8.125
+    },
+    {
+        "SensorID": 77259,
+        "Latitude": "49.73926995964",
+        "Longitude": "13.38989496196"
+    },
+    {
+        "SensorID": 65470,
+        "Latitude": "50.71",
+        "Longitude": "14.492",
+        "temperature": 5.165,
+        "humidity": 85.235
+    },
+    {
+        "SensorID": 65469,
+        "Latitude": "50.71",
+        "Longitude": "14.492",
+        "P1": 31.765,
+        "P2": 14.39
+    },
+    {
+        "SensorID": 80941,
+        "Latitude": "49.53882848133",
+        "Longitude": "18.30192446709",
+        "temperature": 5.63,
+        "pressure": 954.3197,
+        "humidity": 63.535000000000004
+    },
+    {
+        "SensorID": 81242,
+        "Latitude": "50.074",
+        "Longitude": "14.496",
+        "P1": 3.2,
+        "P2": 2.25
+    },
+    {
+        "SensorID": 80939,
+        "Latitude": "49.53882848133",
+        "Longitude": "18.30192446709",
+        "P1": 7.375,
+        "P2": 6.635
+    },
+    {
+        "SensorID": 83300,
+        "Latitude": "50.01236302877",
+        "Longitude": "14.44954007864",
+        "P1": 20.575000000000003,
+        "P2": 11.575
+    },
+    {
+        "SensorID": 7214,
+        "Latitude": "50.614",
+        "Longitude": "13.83",
+        "temperature": 7.9,
+        "humidity": 99.9
+    },
+    {
+        "SensorID": 73633,
+        "Latitude": "50.08",
+        "Longitude": "14.418",
+        "temperature": 8.495000000000001,
+        "pressure": 986.7019,
+        "humidity": 62.290000000000006
+    },
+    {
+        "SensorID": 75959,
+        "Latitude": "50.77337901902",
+        "Longitude": "15.07538366308",
+        "temperature": 7.295,
+        "pressure": 962.0040999999999,
+        "humidity": 57.870000000000005
+    },
+    {
+        "SensorID": 73632,
+        "Latitude": "50.08",
+        "Longitude": "14.418",
+        "P1": 17.305,
+        "P2": 8.95
+    },
+    {
+        "SensorID": 75958,
+        "Latitude": "50.77337901902",
+        "Longitude": "15.07538366308",
+        "P1": 9.1,
+        "P2": 4.45
+    },
+    {
+        "SensorID": 7213,
+        "Latitude": "50.614",
+        "Longitude": "13.83",
+        "P1": 8.715,
+        "P2": 6.93
+    },
+    {
+        "SensorID": 76717,
+        "Latitude": "49.73927260000",
+        "Longitude": "13.38991100000",
+        "temperature": 7.03,
+        "humidity": 75.13,
+        "pressure": 970.2
+    },
+    {
+        "SensorID": 77468,
+        "Latitude": "50.272",
+        "Longitude": "12.818",
+        "P2": 31.4,
+        "P1": 31.4
+    },
+    {
+        "SensorID": 76716,
+        "Latitude": "49.73927260000",
+        "Longitude": "13.38991100000",
+        "P1": 34.62,
+        "P2": 34.02
+    },
+    {
+        "SensorID": 65276,
+        "Latitude": "49.994",
+        "Longitude": "14.052",
+        "temperature": 5.46,
+        "pressure": 974.8441,
+        "humidity": 100.0
+    },
+    {
+        "SensorID": 46876,
+        "Latitude": "50.16",
+        "Longitude": "14.768",
+        "temperature": 4.470000000000001,
+        "pressure": 986.1522,
+        "humidity": 100.0
+    },
+    {
+        "SensorID": 65275,
+        "Latitude": "49.994",
+        "Longitude": "14.052",
+        "P1": 43.335,
+        "P2": 21.115000000000002
+    },
+    {
+        "SensorID": 46875,
+        "Latitude": "50.16",
+        "Longitude": "14.768",
+        "P1": 2.55,
+        "P2": 2.45
+    },
+    {
+        "SensorID": 76178,
+        "Latitude": "49.19111570000",
+        "Longitude": "16.60357170000",
+        "P1": 12.625,
+        "P2": 6.02
+    },
+    {
+        "SensorID": 77279,
+        "Latitude": "50.436",
+        "Longitude": "15.378",
+        "temperature": 5.69,
+        "pressure": 975.8188,
+        "humidity": 87.63
+    },
+    {
+        "SensorID": 77278,
+        "Latitude": "50.436",
+        "Longitude": "15.378",
+        "P1": 11.7,
+        "P2": 4.93
+    },
+    {
+        "SensorID": 47082,
+        "Latitude": "49.296",
+        "Longitude": "14.47",
+        "pressure": 960.4099000000001,
+        "temperature": 11.79,
+        "humidity": 36.71
+    },
+    {
+        "SensorID": 47081,
+        "Latitude": "49.296",
+        "Longitude": "14.47",
+        "P2": 46.5,
+        "P1": 57.5
+    },
+    {
+        "SensorID": 76476,
+        "Latitude": "50.078",
+        "Longitude": "14.854",
+        "pressure": 983.7002,
+        "temperature": 6.745
+    },
+    {
+        "SensorID": 76475,
+        "Latitude": "50.078",
+        "Longitude": "14.854",
+        "P1": 11.775,
+        "P2": 5.875
+    },
+    {
+        "SensorID": 73429,
+        "Latitude": "49.564",
+        "Longitude": "17.412",
+        "temperature": 6.470000000000001,
+        "pressure": 976.0734500000001,
+        "humidity": 94.6
+    },
+    {
+        "SensorID": 73428,
+        "Latitude": "49.564",
+        "Longitude": "17.412",
+        "P1": 8.305,
+        "P2": 3.74
+    },
+    {
+        "SensorID": 47636,
+        "Latitude": "50.766",
+        "Longitude": "15.338",
+        "temperature": 4.17,
+        "pressure": 944.2658,
+        "humidity": 81.68
+    },
+    {
+        "SensorID": 82245,
+        "Latitude": "50.096",
+        "Longitude": "14.458",
+        "temperature": 9.805,
+        "pressure": 987.893,
+        "humidity": 57.085
+    },
+    {
+        "SensorID": 57276,
+        "Latitude": "50.09307550000",
+        "Longitude": "14.50837190000",
+        "temperature": 5.9350000000000005,
+        "pressure": 984.7941000000001,
+        "humidity": 76.345
+    },
+    {
+        "SensorID": 73016,
+        "Latitude": "50.074",
+        "Longitude": "14.44",
+        "temperature": 6.55,
+        "pressure": 976.1847,
+        "humidity": 71.19
+    },
+    {
+        "SensorID": 47635,
+        "Latitude": "50.766",
+        "Longitude": "15.338",
+        "P1": 10.3,
+        "P2": 4.855
+    },
+    {
+        "SensorID": 82244,
+        "Latitude": "50.096",
+        "Longitude": "14.458",
+        "P1": 14.39,
+        "P2": 7.175000000000001
+    },
+    {
+        "SensorID": 57275,
+        "Latitude": "50.09307550000",
+        "Longitude": "14.50837190000",
+        "P1": 18.085,
+        "P2": 10.71
+    },
+    {
+        "SensorID": 75425,
+        "Latitude": "50.632",
+        "Longitude": "13.7",
+        "temperature": 5.555,
+        "pressure": 972.30485,
+        "humidity": 100.0
+    },
+    {
+        "SensorID": 75426,
+        "Latitude": "50.632",
+        "Longitude": "13.7",
+        "P1": 14.255,
+        "P2": 5.865
+    },
+    {
+        "SensorID": 42666,
+        "Latitude": "49.646",
+        "Longitude": "14.13",
+        "P1": 6.35,
+        "P2": 3.95
+    },
+    {
+        "SensorID": 82746,
+        "Latitude": "50.004",
+        "Longitude": "14.356",
+        "temperature": 7.91,
+        "pressure": 971.6274000000001,
+        "humidity": 62.16
+    },
+    {
+        "SensorID": 68169,
+        "Latitude": "50.206",
+        "Longitude": "15.978",
+        "temperature": 2.185,
+        "pressure": 982.2763,
+        "humidity": 100.0
+    },
+    {
+        "SensorID": 68168,
+        "Latitude": "50.206",
+        "Longitude": "15.978",
+        "P1": 33.285,
+        "P2": 28.875
+    },
+    {
+        "SensorID": 82744,
+        "Latitude": "50.004",
+        "Longitude": "14.356",
+        "P1": 17.6,
+        "P2": 10.0
+    },
+    {
+        "SensorID": 31346,
+        "Latitude": "49.708",
+        "Longitude": "18.568",
+        "temperature": 4.275,
+        "pressure": 968.73235,
+        "humidity": 100.0
+    },
+    {
+        "SensorID": 31347,
+        "Latitude": "49.708",
+        "Longitude": "18.568",
+        "P1": 15.375,
+        "P2": 6.109999999999999
+    },
+    {
+        "SensorID": 74224,
+        "Latitude": "49.706",
+        "Longitude": "18.216",
+        "temperature": 6.65,
+        "humidity": 73.785
+    },
+    {
+        "SensorID": 71889,
+        "Latitude": "49.998",
+        "Longitude": "14.858",
+        "temperature": 5.385,
+        "pressure": 964.36985,
+        "humidity": 95.47
+    },
+    {
+        "SensorID": 62344,
+        "Latitude": "50.07055159858",
+        "Longitude": "14.43329125643",
+        "temperature": 7.925000000000001,
+        "humidity": 70.765
+    },
+    {
+        "SensorID": 75681,
+        "Latitude": "49.176",
+        "Longitude": "16.626",
+        "temperature": 7.515000000000001,
+        "pressure": 986.98875,
+        "humidity": 77.68
+    },
+    {
+        "SensorID": 71888,
+        "Latitude": "49.998",
+        "Longitude": "14.858",
+        "P1": 8.335,
+        "P2": 4.025
+    },
+    {
+        "SensorID": 75680,
+        "Latitude": "49.176",
+        "Longitude": "16.626",
+        "P1": 17.12,
+        "P2": 9.135
+    },
+    {
+        "SensorID": 62343,
+        "Latitude": "50.07055159858",
+        "Longitude": "14.43329125643",
+        "P1": 16.95,
+        "P2": 9.1
+    },
+    {
+        "SensorID": 74223,
+        "Latitude": "49.706",
+        "Longitude": "18.216",
+        "P1": 20.95,
+        "P2": 9.1
+    },
+    {
+        "SensorID": 81980,
+        "Latitude": "49.84205084848",
+        "Longitude": "18.29029798506",
+        "P1": 24.5,
+        "P2": 13.615
+    },
+    {
+        "SensorID": 79792,
+        "Latitude": "49.072",
+        "Longitude": "17.462",
+        "P1": 0.05,
+        "P2": 0.05
+    },
+    {
+        "SensorID": 63903,
+        "Latitude": "50.678",
+        "Longitude": "13.938",
+        "temperature": 4.765,
+        "pressure": 987.9047,
+        "humidity": 100.0
+    },
+    {
+        "SensorID": 63902,
+        "Latitude": "50.678",
+        "Longitude": "13.938",
+        "P1": 50.675,
+        "P2": 24.825
+    },
+    {
+        "SensorID": 77587,
+        "Latitude": "49.716",
+        "Longitude": "17.158",
+        "temperature": 5.89,
+        "pressure": 986.2954500000001,
+        "humidity": 67.505
+    },
+    {
+        "SensorID": 77586,
+        "Latitude": "49.716",
+        "Longitude": "17.158",
+        "P1": 15.725000000000001,
+        "P2": 8.74
+    },
+    {
+        "SensorID": 69911,
+        "Latitude": "49.92",
+        "Longitude": "17.868",
+        "temperature": 0.25,
+        "pressure": 982.4488,
+        "humidity": 74.51
+    },
+    {
+        "SensorID": 69910,
+        "Latitude": "49.92",
+        "Longitude": "17.868",
+        "P1": 21.77,
+        "P2": 8.5
+    },
+    {
+        "SensorID": 43196,
+        "Latitude": "49.852",
+        "Longitude": "18.282",
+        "P1": 19.34,
+        "P2": 19.09
+    },
+    {
+        "SensorID": 73738,
+        "Latitude": "50.07545049295",
+        "Longitude": "14.40562963516",
+        "temperature": 7.765000000000001,
+        "pressure": 987.14705,
+        "humidity": 65.39
+    },
+    {
+        "SensorID": 73737,
+        "Latitude": "50.07545049295",
+        "Longitude": "14.40562963516",
+        "P1": 16.025,
+        "P2": 9.85
+    },
+    {
+        "SensorID": 63171,
+        "Latitude": "50.18095868383",
+        "Longitude": "14.65001374483",
+        "P1": 10.9,
+        "P2": 9.57
+    },
+    {
+        "SensorID": 77456,
+        "Latitude": "50.13252000000",
+        "Longitude": "13.99531250000",
+        "temperature": 5.1899999999999995,
+        "pressure": 960.2936,
+        "humidity": 84.22
+    },
+    {
+        "SensorID": 77455,
+        "Latitude": "50.13252000000",
+        "Longitude": "13.99531250000",
+        "P1": 21.9,
+        "P2": 10.675
+    },
+    {
+        "SensorID": 73015,
+        "Latitude": "50.074",
+        "Longitude": "14.44",
+        "P1": 14.67,
+        "P2": 7.785
+    },
+    {
+        "SensorID": 83183,
+        "Latitude": "49.898",
+        "Longitude": "16.45",
+        "temperature": 22.29,
+        "pressure": 965.1211000000001,
+        "humidity": 46.385
+    },
+    {
+        "SensorID": 70223,
+        "Latitude": "49.59460690000",
+        "Longitude": "17.22157810000",
+        "temperature": 6.495,
+        "pressure": 984.3622,
+        "humidity": 61.82
+    },
+    {
+        "SensorID": 70222,
+        "Latitude": "49.59460690000",
+        "Longitude": "17.22157810000",
+        "P2": 12.99,
+        "P1": 13.025
+    },
+    {
+        "SensorID": 83182,
+        "Latitude": "49.898",
+        "Longitude": "16.45",
+        "P1": 6.58,
+        "P2": 3.375
+    },
+    {
+        "SensorID": 75945,
+        "Latitude": "50.104",
+        "Longitude": "14.614",
+        "temperature": 9.82,
+        "pressure": 978.78265,
+        "humidity": 36.11
+    },
+    {
+        "SensorID": 71641,
+        "Latitude": "50.122",
+        "Longitude": "14.468",
+        "temperature": 9.024757763027392,
+        "humidity": 62.82867933165484,
+        "pressure": 974.9448093188905,
+        "P2": 12.9095,
+        "P1": 12.9095
+    },
+    {
+        "SensorID": 77171,
+        "Latitude": "50.02",
+        "Longitude": "14.422",
+        "temperature": 7.43,
+        "pressure": 981.0074999999999,
+        "humidity": 72.665
+    },
+    {
+        "SensorID": 75946,
+        "Latitude": "50.104",
+        "Longitude": "14.614",
+        "P2": 48.5,
+        "P1": 56.0
+    },
+    {
+        "SensorID": 70000,
+        "Latitude": "50.13650119003",
+        "Longitude": "15.09839594357",
+        "P1": 14.95,
+        "P2": 6.65
+    },
+    {
+        "SensorID": 78890,
+        "Latitude": "48.964",
+        "Longitude": "14.502",
+        "temperature": 2.215,
+        "pressure": 961.1089,
+        "humidity": 100.0
+    },
+    {
+        "SensorID": 76128,
+        "Latitude": "50.102",
+        "Longitude": "14.434",
+        "temperature": 6.67,
+        "pressure": 985.3369,
+        "humidity": 70.905
+    },
+    {
+        "SensorID": 71642,
+        "Latitude": "50.122",
+        "Longitude": "14.468",
+        "temperature": 9.024757763027392,
+        "humidity": 62.82867933165484,
+        "pressure": 974.9448093188905
+    },
+    {
+        "SensorID": 77170,
+        "Latitude": "50.02",
+        "Longitude": "14.422",
+        "P1": 15.350000000000001,
+        "P2": 8.775
+    },
+    {
+        "SensorID": 76127,
+        "Latitude": "50.102",
+        "Longitude": "14.434",
+        "P1": 19.814999999999998,
+        "P2": 7.265
+    },
+    {
+        "SensorID": 78889,
+        "Latitude": "48.964",
+        "Longitude": "14.502",
+        "P1": 8.805,
+        "P2": 5.53
+    },
+    {
+        "SensorID": 70001,
+        "Latitude": "50.13650119003",
+        "Longitude": "15.09839594357",
+        "temperature": 7.609999999999999,
+        "humidity": 68.465
+    },
+    {
+        "SensorID": 80970,
+        "Latitude": "49.58985840000",
+        "Longitude": "17.27232290000",
+        "temperature": 14.9,
+        "pressure": 982.58905,
+        "humidity": 60.91
+    },
+    {
+        "SensorID": 74466,
+        "Latitude": "50.044",
+        "Longitude": "15.938",
+        "temperature": 18.735,
+        "pressure": 984.4203500000001,
+        "humidity": 47.45
+    },
+    {
+        "SensorID": 73106,
+        "Latitude": "50.476",
+        "Longitude": "15.588",
+        "temperature": 2.66,
+        "pressure": 970.1404500000001,
+        "humidity": 87.50999999999999
+    },
+    {
+        "SensorID": 70103,
+        "Latitude": "50.034",
+        "Longitude": "15.256",
+        "temperature": 8.059999999999999,
+        "pressure": 986.41545,
+        "humidity": 78.83
+    },
+    {
+        "SensorID": 78170,
+        "Latitude": "49.892",
+        "Longitude": "14.49",
+        "temperature": 2.73,
+        "pressure": 963.9072000000001,
+        "humidity": 99.39500000000001
+    },
+    {
+        "SensorID": 80747,
+        "Latitude": "50.218",
+        "Longitude": "14.322",
+        "temperature": 5.984999999999999,
+        "pressure": 982.9480000000001,
+        "humidity": 71.24
+    },
+    {
+        "SensorID": 78169,
+        "Latitude": "49.892",
+        "Longitude": "14.49",
+        "P1": 11.85,
+        "P2": 4.49
+    },
+    {
+        "SensorID": 60872,
+        "Latitude": "50.118",
+        "Longitude": "14.462"
+    },
+    {
+        "SensorID": 74465,
+        "Latitude": "50.044",
+        "Longitude": "15.938",
+        "P1": 5.9,
+        "P2": 4.65
+    },
+    {
+        "SensorID": 80746,
+        "Latitude": "50.218",
+        "Longitude": "14.322",
+        "P1": 11.55,
+        "P2": 7.8149999999999995
+    },
+    {
+        "SensorID": 73107,
+        "Latitude": "50.476",
+        "Longitude": "15.588",
+        "P1": 9.15,
+        "P2": 3.65
+    },
+    {
+        "SensorID": 82981,
+        "Latitude": "50.06181910000",
+        "Longitude": "14.45103740000",
+        "P1": 18.564999999999998,
+        "P2": 9.785
+    },
+    {
+        "SensorID": 80969,
+        "Latitude": "49.58985840000",
+        "Longitude": "17.27232290000",
+        "P1": 12.91,
+        "P2": 5.625
+    },
+    {
+        "SensorID": 71658,
+        "Latitude": "49.59395140000",
+        "Longitude": "18.01889470000",
+        "temperature": 1.66,
+        "pressure": 980.1621499999999,
+        "humidity": 100.0
+    },
+    {
+        "SensorID": 60871,
+        "Latitude": "50.118",
+        "Longitude": "14.462",
+        "temperature": 6.484999999999999,
+        "pressure": 981.4401499999999,
+        "humidity": 83.78
+    },
+    {
+        "SensorID": 53915,
+        "Latitude": "49.652",
+        "Longitude": "18.77",
+        "P1": 238.225,
+        "P2": 221.85000000000002
+    },
+    {
+        "SensorID": 71657,
+        "Latitude": "49.59395140000",
+        "Longitude": "18.01889470000",
+        "P2": 19.655,
+        "P1": 20.03
+    },
+    {
+        "SensorID": 79514,
+        "Latitude": "49.59381535000",
+        "Longitude": "17.24701768748",
+        "P1": 15.71,
+        "P2": 7.64
+    },
+    {
+        "SensorID": 75625,
+        "Latitude": "50.03129776446",
+        "Longitude": "14.54004317522",
+        "temperature": 8.115,
+        "pressure": 975.4778,
+        "humidity": 63.56
+    },
+    {
+        "SensorID": 75440,
+        "Latitude": "50.05994338725",
+        "Longitude": "14.39587444067",
+        "temperature": 5.87,
+        "pressure": 983.74485,
+        "humidity": 81.32
+    },
+    {
+        "SensorID": 77096,
+        "Latitude": "50.42740385045",
+        "Longitude": "14.24833238046",
+        "temperature": 8.55,
+        "pressure": 988.8633,
+        "humidity": 69.85499999999999
+    },
+    {
+        "SensorID": 75624,
+        "Latitude": "50.03129776446",
+        "Longitude": "14.54004317522",
+        "P1": 13.09,
+        "P2": 7.0600000000000005
+    },
+    {
+        "SensorID": 66260,
+        "Latitude": "49.46900570000",
+        "Longitude": "17.12832070000",
+        "P1": 28.2,
+        "P2": 16.45
+    },
+    {
+        "SensorID": 76232,
+        "Latitude": "50.73322000000",
+        "Longitude": "15.16822000000",
+        "P1": 6.949999999999999,
+        "P2": 3.69
+    },
+    {
+        "SensorID": 77095,
+        "Latitude": "50.42740385045",
+        "Longitude": "14.24833238046",
+        "P2": 12.364999999999998,
+        "P1": 12.4
+    },
+    {
+        "SensorID": 70102,
+        "Latitude": "50.034",
+        "Longitude": "15.256",
+        "P1": 4.38,
+        "P2": 1.325
+    },
+    {
+        "SensorID": 77799,
+        "Latitude": "50.426",
+        "Longitude": "15.352",
+        "temperature": 6.15,
+        "pressure": 975.59955,
+        "humidity": 77.06
+    },
+    {
+        "SensorID": 66529,
+        "Latitude": "50.07765353788",
+        "Longitude": "14.44490468482",
+        "temperature": 10.844999999999999,
+        "pressure": 980.34295,
+        "humidity": 50.59
+    },
+    {
+        "SensorID": 77798,
+        "Latitude": "50.426",
+        "Longitude": "15.352",
+        "P1": 10.705,
+        "P2": 6.140000000000001
+    },
+    {
+        "SensorID": 65629,
+        "Latitude": "50.66131340000",
+        "Longitude": "14.03535457078",
+        "temperature": 7.76,
+        "pressure": 992.3198500000001,
+        "humidity": 75.045
+    },
+    {
+        "SensorID": 77383,
+        "Latitude": "50.18528778753",
+        "Longitude": "15.01785725355",
+        "temperature": 6.6899999999999995,
+        "pressure": 989.015,
+        "humidity": 65.78999999999999
+    },
+    {
+        "SensorID": 66547,
+        "Latitude": "50.364",
+        "Longitude": "14.874",
+        "temperature": 5.73,
+        "pressure": 979.1496999999999,
+        "humidity": 90.845
+    },
+    {
+        "SensorID": 66528,
+        "Latitude": "50.07765353788",
+        "Longitude": "14.44490468482",
+        "P2": 16.564999999999998,
+        "P1": 16.58
+    },
+    {
+        "SensorID": 65628,
+        "Latitude": "50.66131340000",
+        "Longitude": "14.03535457078",
+        "P1": 32.335,
+        "P2": 18.75
+    },
+    {
+        "SensorID": 66546,
+        "Latitude": "50.364",
+        "Longitude": "14.874",
+        "P1": 14.33,
+        "P2": 8.14
+    },
+    {
+        "SensorID": 77800,
+        "Latitude": "50.058",
+        "Longitude": "14.454",
+        "P1": 12.25,
+        "P2": 6.675
+    },
+    {
+        "SensorID": 80645,
+        "Latitude": "49.71480000000",
+        "Longitude": "16.26463130000",
+        "P1": 12.915,
+        "P2": 7.225
+    },
+    {
+        "SensorID": 77382,
+        "Latitude": "50.18528778753",
+        "Longitude": "15.01785725355",
+        "P1": 8.265,
+        "P2": 4.74
+    },
+    {
+        "SensorID": 75439,
+        "Latitude": "50.05994338725",
+        "Longitude": "14.39587444067",
+        "P1": 11.41,
+        "P2": 6.46
+    },
+    {
+        "SensorID": 75916,
+        "Latitude": "50.148",
+        "Longitude": "14.334",
+        "P1": 61.55,
+        "P2": 33.39
+    },
+    {
+        "SensorID": 77235,
+        "Latitude": "50.526",
+        "Longitude": "14.974",
+        "temperature": 6.64,
+        "pressure": 984.1447999999999,
+        "humidity": 69.97999999999999
+    },
+    {
+        "SensorID": 71651,
+        "Latitude": "49.59794390000",
+        "Longitude": "18.00278840000",
+        "temperature": 4.949999999999999,
+        "pressure": 978.85575,
+        "humidity": 74.32499999999999
+    },
+    {
+        "SensorID": 43115,
+        "Latitude": "50.068",
+        "Longitude": "14.452",
+        "temperature": 8.205,
+        "pressure": 984.6567,
+        "humidity": 60.155
+    },
+    {
+        "SensorID": 81057,
+        "Latitude": "50.084",
+        "Longitude": "14.468",
+        "temperature": 5.63,
+        "pressure": 978.86045,
+        "humidity": 71.89500000000001
+    },
+    {
+        "SensorID": 81056,
+        "Latitude": "50.084",
+        "Longitude": "14.468",
+        "P1": 18.0,
+        "P2": 11.175
+    },
+    {
+        "SensorID": 75716,
+        "Latitude": "50.138",
+        "Longitude": "14.332",
+        "P1": 17.79,
+        "P2": 10.265
+    },
+    {
+        "SensorID": 71565,
+        "Latitude": "50.952",
+        "Longitude": "14.502",
+        "temperature": 6.03,
+        "humidity": 89.65,
+        "pressure": 9.6339
+    },
+    {
+        "SensorID": 69235,
+        "Latitude": "49.69683075008",
+        "Longitude": "13.25687491897",
+        "pressure": 968.566,
+        "temperature": 4.1
+    },
+    {
+        "SensorID": 69233,
+        "Latitude": "49.69683075008",
+        "Longitude": "13.25687491897",
+        "P1": 42.5,
+        "P2": 23.1
+    },
+    {
+        "SensorID": 43114,
+        "Latitude": "50.068",
+        "Longitude": "14.452",
+        "P1": 19.35,
+        "P2": 10.825
+    },
+    {
+        "SensorID": 69234,
+        "Latitude": "49.69683075008",
+        "Longitude": "13.25687491897",
+        "temperature": 5.36,
+        "humidity": 75.75
+    },
+    {
+        "SensorID": 77805,
+        "Latitude": "49.68537325370",
+        "Longitude": "18.35730993751",
+        "temperature": 6.46,
+        "pressure": 973.15285,
+        "humidity": 75.17
+    },
+    {
+        "SensorID": 70358,
+        "Latitude": "50.05816560000",
+        "Longitude": "14.42501740000",
+        "temperature": 6.425000000000001,
+        "pressure": 984.0253,
+        "humidity": 80.255
+    },
+    {
+        "SensorID": 67740,
+        "Latitude": "50.09",
+        "Longitude": "14.42",
+        "temperature": 11.29,
+        "pressure": 986.7145,
+        "humidity": 51.735
+    },
+    {
+        "SensorID": 75895,
+        "Latitude": "50.328",
+        "Longitude": "15.014",
+        "temperature": 11.355,
+        "pressure": 981.3912499999999,
+        "humidity": 100.0
+    },
+    {
+        "SensorID": 81367,
+        "Latitude": "50.056",
+        "Longitude": "14.398",
+        "P1": 6.949999999999999,
+        "P2": 4.15
+    },
+    {
+        "SensorID": 70357,
+        "Latitude": "50.05816560000",
+        "Longitude": "14.42501740000",
+        "P1": 19.45,
+        "P2": 9.175
+    },
+    {
+        "SensorID": 40203,
+        "Latitude": "50.08894587597",
+        "Longitude": "14.37757537222",
+        "temperature": 13.7,
+        "pressure": 974.39955,
+        "humidity": 41.205
+    },
+    {
+        "SensorID": 78769,
+        "Latitude": "49.20760820000",
+        "Longitude": "16.58800792179",
+        "temperature": 8.445,
+        "pressure": 980.3334,
+        "humidity": 62.905
+    },
+    {
+        "SensorID": 77804,
+        "Latitude": "49.68537325370",
+        "Longitude": "18.35730993751",
+        "P1": 10.74,
+        "P2": 6.035
+    },
+    {
+        "SensorID": 67739,
+        "Latitude": "50.09",
+        "Longitude": "14.42",
+        "P2": 15.905000000000001,
+        "P1": 15.945
+    },
+    {
+        "SensorID": 79230,
+        "Latitude": "49.122",
+        "Longitude": "17.544",
+        "temperature": 23.744999999999997,
+        "pressure": 988.6416,
+        "humidity": 49.375
+    },
+    {
+        "SensorID": 79478,
+        "Latitude": "49.472",
+        "Longitude": "17.97",
+        "P1": 27.785,
+        "P2": 15.72
+    },
+    {
+        "SensorID": 79229,
+        "Latitude": "49.122",
+        "Longitude": "17.544",
+        "P1": 3.58,
+        "P2": 2.215
+    },
+    {
+        "SensorID": 78768,
+        "Latitude": "49.20760820000",
+        "Longitude": "16.58800792179",
+        "P1": 0.0,
+        "P2": 0.0
+    },
+    {
+        "SensorID": 55767,
+        "Latitude": "50.07763760000",
+        "Longitude": "14.44487250000"
+    },
+    {
+        "SensorID": 75894,
+        "Latitude": "50.328",
+        "Longitude": "15.014",
+        "P1": 12.085,
+        "P2": 5.234999999999999
+    },
+    {
+        "SensorID": 55804,
+        "Latitude": "50.07763760000",
+        "Longitude": "14.44487250000",
+        "temperature": 10.32,
+        "pressure": 978.512,
+        "humidity": 53.97
+    },
+    {
+        "SensorID": 55766,
+        "Latitude": "50.07763760000",
+        "Longitude": "14.44487250000",
+        "P1": 14.375,
+        "P2": 9.49
+    },
+    {
+        "SensorID": 59831,
+        "Latitude": "50.108",
+        "Longitude": "13.712",
+        "temperature": 3.925,
+        "pressure": 970.6837499999999,
+        "humidity": 77.285
+    },
+    {
+        "SensorID": 59830,
+        "Latitude": "50.108",
+        "Longitude": "13.712",
+        "P1": 52.39,
+        "P2": 25.785
+    },
+    {
+        "SensorID": 70162,
+        "Latitude": "49.44358665938",
+        "Longitude": "13.24583441019",
+        "temperature": 2.68,
+        "pressure": 962.6603,
+        "humidity": 72.59
+    },
+    {
+        "SensorID": 70161,
+        "Latitude": "49.44358665938",
+        "Longitude": "13.24583441019",
+        "P1": 33.95,
+        "P2": 15.05
+    },
+    {
+        "SensorID": 78335,
+        "Latitude": "49.742",
+        "Longitude": "18.62",
+        "temperature": 4.42,
+        "humidity": 80.76,
+        "pressure": 9.8066,
+        "P2": 44.9,
+        "P1": 47.8
+    },
+    {
+        "SensorID": 82022,
+        "Latitude": "49.908",
+        "Longitude": "18.356",
+        "P1": 83.97,
+        "P2": 45.75
+    },
+    {
+        "SensorID": 63172,
+        "Latitude": "50.18095868383",
+        "Longitude": "14.65001374483",
+        "temperature": 7.85,
+        "humidity": 62.94,
+        "pressure": 986.1229
+    },
+    {
+        "SensorID": 77234,
+        "Latitude": "50.526",
+        "Longitude": "14.974",
+        "P1": 32.0,
+        "P2": 14.7
+    }
+]
