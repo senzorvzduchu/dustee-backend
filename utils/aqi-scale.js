@@ -40,4 +40,5 @@ const jsonToAQI = (json) => {
 
 module.exports = {
   jsonToAQI,
+  mapValueToRange
 };

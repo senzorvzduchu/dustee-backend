@@ -74,7 +74,7 @@ function getNewestJSONFile(folderPath) {
 }
 
 function fetchDataForSearchQuery(searchQuery) {
-  const jsonFolderPath = "cron-scraper/data/history/region_data"; // Update with the correct folder path
+  const jsonFolderPath = '/home/ubuntu/data/history/region_data'; // Update with the correct folder path
   const numResults = 15;
 
   const newestJSONFilePath = getNewestJSONFile(jsonFolderPath);

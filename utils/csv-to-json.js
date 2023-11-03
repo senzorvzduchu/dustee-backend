@@ -1,5 +1,6 @@
 const fs = require("fs");
 const csv = require("csv-parser");
+const { mapValueToRange } = require("./aqi-scale");
 
 async function parseCSVToJSON(filePath2, filePath1, fullSensors = false) {
   return new Promise((resolve, reject) => {
@@ -18,9 +19,13 @@ async function parseCSVToJSON(filePath2, filePath1, fullSensors = false) {
         "Sensor ID": obj.SensorID,
         Latitude: obj.Latitude,
         Longitude: obj.Longitude,
+        Location: obj.Location,
         Temperature: obj.temperature,
         Pressure: obj.pressure,
         Humidity: obj.humidity,
+        ...(!fullSensors && obj.P2 && !isNaN(obj.P2)
+          ? { AQI: Math.round(mapValueToRange(obj.P2)).toString() }
+          : {}),
         ...(fullSensors && {
           PM10: obj.P1,
           PM2_5: obj.P2,
@@ -48,14 +53,19 @@ async function parseCSVToJSON(filePath2, filePath1, fullSensors = false) {
 
           // Extract relevant values from the second file based on fullSensors
           if (fullSensors) {
-            
-            if(data[4] !== undefined && data[4].trim() !== '') filteredData["SO2"] = data[4];
-            if(data[5] !== undefined && data[5].trim() !== '') filteredData["NO2"] = data[5];
-            if(data[7] !== undefined && data[7].trim() !== '') filteredData["O3"] = data[7];
-            if(data[9] !== undefined && data[9].trim() !== '') filteredData["PM2_5"] = data[9];
-            if(data[8] !== undefined && data[8].trim() !== '') filteredData["PM10"] = data[8];
+            if (data[4] !== undefined && data[4].trim() !== "")
+              filteredData["SO2"] = data[4];
+            if (data[5] !== undefined && data[5].trim() !== "")
+              filteredData["NO2"] = data[5];
+            if (data[7] !== undefined && data[7].trim() !== "")
+              filteredData["O3"] = data[7];
+            if (data[9] !== undefined && data[9].trim() !== "")
+              filteredData["PM2_5"] = data[9];
+            if (data[8] !== undefined && data[8].trim() !== "")
+              filteredData["PM10"] = data[8];
           } else {
-            if(data[9] !== undefined && data[9].trim() !== '') filteredData["PM2_5"] = data[9];
+            if (data[9] !== undefined && data[9].trim() !== "")
+              filteredData["PM2_5"] = data[9];
           }
 
           results.push(filteredData);

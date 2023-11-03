@@ -95,7 +95,7 @@ module.exports = {
       const iconLevel = await calculateOverallIconLevel(inputData);
 
       // Construct the complete icon path based on the icon level
-      const iconPath = `icon-level-${iconLevel > 6 ? 2 : iconLevel}.svg`;
+      const iconPath = `icon-level-${iconLevel > 6 ? 6 : iconLevel}.svg`;
       const completeIconPath = path.join(
         __dirname,
         "..",
@@ -186,7 +186,7 @@ module.exports = {
       //-----------------------------AQI FORECASTS-----------------------------------------------
       let aqiLevels;
       if (inputData.Location) {
-        const folderPath = "cron-scraper/data/history/region_data";
+        const folderPath = "/home/ubuntu/data/history/region_data/";
         const pmValues = extractPMAverages(inputData, folderPath);
         const aqiForecasts = getMedianPredictions(pmValues);
         aqiLevels = processForecastData(aqiForecasts);
@@ -244,8 +244,6 @@ module.exports = {
       if (!authHeader) {
         // If no token is provided, call parseCSVToJSON with fullSensors as false
         locations = await parseCSVToJSONforSC(CHMUfilePath, SCfilePath, false);
-        locations = AqiScale.jsonToAQI(locations);
-       // console.log(locations);
         res
           .status(200)
           .json({ locations, status: "Only essential sensors returned" });

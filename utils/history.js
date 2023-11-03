@@ -3,7 +3,7 @@ const path = require("path");
 
 module.exports = {
   async getDataForLocation(location) {
-    const directory = "cron-scraper/data/history/region_data/";
+    const directory = "/home/ubuntu/data/history/region_data/";
     
     function mapValueToRange(value) {
       if (value >= 0 && value <= 12.0) {
@@ -53,11 +53,11 @@ module.exports = {
 
               const pm2_5 = locationData.PM2_5;
               if (!isNaN(pm2_5)) {
-                locationData.AQI = Math.round(
+                locationData.aqi = Math.round(
                   mapValueToRange(pm2_5)
                 );
               } else {
-                locationData.AQI = null;
+                locationData.aqi = null;
               }
 
               result.push(locationData);
